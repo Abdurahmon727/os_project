@@ -1,6 +1,6 @@
 import "package:dio/dio.dart" hide Headers;
 
-import "package:ffi/core/error/failure.dart";
+import "package:os_project/core/error/failure.dart";
 
 final class ServerError implements Exception {
   ServerError.withDioError({required DioException error}) {
