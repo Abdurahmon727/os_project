@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:os_project/assets/assets.dart';
+import 'package:os_project/core/enums/profile_type.dart';
 
-import '../router/app_routes.dart';
+import '../../router/app_routes.dart';
+
+part 'splash_mixin.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -12,18 +15,7 @@ class SplashPage extends StatefulWidget {
   State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> {
-  @override
-  void initState() {
-    super.initState();
-    navigateNextPage();
-  }
-
-  Future<void> navigateNextPage() async {
-    await Future.delayed(const Duration(seconds: 3));
-    if (mounted) context.go(Routes.registration);
-  }
-
+class _SplashPageState extends State<SplashPage> with SplashMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

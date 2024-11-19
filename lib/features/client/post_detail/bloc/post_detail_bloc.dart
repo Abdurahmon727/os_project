@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:os_project/core/domain/formz_status.dart';
 
+import '../../../../core/enums/formz_status.dart';
 import '../../../../domain/repository.dart';
 
 part 'post_detail_event.dart';

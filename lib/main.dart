@@ -1,9 +1,10 @@
 import 'package:os_project/router/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'service_locator.dart' as di;
 
-void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await di.init();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(const MyApp());
 }
 

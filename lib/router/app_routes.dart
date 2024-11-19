@@ -10,7 +10,7 @@ import "package:os_project/features/sys_admin/homa_page.dart";
 
 import "../core/local_source/local_source.dart";
 import "../features/client/post_detail/detail_page.dart";
-import "../features/splash_page.dart";
+import "../features/splash/splash_page.dart";
 import "../service_locator.dart";
 
 part "name_routes.dart";

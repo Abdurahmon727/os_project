@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:os_project/domain/repository.dart';
 
-import '../../../../core/domain/formz_status.dart';
+import '../../../../core/enums/formz_status.dart';
 
 part 'client_home_event.dart';
 
