@@ -1,5 +1,13 @@
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
+import "package:os_project/features/auth/presentation/login_page.dart";
+import "package:os_project/features/auth/presentation/registration_page.dart";
+import "package:os_project/features/client/detail_page.dart";
+import "package:os_project/features/client/homa_page.dart";
+import "package:os_project/features/owner/create_post_page.dart";
+import "package:os_project/features/owner/homa_page.dart";
+import "package:os_project/features/sys_admin/detail_page.dart";
+import "package:os_project/features/sys_admin/homa_page.dart";
 
 import "../core/local_source/local_source.dart";
 import "../features/splash_page.dart";
@@ -15,24 +23,78 @@ final LocalSource localSource = sl<LocalSource>();
 
 final GoRouter router = GoRouter(
   navigatorKey: rootNavigatorKey,
-  initialLocation: Routes.initial,
+  initialLocation: Routes.splash,
   routes: <RouteBase>[
+    /// splash
     GoRoute(
-      path: Routes.initial,
-      name: Routes.initial,
+      path: Routes.splash,
+      name: Routes.splash,
       parentNavigatorKey: rootNavigatorKey,
       builder: (_, __) => const SplashPage(),
     ),
 
+    /// auth
     GoRoute(
-      path: Routes.home,
-      name: Routes.home,
+      path: Routes.registration,
+      name: Routes.registration,
       parentNavigatorKey: rootNavigatorKey,
-      builder: (_, __) => const SizedBox(),
+      builder: (_, __) => const RegistrationPage(),
       //     BlocProvider(
       //   create: (_) => sl<HomeBloc>(),
       //   child: const HomePage(),
       // ),
+    ),
+    GoRoute(
+      path: Routes.login,
+      name: Routes.login,
+      parentNavigatorKey: rootNavigatorKey,
+      builder: (_, __) => const LoginPage(),
+      //     BlocProvider(
+      //   create: (_) => sl<HomeBloc>(),
+      //   child: const HomePage(),
+      // ),
+    ),
+
+    /// owner
+    GoRoute(
+      path: Routes.ownerHome,
+      name: Routes.ownerHome,
+      parentNavigatorKey: rootNavigatorKey,
+      builder: (_, __) => const OwnerHomePage(),
+    ),
+    GoRoute(
+      path: Routes.createPost,
+      name: Routes.createPost,
+      parentNavigatorKey: rootNavigatorKey,
+      builder: (_, __) => const CreatePostPage(),
+    ),
+
+    /// client
+    GoRoute(
+      path: Routes.clientHome,
+      name: Routes.clientHome,
+      parentNavigatorKey: rootNavigatorKey,
+      builder: (_, __) => const ClientHomePage(),
+    ),
+    GoRoute(
+      path: Routes.clientPostDetail,
+      name: Routes.clientPostDetail,
+      parentNavigatorKey: rootNavigatorKey,
+      builder: (_, __) => const ClientPostDetailPage(),
+    ),
+
+    /// sys-admin
+    GoRoute(
+      path: Routes.sysAdminHome,
+      name: Routes.sysAdminHome,
+      parentNavigatorKey: rootNavigatorKey,
+      builder: (_, __) => const SysAdminHomePage(),
+    ),
+    GoRoute(
+      path: Routes.checkPost,
+      name: Routes.checkPost,
+      parentNavigatorKey: rootNavigatorKey,
+      builder: (_, __) => const CheckPostPage(),
     ),
 
     // GoRoute(

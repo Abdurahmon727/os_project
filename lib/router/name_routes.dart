@@ -3,14 +3,21 @@ part of "app_routes.dart";
 sealed class Routes {
   Routes._();
 
-  static const String initial = "/";
+  static const String splash = "/";
 
   /// Auth
-  static const String auth = "/auth";
-  static const String confirmCode = "/confirm-code";
-  static const String register = "/register";
+  static const String registration = "/auth";
+  static const String login = "/confirm-code";
 
-  /// Home
-  static const String home = "/home";
-  static const String cities = "/cities";
+  /// owner
+  static const String ownerHome = "/owner-home";
+  static const String createPost = "/create-post";
+
+  /// client
+  static const String clientHome = "/client-home";
+  static const String clientPostDetail = "/client-post-detail";
+
+  /// sys-admin
+  static const String sysAdminHome = "/sys-admin-home";
+  static const String checkPost = "/check-post";
 }
