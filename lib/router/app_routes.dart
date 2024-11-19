@@ -2,16 +2,23 @@ import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 import "package:os_project/features/auth/login/bloc/login_bloc.dart";
 import "package:os_project/features/auth/login/login_page.dart";
+import "package:os_project/features/auth/registrantion/bloc/registration_bloc.dart";
 import "package:os_project/features/auth/registrantion/registration_page.dart";
+import "package:os_project/features/client/home/bloc/client_home_bloc.dart";
 import "package:os_project/features/client/home/homa_page.dart";
+import "package:os_project/features/client/post_detail/bloc/post_detail_bloc.dart";
+import "package:os_project/features/owner/create_post/bloc/create_post_bloc.dart";
 import "package:os_project/features/owner/create_post/create_post_page.dart";
 import "package:os_project/features/owner/home/homa_page.dart";
+import "package:os_project/features/sys_admin/check_post/bloc/check_post_bloc.dart";
 import "package:os_project/features/sys_admin/check_post/check_post_page.dart";
 import "package:os_project/features/sys_admin/home/homa_page.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 import "../core/local_source/local_source.dart";
 import "../features/client/post_detail/detail_page.dart";
+import "../features/owner/home/bloc/owner_home_bloc.dart";
 import "../features/splash/splash_page.dart";
+import "../features/sys_admin/home/bloc/sys_admin_home_bloc.dart";
 import "../service_locator.dart";
 
 part "name_routes.dart";
@@ -39,18 +46,17 @@ final GoRouter router = GoRouter(
       path: Routes.registration,
       name: Routes.registration,
       parentNavigatorKey: rootNavigatorKey,
-      builder: (_, __) => const RegistrationPage(),
-      //     BlocProvider(
-      //   create: (_) => sl<HomeBloc>(),
-      //   child: const HomePage(),
-      // ),
+      builder: (_, state) => BlocProvider(
+        create: (_) => sl<RegistrationBloc>(),
+        child: const RegistrationPage(),
+      ),
     ),
     GoRoute(
       path: Routes.login,
       name: Routes.login,
       parentNavigatorKey: rootNavigatorKey,
-      builder: (_, __) => BlocProvider(
-        create: (context) => sl<LoginBloc>(),
+      builder: (_, state) => BlocProvider(
+        create: (_) => sl<LoginBloc>(),
         child: const LoginPage(),
       ),
     ),
@@ -60,13 +66,19 @@ final GoRouter router = GoRouter(
       path: Routes.ownerHome,
       name: Routes.ownerHome,
       parentNavigatorKey: rootNavigatorKey,
-      builder: (_, __) => const OwnerHomePage(),
+      builder: (_, state) => BlocProvider(
+        create: (_) => sl<OwnerHomeBloc>(),
+        child: const OwnerHomePage(),
+      ),
     ),
     GoRoute(
       path: Routes.createPost,
       name: Routes.createPost,
       parentNavigatorKey: rootNavigatorKey,
-      builder: (_, __) => const CreatePostPage(),
+      builder: (_, state) => BlocProvider(
+        create: (_) => sl<CreatePostBloc>(),
+        child: const CreatePostPage(),
+      ),
     ),
 
     /// client
@@ -74,13 +86,19 @@ final GoRouter router = GoRouter(
       path: Routes.clientHome,
       name: Routes.clientHome,
       parentNavigatorKey: rootNavigatorKey,
-      builder: (_, __) => const ClientHomePage(),
+      builder: (_, state) => BlocProvider(
+        create: (_) => sl<ClientHomeBloc>(),
+        child: const ClientHomePage(),
+      ),
     ),
     GoRoute(
       path: Routes.clientPostDetail,
       name: Routes.clientPostDetail,
       parentNavigatorKey: rootNavigatorKey,
-      builder: (_, __) => const ClientPostDetailPage(),
+      builder: (_, state) => BlocProvider(
+        create: (_) => sl<PostDetailBloc>(),
+        child: const PostDetailPage(),
+      ),
     ),
 
     /// sys-admin
@@ -88,13 +106,19 @@ final GoRouter router = GoRouter(
       path: Routes.sysAdminHome,
       name: Routes.sysAdminHome,
       parentNavigatorKey: rootNavigatorKey,
-      builder: (_, __) => const SysAdminHomePage(),
+      builder: (_, state) => BlocProvider(
+        create: (_) => sl<SysAdminHomeBloc>(),
+        child: const SysAdminHomePage(),
+      ),
     ),
     GoRoute(
       path: Routes.checkPost,
       name: Routes.checkPost,
       parentNavigatorKey: rootNavigatorKey,
-      builder: (_, __) => const CheckPostPage(),
+      builder: (_, state) => BlocProvider(
+        create: (_) => sl<CheckPostBloc>(),
+        child: const CheckPostPage(),
+      ),
     ),
 
     // GoRoute(
