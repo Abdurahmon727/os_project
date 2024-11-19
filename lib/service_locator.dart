@@ -3,6 +3,13 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import "package:get_it/get_it.dart";
 import 'package:hive/hive.dart';
+import 'package:os_project/domain/repository.dart';
+import 'package:os_project/domain/repository_impl.dart';
+import 'package:os_project/features/auth/login/bloc/login_bloc.dart';
+import 'package:os_project/features/auth/registrantion/bloc/registration_bloc.dart';
+import 'package:os_project/features/auth/registrantion/registration_page.dart';
+import 'package:os_project/features/client/home/bloc/client_home_bloc.dart';
+import 'package:os_project/features/client/post_detail/bloc/post_detail_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'core/local_source/local_source.dart';
@@ -37,26 +44,30 @@ Future<void> init() async {
       ),
   );
 
-  sl<Dio>().interceptors.addAll(
-    <Interceptor>[],
-  );
-
   /// Core
   sl.registerSingleton<LocalSource>(LocalSource(_box));
+  sl.registerLazySingleton<Repository>(
+    () => RepositoryImpl(sl()),
+  );
 
-  /// features:
-  /// home
-  ///
+  /// auth
+  sl
+    ..registerFactory(() => RegistrationBloc(sl()))
+    ..registerFactory(() => LoginBloc(sl()));
 
+  /// owner
   // sl
-  //   ..registerLazySingleton<HomeRemoteDataSource>(
-  //     () => HomeRemoteDataSourceImpl(sl()),
-  //   )
-  //   ..registerLazySingleton<HomeRepository>(
-  //     () => HomeRepositoryImpl(sl(), sl()),
-  //   )
-  //   ..registerLazySingleton(() => HomeBloc(sl()))
-  //   ..registerFactory(() => CitiesBloc(sl()));
+  //   ..registerFactory(() => OwnerHomeBloc(sl()))
+  //   ..registerFactory(() => CreatePostBloc(sl()));
+  /// client
+  sl
+    ..registerFactory(() => ClientHomeBloc(sl()))
+    ..registerFactory(() => PostDetailBloc(sl()));
+
+  /// sys-admin
+  // sl
+  //   ..registerFactory(() => SysAdminHomeBloc(sl()))
+  //   ..registerFactory(() => CheckPostBloc(sl()));
 }
 
 Future<void> _initHive() async {

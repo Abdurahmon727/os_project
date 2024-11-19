@@ -7,7 +7,7 @@ class RegistrationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text('Registration page'),
+        title:  const Text('Registration page'),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
     );

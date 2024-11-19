@@ -1,13 +1,14 @@
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
-import "package:os_project/features/auth/presentation/login_page.dart";
-import "package:os_project/features/auth/presentation/registration_page.dart";
+import "package:os_project/features/auth/login/bloc/login_bloc.dart";
+import "package:os_project/features/auth/login/login_page.dart";
+import "package:os_project/features/auth/registrantion/registration_page.dart";
 import "package:os_project/features/client/home/homa_page.dart";
 import "package:os_project/features/owner/create_post_page.dart";
 import "package:os_project/features/owner/homa_page.dart";
 import "package:os_project/features/sys_admin/detail_page.dart";
 import "package:os_project/features/sys_admin/homa_page.dart";
-
+import "package:flutter_bloc/flutter_bloc.dart";
 import "../core/local_source/local_source.dart";
 import "../features/client/post_detail/detail_page.dart";
 import "../features/splash/splash_page.dart";
@@ -48,11 +49,10 @@ final GoRouter router = GoRouter(
       path: Routes.login,
       name: Routes.login,
       parentNavigatorKey: rootNavigatorKey,
-      builder: (_, __) => const LoginPage(),
-      //     BlocProvider(
-      //   create: (_) => sl<HomeBloc>(),
-      //   child: const HomePage(),
-      // ),
+      builder: (_, __) => BlocProvider(
+        create: (context) => sl<LoginBloc>(),
+        child: const LoginPage(),
+      ),
     ),
 
     /// owner
