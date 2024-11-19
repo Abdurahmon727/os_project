@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
+import 'package:os_project/assets/assets.dart';
 
 import '../router/app_routes.dart';
 
@@ -18,15 +20,15 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   Future<void> navigateNextPage() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 3));
     if (mounted) context.go(Routes.registration);
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: CircularProgressIndicator(color: Colors.blueAccent),
+        child: Lottie.asset(AppAnimations.loadingAnimation),
       ),
     );
   }
