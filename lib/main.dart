@@ -21,11 +21,22 @@ class MyApp extends StatelessWidget {
 
       /// theme style
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: const ColorScheme(
+          primary: Color(0xFF6961FF),
+          onPrimary: Colors.white,
+          secondary: Color(0xFF00B2B2),
+          onSecondary: Colors.white,
+          surface: Colors.white,
+          onSurface: Colors.white,
+          brightness: Brightness.light,
+          error: Colors.red,
+          onError: Colors.purple,
+        ),
         useMaterial3: true,
       ),
+      themeMode: ThemeMode.light,
 
-      title: 'Flutter Demo',
+      title: 'UZBEKISTAN LAND/HOUSE/APARTMENT RENTAL & PURCHASE PORTAL',
     );
   }
 }
