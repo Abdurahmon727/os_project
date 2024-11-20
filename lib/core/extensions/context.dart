@@ -17,55 +17,23 @@ extension BuildContextExt on BuildContext {
 
   TextTheme get textTheme => theme.textTheme;
 
-  // ScaffoldFeatureController<SnackBar, SnackBarClosedReason> Function(
-  //     SnackBar snackBar,
-  //     ) get showSnackBar => ScaffoldMessenger.of(this).showSnackBar;
-  //
-  // ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showErrorSnackBar({
-  //   String? title,
-  //   required String message,
-  // }) =>
-  //     ScaffoldMessenger.of(this).showSnackBar(
-  //       SnackBar(
-  //         content: Column(
-  //           crossAxisAlignment: CrossAxisAlignment.stretch,
-  //           mainAxisSize: MainAxisSize.min,
-  //           children: [
-  //             Text(
-  //               title ?? tr('error'),
-  //               style: textStyle.appBarTitle.copyWith(
-  //                 color: colorScheme.onError,
-  //               ),
-  //             ),
-  //             const SizedBox(height: 6),
-  //             Text(message),
-  //           ],
-  //         ),
-  //         backgroundColor: colorScheme.error,
-  //       ),
-  //     );
-  //
-  // ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
-  // showWarningSnackBar({
-  //   required String message,
-  // }) =>
-  //     ScaffoldMessenger.of(this).showSnackBar(
-  //       SnackBar(
-  //         content: Text(message),
-  //         backgroundColor: ThemeColors.light.warning,
-  //       ),
-  //     );
-  //
-  // ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showSuccessSnackBar({
-  //   String? title,
-  //   required String message,
-  // }) =>
-  //     ScaffoldMessenger.of(this).showSnackBar(
-  //       SnackBar(
-  //         content: Text(message),
-  //         backgroundColor: colorScheme.tertiary,
-  //       ),
-  //     );
+  void showFailureMessage(String message) {
+    ScaffoldMessenger.of(this).showSnackBar(
+      SnackBar(
+        backgroundColor: Colors.red,
+        content: Text(message),
+      ),
+    );
+  }
+
+  void showSuccessMessage(String message) {
+    ScaffoldMessenger.of(this).showSnackBar(
+      SnackBar(
+        backgroundColor: Colors.green,
+        content: Text(message),
+      ),
+    );
+  }
 
   void fieldFocusChange(
     FocusNode? currentFocus,

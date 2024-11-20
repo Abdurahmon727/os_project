@@ -21,6 +21,14 @@ mixin RegistrationMixin on State<RegistrationPage> {
     super.initState();
   }
 
+  void listener(BuildContext context, RegistrationState state) {
+    if (state.status.isSuccess) {
+      context.showSuccessMessage('Registered successfully 🎉');
+    } else if (state.status.isFail) {
+      context.showFailureMessage('Something went wrong 😞');
+    }
+  }
+
   @override
   void dispose() {
     idController.dispose();
