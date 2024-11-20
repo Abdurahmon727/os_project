@@ -16,8 +16,11 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
   final Repository _repo;
 
   RegistrationBloc(this._repo) : super(const RegistrationState()) {
-    on<_Register >((event, emit) {
-      // TODO: implement event handler
+    on<_Register>((event, emit) async {
+      emit(state.copyWith(status: FormzStatus.loading));
+      // TODO: call api
+      await Future.delayed(const Duration(seconds: 3));
+      emit(state.copyWith(status: FormzStatus.success));
     });
   }
 }

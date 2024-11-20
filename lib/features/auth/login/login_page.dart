@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:os_project/core/enums/profile_type.dart';
 import 'package:os_project/core/extensions/size.dart';
 
 import '../../../core/widget/inputs/custom_text_field.dart';
 
-class LoginPage extends StatelessWidget {
+part 'login_mixin.dart';
+
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> with LoginMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,11 +25,14 @@ class LoginPage extends StatelessWidget {
         ),
         children: [
           CustomTextField(
+            controller: emailController,
             labelText: 'Email',
             hintText: 'Enter your email',
           ),
           20.h,
           CustomTextField(
+            controller: passwordController,
+            obscure: true,
             labelText: 'Password',
             hintText: 'Enter your password',
           ),
@@ -31,9 +42,36 @@ class LoginPage extends StatelessWidget {
             spacing: 20,
             runSpacing: 10,
             children: [
-              FilterChip(selected: false, onSelected: (value) {}, label: Text('Client')),
-              FilterChip(selected: true, onSelected: (value) {}, label: Text('Owner')),
-              FilterChip(selected: false, onSelected: (value) {}, label: Text('Sys Admin')),
+              FilterChip(
+                selected: profileType.isClient,
+                onSelected: (value) {
+                  if (value) {
+                    profileType = ProfileType.client;
+                    setState(() {});
+                  }
+                },
+                label: const Text('Client'),
+              ),
+              FilterChip(
+                selected: profileType.isOwner,
+                onSelected: (value) {
+                  if (value) {
+                    profileType = ProfileType.owner;
+                    setState(() {});
+                  }
+                },
+                label: const Text('Owner'),
+              ),
+              FilterChip(
+                selected: profileType.isSysAdmin,
+                onSelected: (value) {
+                  if (value) {
+                    profileType = ProfileType.sysAdmin;
+                    setState(() {});
+                  }
+                },
+                label: const Text('Sys Admin'),
+              ),
             ],
           )
         ],

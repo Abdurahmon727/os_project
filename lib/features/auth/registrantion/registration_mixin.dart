@@ -7,6 +7,7 @@ mixin RegistrationMixin on State<RegistrationPage> {
   late final TextEditingController addressController;
   late final TextEditingController password1Controller;
   late final TextEditingController password2Controller;
+  bool isOwner = false;
 
   @override
   void initState() {
