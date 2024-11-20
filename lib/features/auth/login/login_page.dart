@@ -1,8 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:os_project/core/enums/formz_status.dart';
 import 'package:os_project/core/enums/profile_type.dart';
 import 'package:os_project/core/extensions/size.dart';
 
 import '../../../core/widget/inputs/custom_text_field.dart';
+import 'bloc/login_bloc.dart';
 
 part 'login_mixin.dart';
 
@@ -81,10 +85,22 @@ class _LoginPageState extends State<LoginPage> with LoginMixin {
         children: [
           6.h,
           ElevatedButton(
-            onPressed: () {
-              //todo
-            },
-            child: const Text('Login'),
+            onPressed: () => context.read<LoginBloc>().add(
+                  LoginEvent.login(
+                    email: emailController.text,
+                    password: passwordController.text,
+                    profileType: profileType,
+                  ),
+                ),
+            child: BlocSelector<LoginBloc, LoginState, FormzStatus>(
+              selector: (state) => state.status,
+              builder: (context, status) {
+                if (status.isLoading) {
+                  return const CupertinoActivityIndicator();
+                }
+                return const Text('Login');
+              },
+            ),
           ),
           6.h
         ],

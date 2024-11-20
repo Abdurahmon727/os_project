@@ -15,8 +15,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final Repository _repo;
 
   LoginBloc(this._repo) : super(const LoginState()) {
-    on<_Login>((event, emit) {
-      // TODO: implement event handler
+    on<_Login>((event, emit) async {
+      emit(state.copyWith(status: FormzStatus.loading));
+      // TODO: call api
+      await Future.delayed(const Duration(seconds: 3));
+      emit(state.copyWith(status: FormzStatus.success));
     });
   }
 }
