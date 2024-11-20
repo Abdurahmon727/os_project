@@ -14,8 +14,12 @@ class ClientHomeBloc extends Bloc<ClientHomeEvent, ClientHomeState> {
   final Repository _repo;
 
   ClientHomeBloc(this._repo) : super(const ClientHomeState()) {
-    on<_Init>((event, emit) {
-      // TODO: implement event handler
+    on<_Init>((event, emit) async {
+      emit(state.copyWith(status: FormzStatus.loading));
+
+      await Future.delayed(const Duration(seconds: 3));
+      //todo:
+      emit(state.copyWith(status: FormzStatus.success));
     });
   }
 }

@@ -24,6 +24,7 @@ mixin RegistrationMixin on State<RegistrationPage> {
   void listener(BuildContext context, RegistrationState state) {
     if (state.status.isSuccess) {
       context.showSuccessMessage('Registered successfully 🎉');
+      context.go(Routes.clientHome);
     } else if (state.status.isFail) {
       context.showFailureMessage('Something went wrong 😞');
     }
