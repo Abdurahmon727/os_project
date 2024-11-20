@@ -8,6 +8,8 @@ class ClientHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('client home page'),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
     );
   }

@@ -9,6 +9,8 @@ class CreatePostPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('owner create post detail page'),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
     );
   }

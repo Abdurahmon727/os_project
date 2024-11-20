@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -8,7 +7,9 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login page'),
+        title: const Text('Login'),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
     );
   }

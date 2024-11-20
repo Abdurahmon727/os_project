@@ -8,6 +8,8 @@ class SysAdminHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('sys admin home page'),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
     );
   }

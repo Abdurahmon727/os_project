@@ -8,6 +8,8 @@ class OwnerHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('owner home page'),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
     );
   }

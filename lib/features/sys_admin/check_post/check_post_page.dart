@@ -8,6 +8,8 @@ class CheckPostPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('sys-admin check post page'),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
     );
   }

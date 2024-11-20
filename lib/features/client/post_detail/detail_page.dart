@@ -8,6 +8,8 @@ class PostDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('client post detail page'),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
     );
   }
