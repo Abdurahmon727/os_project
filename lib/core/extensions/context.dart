@@ -11,9 +11,7 @@ extension BuildContextExt on BuildContext {
 
   bool get isDarkMode => theme.brightness == Brightness.dark;
 
-  // ThemeColors get color => theme.extension<ThemeColors>()!;
-
-  // ThemeTextStyles get textStyle => theme.extension<ThemeTextStyles>()!;
+  double get devicePixelRatio => MediaQuery.devicePixelRatioOf(this);
 
   TextTheme get textTheme => theme.textTheme;
 

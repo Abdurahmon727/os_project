@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:os_project/core/enums/real_estate_type.dart';
 import 'package:os_project/domain/repository.dart';
 
 import '../../../../core/enums/formz_status.dart';
@@ -19,7 +20,21 @@ class ClientHomeBloc extends Bloc<ClientHomeEvent, ClientHomeState> {
 
       await Future.delayed(const Duration(seconds: 3));
       //todo:
-      emit(state.copyWith(status: FormzStatus.success));
+      emit(state.copyWith(
+        status: FormzStatus.success,
+        posts: ['post1', 'post2'],
+      ));
     });
+
+    on<_SelectRealEstate>(
+      (event, emit) {
+        if (state.selectedRealEstate == event.type) {
+          emit(state.copyWith(selectedRealEstate: null));
+          return;
+        }
+
+        emit(state.copyWith(selectedRealEstate: event.type));
+      },
+    );
   }
 }
