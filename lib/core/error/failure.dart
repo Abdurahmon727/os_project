@@ -1,4 +1,5 @@
 import "package:equatable/equatable.dart";
+import "package:os_project/assets/constants.dart";
 
 sealed class Failure extends Equatable {
   const Failure({required this.message});
@@ -9,9 +10,13 @@ sealed class Failure extends Equatable {
   List<Object?> get props => <Object?>[message];
 }
 
+class UnknownFailure extends Failure {
+  const UnknownFailure() : super(message: 'Unexpected error happened 😞');
+}
+
 class ServerFailure extends Failure {
   const ServerFailure({
-    required super.message,
+    super.message = Constants.defaultErrorMessage,
     this.statusCode,
   });
 
