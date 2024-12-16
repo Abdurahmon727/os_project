@@ -5,7 +5,7 @@ import "package:os_project/features/auth/login/login_page.dart";
 import "package:os_project/features/auth/registrantion/bloc/registration_bloc.dart";
 import "package:os_project/features/auth/registrantion/registration_page.dart";
 import "package:os_project/features/client/home/bloc/client_home_bloc.dart";
-import "package:os_project/features/client/home/homa_page.dart";
+import "package:os_project/features/client/home/home_page.dart";
 import "package:os_project/features/client/post_detail/bloc/post_detail_bloc.dart";
 import "package:os_project/features/owner/create_post/bloc/create_post_bloc.dart";
 import "package:os_project/features/owner/create_post/create_post_page.dart";

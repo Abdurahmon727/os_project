@@ -36,5 +36,9 @@ class ClientHomeBloc extends Bloc<ClientHomeEvent, ClientHomeState> {
         emit(state.copyWith(selectedRealEstate: event.type));
       },
     );
+
+    on<_SelectRegion>((event, emit) {
+      emit(state.copyWith(selectedRegion: event.region));
+    });
   }
 }

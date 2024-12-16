@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
+import 'package:os_project/assets/constants.dart';
 import 'package:os_project/core/enums/formz_status.dart';
 import 'package:os_project/core/extensions/context.dart';
 import 'package:os_project/core/extensions/size.dart';
@@ -11,9 +11,16 @@ import '../../../assets/assets.dart';
 import '../../../core/enums/real_estate_type.dart';
 import 'bloc/client_home_bloc.dart';
 
-class ClientHomePage extends StatelessWidget {
+part 'home_page_mixin.dart';
+
+class ClientHomePage extends StatefulWidget {
   const ClientHomePage({super.key});
 
+  @override
+  State<ClientHomePage> createState() => _ClientHomePageState();
+}
+
+class _ClientHomePageState extends State<ClientHomePage> with ClientHomePageMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,23 +70,15 @@ class ClientHomePage extends StatelessWidget {
                                   padding: const EdgeInsets.symmetric(horizontal: 4),
                                   child: FilterChip(
                                     selected: state.selectedRealEstate == null,
-                                    onSelected: (_) => context.read<ClientHomeBloc>().add(
-                                          const ClientHomeEvent.selectRealEstate(
-                                            type: null,
-                                          ),
-                                        ),
-                                    label: Text('All'),
+                                    onSelected: (_) => clearType(),
+                                    label: const Text('All'),
                                   ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(horizontal: 4),
                                   child: FilterChip(
                                     selected: state.selectedRealEstate == RealEstateType.land,
-                                    onSelected: (_) => context.read<ClientHomeBloc>().add(
-                                          const ClientHomeEvent.selectRealEstate(
-                                            type: RealEstateType.land,
-                                          ),
-                                        ),
+                                    onSelected: (_) => selectType(RealEstateType.land),
                                     label: const Text('Land'),
                                   ),
                                 ),
@@ -87,24 +86,16 @@ class ClientHomePage extends StatelessWidget {
                                   padding: const EdgeInsets.symmetric(horizontal: 4),
                                   child: FilterChip(
                                     selected: state.selectedRealEstate == RealEstateType.house,
-                                    onSelected: (_) => context.read<ClientHomeBloc>().add(
-                                          const ClientHomeEvent.selectRealEstate(
-                                            type: RealEstateType.house,
-                                          ),
-                                        ),
-                                    label: Text('House'),
+                                    onSelected: (_) => selectType(RealEstateType.house),
+                                    label: const Text('House'),
                                   ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(horizontal: 4),
                                   child: FilterChip(
                                     selected: state.selectedRealEstate == RealEstateType.apartment,
-                                    onSelected: (_) => context.read<ClientHomeBloc>().add(
-                                          const ClientHomeEvent.selectRealEstate(
-                                            type: RealEstateType.apartment,
-                                          ),
-                                        ),
-                                    label: Text('Apartment'),
+                                    onSelected: (_) => selectType(RealEstateType.apartment),
+                                    label: const Text('Apartment'),
                                   ),
                                 )
                               ],
@@ -122,16 +113,30 @@ class ClientHomePage extends StatelessWidget {
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Row(
-                              children: List.generate(
-                                100,
-                                (index) => Padding(
+                              children: [
+                                Padding(
                                   padding: const EdgeInsets.symmetric(horizontal: 4),
                                   child: FilterChip(
-                                    onSelected: (value) {},
-                                    label: Text('Regions$index '),
+                                    selected: state.selectedRegion == null,
+                                    onSelected: (_) => clearRegion(),
+                                    label: const Text('All'),
                                   ),
                                 ),
-                              ),
+                                ...List.generate(
+                                  Constants.regions.length,
+                                  (index) {
+                                    final region = Constants.regions[index];
+                                    return Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                                      child: FilterChip(
+                                        selected: state.selectedRegion == region,
+                                        onSelected: (_) => selectRegion(region),
+                                        label: Text(region),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
                             ),
                           ),
                         ),

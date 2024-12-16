@@ -9,6 +9,6 @@ class ClientHomeState with _$ClientHomeState {
 
     /// selections
     @Default(null) RealEstateType? selectedRealEstate,
-    @Default([]) List<String> selectedRegions,
+    @Default(null) String? selectedRegion,
   }) = _ClientHomeState;
 }

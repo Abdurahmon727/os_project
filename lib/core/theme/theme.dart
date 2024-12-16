@@ -10,7 +10,7 @@ abstract class AppTheme {
     ),
     chipTheme: const ChipThemeData(
       disabledColor: Colors.grey,
-      selectedColor: Color(0xFF6961FF),
+      selectedColor: Color(0xFF00B2B2),
     ),
     colorScheme: const ColorScheme(
       primary: Color(0xFF6961FF),
