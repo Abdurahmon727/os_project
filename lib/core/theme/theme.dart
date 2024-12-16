@@ -24,5 +24,12 @@ abstract class AppTheme {
       onError: Colors.purple,
     ),
     useMaterial3: true,
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: <TargetPlatform, PageTransitionsBuilder>{
+        TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        TargetPlatform.linux: OpenUpwardsPageTransitionsBuilder(),
+        TargetPlatform.macOS: FadeUpwardsPageTransitionsBuilder(),
+      },
+    ),
   );
 }

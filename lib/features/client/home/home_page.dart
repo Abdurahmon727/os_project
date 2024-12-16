@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:os_project/assets/constants.dart';
 import 'package:os_project/core/enums/formz_status.dart';
@@ -9,6 +10,7 @@ import 'package:os_project/features/client/home/widget/post_preview.dart';
 
 import '../../../assets/assets.dart';
 import '../../../core/enums/real_estate_type.dart';
+import '../../../router/app_routes.dart';
 import 'bloc/client_home_bloc.dart';
 
 part 'home_page_mixin.dart';
@@ -169,7 +171,7 @@ class _ClientHomePageState extends State<ClientHomePage> with ClientHomePageMixi
             itemCount: 20,
             itemBuilder: (context, index) => WPostPreview(
               onTap: () {
-                //todo
+                context.pushNamed(Routes.clientPostDetail);
               },
               image: 'https://picsum.photos/800/500',
               title: 'room new $index',
