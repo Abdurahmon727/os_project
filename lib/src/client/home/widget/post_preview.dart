@@ -5,7 +5,12 @@ import 'package:os_project/core/extensions/size.dart';
 import '../../../../core/widget/custom_cached_network_image.dart';
 
 class WPostPreview extends StatelessWidget {
-  const WPostPreview({super.key, this.onTap, this.image = '', this.title = ''});
+  const WPostPreview({
+    super.key,
+    this.onTap,
+    this.image = '',
+    this.title = '',
+  });
 
   final VoidCallback? onTap;
   final String image;
@@ -19,7 +24,9 @@ class WPostPreview extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           color: Colors.white,
-          boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 4)],
+          boxShadow: const [
+            BoxShadow(color: Colors.grey, blurRadius: 4),
+          ],
         ),
         child: Padding(
           padding: const EdgeInsets.all(8),
