@@ -7,9 +7,9 @@ abstract class DioClients {
       ..options = BaseOptions(
         baseUrl: Constants.baseUrl,
         contentType: "application/json",
-        sendTimeout: const Duration(seconds: 30),
-        connectTimeout: const Duration(seconds: 30),
-        receiveTimeout: const Duration(seconds: 30),
+        sendTimeout: const Duration(seconds: 15),
+        connectTimeout: const Duration(seconds: 15),
+        receiveTimeout: const Duration(seconds: 15),
         headers: <String, String>{},
       )
       ..interceptors.add(

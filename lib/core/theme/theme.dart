@@ -27,8 +27,10 @@ abstract class AppTheme {
     pageTransitionsTheme: const PageTransitionsTheme(
       builders: <TargetPlatform, PageTransitionsBuilder>{
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-        TargetPlatform.linux: OpenUpwardsPageTransitionsBuilder(),
-        TargetPlatform.macOS: FadeUpwardsPageTransitionsBuilder(),
+        TargetPlatform.linux: CupertinoPageTransitionsBuilder(),
+        TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+        // TargetPlatform.linux: OpenUpwardsPageTransitionsBuilder(),
+        // TargetPlatform.macOS: FadeUpwardsPageTransitionsBuilder(),
       },
     ),
   );

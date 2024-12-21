@@ -18,8 +18,29 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<_Login>((event, emit) async {
       emit(state.copyWith(status: FormzStatus.loading));
       // TODO: call api
-      await Future.delayed(const Duration(seconds: 3));
-      emit(state.copyWith(status: FormzStatus.success));
+      final result = await _repo.login(
+        email: event.email,
+        password: event.password,
+        profileType: event.profileType,
+      );
+
+      /// failed
+      // if (result.isLeft) {
+      //   emit(
+      //     state.copyWith(
+      //       status: FormzStatus.failure,
+      //       message: result.left.message,
+      //     ),
+      //   );
+      //   return;
+      // }
+
+      /// success
+      emit(
+        state.copyWith(
+          status: FormzStatus.success,
+        ),
+      );
     });
   }
 }

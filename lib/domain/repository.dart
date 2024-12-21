@@ -1,9 +1,21 @@
 import 'package:os_project/core/either/either.dart';
 
+import '../core/enums/profile_type.dart';
 import '../core/error/failure.dart';
 
 abstract class Repository {
-  Either<Failure, void> login();
+  Future<Either<Failure, void>> login({
+    required String email,
+    required String password,
+    required ProfileType profileType,
+  });
 
-  Either<Failure, void> register();
+  Future<Either<Failure, void>> register({
+    required String id,
+    required String email,
+    required String fullName,
+    required String address,
+    required String password,
+    required ProfileType profileType,
+  });
 }

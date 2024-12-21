@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:os_project/core/enums/formz_status.dart';
 import 'package:os_project/core/enums/profile_type.dart';
@@ -18,8 +17,23 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
   RegistrationBloc(this._repo) : super(const RegistrationState()) {
     on<_Register>((event, emit) async {
       emit(state.copyWith(status: FormzStatus.loading));
-      // TODO: call api
-      await Future.delayed(const Duration(seconds: 3));
+
+      final result = await _repo.register(
+        id: event.id,
+        fullName: event.fullName,
+        email: event.email,
+        address: event.address,
+        password: event.password,
+        profileType: event.profileType,
+      );
+
+      /// failed
+      // if (result.isLeft) {
+      //   emit(state.copyWith(status: FormzStatus.failure, message: result.left.message));
+      //   return;
+      // }
+
+      /// success
       emit(state.copyWith(status: FormzStatus.success));
     });
   }

@@ -32,7 +32,7 @@ Future<void> init() async {
   /// Core
   sl.registerSingleton<LocalSource>(LocalSource(_box));
   sl.registerLazySingleton<Repository>(
-    () => RepositoryImpl(sl()),
+    () => RepositoryImpl(sl(), sl()),
   );
 
   /// auth

@@ -1,4 +1,4 @@
-enum FormzStatus { pure, success, loading, fail }
+enum FormzStatus { pure, success, loading, failure }
 
 extension StatusExtenions on FormzStatus {
   bool get isPure => this == FormzStatus.pure;
@@ -7,5 +7,5 @@ extension StatusExtenions on FormzStatus {
 
   bool get isLoading => this == FormzStatus.loading;
 
-  bool get isFail => this == FormzStatus.fail;
+  bool get isFailure => this == FormzStatus.failure;
 }
