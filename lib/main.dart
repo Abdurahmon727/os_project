@@ -1,8 +1,7 @@
-import 'package:os_project/core/extensions/context.dart';
 import 'package:os_project/core/theme/theme.dart';
 import 'package:os_project/router/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'service_locator.dart' as di;
+import 'service/service_locator.dart' as di;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

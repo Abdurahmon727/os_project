@@ -1,25 +1,25 @@
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
-import "package:os_project/features/auth/login/bloc/login_bloc.dart";
-import "package:os_project/features/auth/login/login_page.dart";
-import "package:os_project/features/auth/registrantion/bloc/registration_bloc.dart";
-import "package:os_project/features/auth/registrantion/registration_page.dart";
-import "package:os_project/features/client/home/bloc/client_home_bloc.dart";
-import "package:os_project/features/client/home/home_page.dart";
-import "package:os_project/features/client/post_detail/bloc/post_detail_bloc.dart";
-import "package:os_project/features/owner/create_post/bloc/create_post_bloc.dart";
-import "package:os_project/features/owner/create_post/create_post_page.dart";
-import "package:os_project/features/owner/home/homa_page.dart";
-import "package:os_project/features/sys_admin/check_post/bloc/check_post_bloc.dart";
-import "package:os_project/features/sys_admin/check_post/check_post_page.dart";
-import "package:os_project/features/sys_admin/home/homa_page.dart";
+import "package:os_project/src/auth/login/bloc/login_bloc.dart";
+import "package:os_project/src/auth/login/login_page.dart";
+import "package:os_project/src/auth/registrantion/bloc/registration_bloc.dart";
+import "package:os_project/src/auth/registrantion/registration_page.dart";
+import "package:os_project/src/client/home/bloc/client_home_bloc.dart";
+import "package:os_project/src/client/home/home_page.dart";
+import "package:os_project/src/client/post_detail/bloc/post_detail_bloc.dart";
+import "package:os_project/src/owner/create_post/bloc/create_post_bloc.dart";
+import "package:os_project/src/owner/create_post/create_post_page.dart";
+import "package:os_project/src/owner/home/homa_page.dart";
+import "package:os_project/src/sys_admin/check_post/bloc/check_post_bloc.dart";
+import "package:os_project/src/sys_admin/check_post/check_post_page.dart";
+import "package:os_project/src/sys_admin/home/homa_page.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 import "../core/local_source/local_source.dart";
-import "../features/client/post_detail/detail_page.dart";
-import "../features/owner/home/bloc/owner_home_bloc.dart";
-import "../features/splash/splash_page.dart";
-import "../features/sys_admin/home/bloc/sys_admin_home_bloc.dart";
-import "../service_locator.dart";
+import "../src/client/post_detail/detail_page.dart";
+import "../src/owner/home/bloc/owner_home_bloc.dart";
+import "../src/splash/splash_page.dart";
+import "../src/sys_admin/home/bloc/sys_admin_home_bloc.dart";
+import "../service/service_locator.dart";
 
 part "name_routes.dart";
 
@@ -207,7 +207,7 @@ final GoRouter router = GoRouter(
     //   ],
     // ),
 
-    /// home features
+    /// home feature
     // GoRoute(
     //   path: Routes.story,
     //   name: Routes.story,

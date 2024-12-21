@@ -21,7 +21,7 @@ final class LocalSource {
   }
 
   ProfileType? get profileType {
-    final profileType = box.get(AppKeys.profileType, defaultValue: null);
+    final profileType = box.get(AppKeys.profileType, defaultValue: null) as String?;
     if (profileType == ProfileType.owner.name) {
       return ProfileType.owner;
     } else if (profileType == ProfileType.client.name) {

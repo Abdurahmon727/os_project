@@ -13,7 +13,7 @@ class RepositoryImpl implements Repository {
   @override
   Either<Failure, void> login() {
     try {
-      final response = _dio.get('/auth/login');
+      final response = _dio.post('/auth/login');
       return const Right(null);
     } on DioException catch (error, stacktrace) {
       debugPrint('Dio Exception occurred: $error stacktrace: $stacktrace');
@@ -30,7 +30,7 @@ class RepositoryImpl implements Repository {
   @override
   Either<Failure, void> register() {
     try {
-      final response = _dio.get('/auth/register');
+      final response = _dio.post('/auth/register');
       return const Right(null);
     } on DioException catch (error, stacktrace) {
       debugPrint('Dio Exception occurred: $error stacktrace: $stacktrace');
