@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+
+import '../../../core/widget/custom_app_bar.dart';
 
 class CreatePostPage extends StatelessWidget {
   const CreatePostPage({super.key});
@@ -7,10 +8,14 @@ class CreatePostPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('owner create post detail page'),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.primary,
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(50),
+        child: CustomAppBar(title: 'Create Post'),
+      ),
+      body: ListView(
+        children: [
+          ///todo
+        ],
       ),
     );
   }
