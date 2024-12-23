@@ -26,7 +26,7 @@ mixin RegistrationMixin on State<RegistrationPage> {
       context.showSuccessMessage('Registered successfully 🎉');
       context.pushNamed(Routes.login);
     } else if (state.status.isFailure) {
-      context.showFailureMessage('Something went wrong 😞');
+      context.showFailureMessage(state.message);
     }
   }
 

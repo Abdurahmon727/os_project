@@ -26,7 +26,7 @@ mixin LoginMixin on State<LoginPage> {
         context.go(Routes.sysAdminHome);
       }
     } else if (state.status.isFailure) {
-      context.showFailureMessage('Something went wrong 😞');
+      context.showFailureMessage(state.message);
     }
   }
 

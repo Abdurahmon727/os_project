@@ -35,4 +35,10 @@ class AuthResponse {
   factory AuthResponse.fromJson(Map<String, dynamic> json) => _$AuthResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$AuthResponseToJson(this);
+
+  @override
+  String toString() {
+    return 'AuthResponse(id: $id, email: $email, fullname: $fullName, password: $password, '
+        'address: $address, type: $type, createdAt: $createdAt, updatedAt: $updatedAt)';
+  }
 }
