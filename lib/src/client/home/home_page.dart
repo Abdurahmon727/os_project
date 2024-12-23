@@ -6,6 +6,7 @@ import 'package:os_project/assets/constants.dart';
 import 'package:os_project/core/enums/formz_status.dart';
 import 'package:os_project/core/extensions/context.dart';
 import 'package:os_project/core/extensions/size.dart';
+import 'package:os_project/core/widget/custom_app_bar.dart';
 import 'package:os_project/src/client/home/widget/post_preview.dart';
 
 import '../../../assets/assets.dart';
@@ -26,128 +27,109 @@ class _ClientHomePageState extends State<ClientHomePage> with ClientHomePageMixi
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Buy & Rent Easy'),
-        actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                backgroundColor: context.colorScheme.secondary,
-                child: const Text('JM'),
-              ),
-              6.w,
-              const Text(
-                'John Mellio',
-                style: TextStyle(color: Colors.white),
-              ),
-              6.w,
-              IconButton(
-                onPressed: () {
-                  //todo
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(150),
+        child: CustomAppBar(
+          title: 'Buy & Rent Easy',
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(100),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: BlocBuilder<ClientHomeBloc, ClientHomeState>(
+                builder: (context, state) {
+                  return Column(
+                    children: [
+                      Row(
+                        children: [
+                          const Text('House type:'),
+                          10.w,
+                          Expanded(
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                                    child: FilterChip(
+                                      selected: state.selectedRealEstate == null,
+                                      onSelected: (_) => clearType(),
+                                      label: const Text('All'),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                                    child: FilterChip(
+                                      selected: state.selectedRealEstate == RealEstateType.land,
+                                      onSelected: (_) => selectType(RealEstateType.land),
+                                      label: const Text('Land'),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                                    child: FilterChip(
+                                      selected: state.selectedRealEstate == RealEstateType.house,
+                                      onSelected: (_) => selectType(RealEstateType.house),
+                                      label: const Text('House'),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                                    child: FilterChip(
+                                      selected:
+                                          state.selectedRealEstate == RealEstateType.apartment,
+                                      onSelected: (_) => selectType(RealEstateType.apartment),
+                                      label: const Text('Apartment'),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      10.h,
+                      Row(
+                        children: [
+                          const Text('Regions:'),
+                          10.w,
+                          Expanded(
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                                    child: FilterChip(
+                                      selected: state.selectedRegion == null,
+                                      onSelected: (_) => clearRegion(),
+                                      label: const Text('All'),
+                                    ),
+                                  ),
+                                  ...List.generate(
+                                    Constants.regions.length,
+                                    (index) {
+                                      final region = Constants.regions[index];
+                                      return Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                                        child: FilterChip(
+                                          selected: state.selectedRegion == region,
+                                          onSelected: (_) => selectRegion(region),
+                                          label: Text(region),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      10.h,
+                    ],
+                  );
                 },
-                icon: const Icon(Icons.login),
-              )
-            ],
-          )
-        ],
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(100),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 8),
-            child: BlocBuilder<ClientHomeBloc, ClientHomeState>(
-              builder: (context, state) {
-                return Column(
-                  children: [
-                    Row(
-                      children: [
-                        const Text('House type:'),
-                        10.w,
-                        Expanded(
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                                  child: FilterChip(
-                                    selected: state.selectedRealEstate == null,
-                                    onSelected: (_) => clearType(),
-                                    label: const Text('All'),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                                  child: FilterChip(
-                                    selected: state.selectedRealEstate == RealEstateType.land,
-                                    onSelected: (_) => selectType(RealEstateType.land),
-                                    label: const Text('Land'),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                                  child: FilterChip(
-                                    selected: state.selectedRealEstate == RealEstateType.house,
-                                    onSelected: (_) => selectType(RealEstateType.house),
-                                    label: const Text('House'),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                                  child: FilterChip(
-                                    selected: state.selectedRealEstate == RealEstateType.apartment,
-                                    onSelected: (_) => selectType(RealEstateType.apartment),
-                                    label: const Text('Apartment'),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    10.h,
-                    Row(
-                      children: [
-                        const Text('Regions:'),
-                        10.w,
-                        Expanded(
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                                  child: FilterChip(
-                                    selected: state.selectedRegion == null,
-                                    onSelected: (_) => clearRegion(),
-                                    label: const Text('All'),
-                                  ),
-                                ),
-                                ...List.generate(
-                                  Constants.regions.length,
-                                  (index) {
-                                    final region = Constants.regions[index];
-                                    return Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                                      child: FilterChip(
-                                        selected: state.selectedRegion == region,
-                                        onSelected: (_) => selectRegion(region),
-                                        label: Text(region),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    10.h,
-                  ],
-                );
-              },
+              ),
             ),
           ),
         ),
