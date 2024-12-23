@@ -7,6 +7,7 @@ import 'package:os_project/domain/repository.dart';
 import 'package:os_project/assets/constants.dart';
 
 import '../core/enums/profile_type.dart';
+import '../data/auth/auth_response.dart';
 
 class RepositoryImpl implements Repository {
   final Dio _dio;
@@ -15,21 +16,22 @@ class RepositoryImpl implements Repository {
   RepositoryImpl(this._dio, this._localSource);
 
   @override
-  Future<Either<Failure, void>> login({
+  Future<Either<Failure, AuthResponse>> login({
     required String email,
     required String password,
     required ProfileType profileType,
   }) async {
     try {
       final response = await _dio.post(
-        '/auth/login',
+        '/login',
         data: {
           'email': email,
           'password': password,
           'profileType': profileType.name,
         },
       );
-      return const Right(null);
+      final data = AuthResponse.fromJson(response.data);
+      return Right(data);
     } on DioException catch (error, stacktrace) {
       debugPrint('Dio Exception occurred: $error stacktrace: $stacktrace');
       return Left(ServerFailure(
@@ -43,7 +45,7 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<Either<Failure, void>> register({
+  Future<Either<Failure, AuthResponse>> register({
     required String id,
     required String email,
     required String fullName,
@@ -53,17 +55,18 @@ class RepositoryImpl implements Repository {
   }) async {
     try {
       final response = await _dio.post(
-        '/auth/register',
+        '/register',
         data: {
           'id': id,
           'email': email,
-          'fullName': fullName,
+          'fullname': fullName,
           'address': address,
           'password': password,
-          'profileType': profileType.name
+          'type': profileType.name
         },
       );
-      return const Right(null);
+      final data = AuthResponse.fromJson(response.data);
+      return Right(data);
     } on DioException catch (error, stacktrace) {
       debugPrint('Dio Exception occurred: $error stacktrace: $stacktrace');
       return Left(

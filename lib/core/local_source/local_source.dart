@@ -22,12 +22,12 @@ final class LocalSource {
 
   ProfileType? get profileType {
     final profileType = box.get(AppKeys.profileType, defaultValue: null) as String?;
-    if (profileType == ProfileType.owner.name) {
-      return ProfileType.owner;
-    } else if (profileType == ProfileType.client.name) {
-      return ProfileType.client;
-    } else if (profileType == ProfileType.sysAdmin.name) {
-      return ProfileType.sysAdmin;
+    if (profileType == ProfileType.Owner.name) {
+      return ProfileType.Owner;
+    } else if (profileType == ProfileType.Client.name) {
+      return ProfileType.Client;
+    } else if (profileType == ProfileType.SysAdmin.name) {
+      return ProfileType.SysAdmin;
     }
     return null;
   }

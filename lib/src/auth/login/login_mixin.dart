@@ -4,7 +4,7 @@ mixin LoginMixin on State<LoginPage> {
   late final TextEditingController emailController;
   late final TextEditingController passwordController;
 
-  ProfileType profileType = ProfileType.client;
+  ProfileType profileType = ProfileType.Client;
 
   @override
   void initState() {

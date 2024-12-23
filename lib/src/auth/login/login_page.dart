@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> with LoginMixin {
                   selected: profileType.isClient,
                   onSelected: (value) {
                     if (value) {
-                      profileType = ProfileType.client;
+                      profileType = ProfileType.Client;
                       setState(() {});
                     }
                   },
@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> with LoginMixin {
                   selected: profileType.isOwner,
                   onSelected: (value) {
                     if (value) {
-                      profileType = ProfileType.owner;
+                      profileType = ProfileType.Owner;
                       setState(() {});
                     }
                   },
@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> with LoginMixin {
                   selected: profileType.isSysAdmin,
                   onSelected: (value) {
                     if (value) {
-                      profileType = ProfileType.sysAdmin;
+                      profileType = ProfileType.SysAdmin;
                       setState(() {});
                     }
                   },

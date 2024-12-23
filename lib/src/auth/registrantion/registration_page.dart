@@ -114,7 +114,7 @@ class _RegistrationPageState extends State<RegistrationPage> with RegistrationMi
                     fullName: fullNameController.text,
                     address: addressController.text,
                     password: password1Controller.text,
-                    profileType: isOwner ? ProfileType.owner : ProfileType.client,
+                    profileType: isOwner ? ProfileType.Owner : ProfileType.Client,
                   ),
                 );
               },
