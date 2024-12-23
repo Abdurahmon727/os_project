@@ -1,5 +1,7 @@
+import "dart:convert";
+
 import "package:hive/hive.dart";
-import "package:os_project/core/enums/profile_type.dart";
+import "package:os_project/data/auth/auth_response.dart";
 
 import "keys.dart";
 
@@ -8,29 +10,50 @@ final class LocalSource {
 
   final Box<dynamic> box;
 
-  /// has profile
-  bool get hasProfile => box.get(AppKeys.hasProfile, defaultValue: false);
+  // /// has profile
+  // bool get hasProfile {
+  //   final profile =
+  //   return box.get(AppKeys.hasProfile, defaultValue: false);
+  // }
+  //
+  // Future<void> setHasProfile({required bool value}) async {
+  //   await box.put(AppKeys.hasProfile, value);
+  // }
 
-  Future<void> setHasProfile({required bool value}) async {
-    await box.put(AppKeys.hasProfile, value);
+  /// profile
+  Future<void> setProfile(AuthResponse profile) async {
+    await setCache(
+      AppKeys.profile,
+      jsonEncode(profile.toJson()),
+    );
   }
 
-  /// profile type
-  Future<void> setProfileType({required ProfileType value}) async {
-    await box.put(AppKeys.profileType, value.name);
-  }
-
-  ProfileType? get profileType {
-    final profileType = box.get(AppKeys.profileType, defaultValue: null) as String?;
-    if (profileType == ProfileType.Owner.name) {
-      return ProfileType.Owner;
-    } else if (profileType == ProfileType.Client.name) {
-      return ProfileType.Client;
-    } else if (profileType == ProfileType.SysAdmin.name) {
-      return ProfileType.SysAdmin;
+  AuthResponse? get profile {
+    final String profile = getCache(AppKeys.profile);
+    if (profile.isNotEmpty) {
+      return AuthResponse.fromJson(
+        jsonDecode(profile),
+      );
     }
     return null;
   }
+
+  /// profile type
+  // Future<void> setProfileType({required ProfileType value}) async {
+  //   await box.put(AppKeys.profileType, value.name);
+  // }
+  //
+  // ProfileType? get profileType {
+  //   final profileType = box.get(AppKeys.profileType, defaultValue: null) as String?;
+  //   if (profileType == ProfileType.Owner.name) {
+  //     return ProfileType.Owner;
+  //   } else if (profileType == ProfileType.Client.name) {
+  //     return ProfileType.Client;
+  //   } else if (profileType == ProfileType.SysAdmin.name) {
+  //     return ProfileType.SysAdmin;
+  //   }
+  //   return null;
+  // }
 
   // Future<void> setAccessToken(String accessToken) async {
   //   await box.put(AppKeys.accessToken, accessToken);

@@ -9,18 +9,23 @@ mixin SplashMixin on State<SplashPage> {
 
   Future<void> navigateNextPage() async {
     await Future.delayed(const Duration(seconds: 3));
-    if (localSource.hasProfile) {
-      final profileType = localSource.profileType;
-      if (profileType.isOwner) {
-        if (mounted) context.go(Routes.ownerHome);
-      } else if (profileType.isClient) {
-        if (mounted) context.go(Routes.clientHome);
-      } else if (profileType.isSysAdmin) {
-        if (mounted) context.go(Routes.sysAdminHome);
-      }
+    final profile = localSource.profile;
+    debugPrint('profile: $profile');
+
+    ///
+    if (profile == null) {
       if (mounted) context.go(Routes.registration);
-    } else {
-      if (mounted) context.go(Routes.registration);
+      return;
+    }
+
+    ///
+
+    if (profile.type.isOwner) {
+      if (mounted) context.go(Routes.ownerHome);
+    } else if (profile.type.isClient) {
+      if (mounted) context.go(Routes.clientHome);
+    } else if (profile.type.isSysAdmin) {
+      if (mounted) context.go(Routes.sysAdminHome);
     }
   }
 }

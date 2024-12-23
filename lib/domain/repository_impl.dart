@@ -34,6 +34,7 @@ class RepositoryImpl implements Repository {
       if ((data.id ?? '').isEmpty) {
         return const Left(ServerFailure(message: 'User not found', statusCode: 404));
       }
+      await _localSource.setProfile(data);
       return Right(data);
     } on DioException catch (error, stacktrace) {
       debugPrint('Dio Exception occurred: $error stacktrace: $stacktrace');

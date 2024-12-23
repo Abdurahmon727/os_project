@@ -7,3 +7,17 @@ extension Extension on ProfileType? {
 
   bool get isSysAdmin => this == ProfileType.SysAdmin;
 }
+
+extension ProfileTypeStringExtension on String? {
+  bool get isOwner {
+    return this == ProfileType.Owner.name;
+  }
+
+  bool get isClient {
+    return this == ProfileType.Client.name;
+  }
+
+  bool get isSysAdmin {
+    return this == ProfileType.SysAdmin.name;
+  }
+}
