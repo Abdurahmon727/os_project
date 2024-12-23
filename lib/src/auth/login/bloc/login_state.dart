@@ -5,5 +5,6 @@ class LoginState with _$LoginState {
   const factory LoginState({
     @Default(FormzStatus.pure) FormzStatus status,
     @Default('') String message,
-}) = _LoginState;
+    @Default(null) AuthResponse? profile,
+  }) = _LoginState;
 }

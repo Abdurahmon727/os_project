@@ -16,6 +16,7 @@ mixin LoginMixin on State<LoginPage> {
   void listener(BuildContext context, LoginState state) {
     if (state.status.isSuccess) {
       context.showSuccessMessage('Logged in successfully 🎉');
+      final profileType = state.profile?.type;
 
       /// navigate
       if (profileType.isOwner) {
