@@ -6,6 +6,8 @@ mixin LoginMixin on State<LoginPage> {
 
   ProfileType profileType = ProfileType.Client;
 
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     emailController = TextEditingController();
@@ -32,13 +34,16 @@ mixin LoginMixin on State<LoginPage> {
   }
 
   void onTapLogin() {
-    context.read<LoginBloc>().add(
-          LoginEvent.login(
-            email: emailController.text,
-            password: passwordController.text,
-            profileType: profileType,
-          ),
-        );
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+      context.read<LoginBloc>().add(
+            LoginEvent.login(
+              email: emailController.text,
+              password: passwordController.text,
+              profileType: profileType,
+            ),
+          );
+    }
   }
 
   @override

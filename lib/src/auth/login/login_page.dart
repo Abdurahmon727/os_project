@@ -7,6 +7,7 @@ import 'package:os_project/core/enums/profile_type.dart';
 import 'package:os_project/core/extensions/context.dart';
 import 'package:os_project/core/extensions/size.dart';
 
+import '../../../core/extensions/string_extenions.dart';
 import '../../../core/widget/inputs/custom_text_field.dart';
 import '../../../router/app_routes.dart';
 import 'bloc/login_bloc.dart';
@@ -27,63 +28,68 @@ class _LoginPageState extends State<LoginPage> with LoginMixin {
       listener: listener,
       child: Scaffold(
         appBar: AppBar(title: const Text('Login')),
-        body: ListView(
-          padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.sizeOf(context).width / 3,
-            vertical: 20,
+        body: Form(
+          key: formKey,
+          child: ListView(
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.sizeOf(context).width / 3,
+              vertical: 20,
+            ),
+            children: [
+              CustomTextField(
+                controller: emailController,
+                labelText: 'Email',
+                hintText: 'Enter your email',
+                validator: emailValidator,
+              ),
+              20.h,
+              CustomTextField(
+                controller: passwordController,
+                obscure: true,
+                labelText: 'Password',
+                hintText: 'Enter your password',
+                validator: passwordValidator,
+              ),
+              20.h,
+              Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 20,
+                runSpacing: 10,
+                children: [
+                  FilterChip(
+                    selected: profileType.isClient,
+                    onSelected: (value) {
+                      if (value) {
+                        profileType = ProfileType.Client;
+                        setState(() {});
+                      }
+                    },
+                    label: const Text('Client'),
+                  ),
+                  FilterChip(
+                    selected: profileType.isOwner,
+                    onSelected: (value) {
+                      if (value) {
+                        profileType = ProfileType.Owner;
+                        setState(() {});
+                      }
+                    },
+                    label: const Text('Owner'),
+                  ),
+                  FilterChip(
+                    selected: profileType.isSysAdmin,
+                    onSelected: (value) {
+                      if (value) {
+                        profileType = ProfileType.SysAdmin;
+                        setState(() {});
+                      }
+                    },
+                    label: const Text('Sys Admin'),
+                  ),
+                ],
+              )
+            ],
           ),
-          children: [
-            CustomTextField(
-              controller: emailController,
-              labelText: 'Email',
-              hintText: 'Enter your email',
-            ),
-            20.h,
-            CustomTextField(
-              controller: passwordController,
-              obscure: true,
-              labelText: 'Password',
-              hintText: 'Enter your password',
-            ),
-            20.h,
-            Wrap(
-              alignment: WrapAlignment.center,
-              spacing: 20,
-              runSpacing: 10,
-              children: [
-                FilterChip(
-                  selected: profileType.isClient,
-                  onSelected: (value) {
-                    if (value) {
-                      profileType = ProfileType.Client;
-                      setState(() {});
-                    }
-                  },
-                  label: const Text('Client'),
-                ),
-                FilterChip(
-                  selected: profileType.isOwner,
-                  onSelected: (value) {
-                    if (value) {
-                      profileType = ProfileType.Owner;
-                      setState(() {});
-                    }
-                  },
-                  label: const Text('Owner'),
-                ),
-                FilterChip(
-                  selected: profileType.isSysAdmin,
-                  onSelected: (value) {
-                    if (value) {
-                      profileType = ProfileType.SysAdmin;
-                      setState(() {});
-                    }
-                  },
-                  label: const Text('Sys Admin'),
-                ),
-              ],
-            )
-          ],
         ),
         bottomNavigationBar: Column(
           mainAxisSize: MainAxisSize.min,
