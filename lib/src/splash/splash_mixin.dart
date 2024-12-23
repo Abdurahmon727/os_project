@@ -13,13 +13,12 @@ mixin SplashMixin on State<SplashPage> {
     debugPrint('profile: $profile');
 
     ///
-    if (profile == null) {
+    if (profile == null || (profile.id ?? '').isEmpty) {
       if (mounted) context.go(Routes.registration);
       return;
     }
 
     ///
-
     if (profile.type.isOwner) {
       if (mounted) context.go(Routes.ownerHome);
     } else if (profile.type.isClient) {
