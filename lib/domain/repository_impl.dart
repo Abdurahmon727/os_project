@@ -30,7 +30,7 @@ class RepositoryImpl implements Repository {
           'profileType': profileType.name,
         },
       );
-      final data = AuthResponse.fromJson(response.data);
+      final data = AuthResponse.fromJson(response.data['Data']);
       return Right(data);
     } on DioException catch (error, stacktrace) {
       debugPrint('Dio Exception occurred: $error stacktrace: $stacktrace');

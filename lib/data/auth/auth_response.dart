@@ -17,9 +17,9 @@ class AuthResponse {
   @JsonKey(name: "type")
   final String? type;
   @JsonKey(name: "created_at")
-  final DateTime? createdAt;
+  final String? createdAt;
   @JsonKey(name: "updated_at")
-  final DateTime? updatedAt;
+  final String? updatedAt;
 
   AuthResponse({
     this.id,

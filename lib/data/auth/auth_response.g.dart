@@ -13,12 +13,8 @@ AuthResponse _$AuthResponseFromJson(Map<String, dynamic> json) => AuthResponse(
       password: json['password'] as String?,
       address: json['address'] as String?,
       type: json['type'] as String?,
-      createdAt: json['created_at'] == null
-          ? null
-          : DateTime.parse(json['created_at'] as String),
-      updatedAt: json['updated_at'] == null
-          ? null
-          : DateTime.parse(json['updated_at'] as String),
+      createdAt: json['created_at'] as String?,
+      updatedAt: json['updated_at'] as String?,
     );
 
 Map<String, dynamic> _$AuthResponseToJson(AuthResponse instance) =>
@@ -29,6 +25,6 @@ Map<String, dynamic> _$AuthResponseToJson(AuthResponse instance) =>
       'password': instance.password,
       'address': instance.address,
       'type': instance.type,
-      'created_at': instance.createdAt?.toIso8601String(),
-      'updated_at': instance.updatedAt?.toIso8601String(),
+      'created_at': instance.createdAt,
+      'updated_at': instance.updatedAt,
     };
