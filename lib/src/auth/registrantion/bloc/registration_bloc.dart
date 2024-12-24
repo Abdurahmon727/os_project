@@ -28,10 +28,10 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
       );
 
       /// failed
-      // if (result.isLeft) {
-      //   emit(state.copyWith(status: FormzStatus.failure, message: result.left.message));
-      //   return;
-      // }
+      if (result.isLeft) {
+        emit(state.copyWith(status: FormzStatus.failure, message: result.left.message));
+        return;
+      }
 
       /// success
       emit(state.copyWith(status: FormzStatus.success));
