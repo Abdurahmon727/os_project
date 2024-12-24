@@ -19,38 +19,38 @@ mixin _$OwnerHomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() getPosts,
+    required TResult Function() load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? getPosts,
+    TResult? Function()? load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? getPosts,
+    TResult Function()? load,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_GetPosts value) getPosts,
+    required TResult Function(_Load value) load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_GetPosts value)? getPosts,
+    TResult? Function(_Load value)? load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_GetPosts value)? getPosts,
+    TResult Function(_Load value)? load,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,7 +118,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() getPosts,
+    required TResult Function() load,
   }) {
     return init();
   }
@@ -127,7 +127,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? getPosts,
+    TResult? Function()? load,
   }) {
     return init?.call();
   }
@@ -136,7 +136,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? getPosts,
+    TResult Function()? load,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -149,7 +149,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_GetPosts value) getPosts,
+    required TResult Function(_Load value) load,
   }) {
     return init(this);
   }
@@ -158,7 +158,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_GetPosts value)? getPosts,
+    TResult? Function(_Load value)? load,
   }) {
     return init?.call(this);
   }
@@ -167,7 +167,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_GetPosts value)? getPosts,
+    TResult Function(_Load value)? load,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -182,18 +182,17 @@ abstract class _Init implements OwnerHomeEvent {
 }
 
 /// @nodoc
-abstract class _$$GetPostsImplCopyWith<$Res> {
-  factory _$$GetPostsImplCopyWith(
-          _$GetPostsImpl value, $Res Function(_$GetPostsImpl) then) =
-      __$$GetPostsImplCopyWithImpl<$Res>;
+abstract class _$$LoadImplCopyWith<$Res> {
+  factory _$$LoadImplCopyWith(
+          _$LoadImpl value, $Res Function(_$LoadImpl) then) =
+      __$$LoadImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GetPostsImplCopyWithImpl<$Res>
-    extends _$OwnerHomeEventCopyWithImpl<$Res, _$GetPostsImpl>
-    implements _$$GetPostsImplCopyWith<$Res> {
-  __$$GetPostsImplCopyWithImpl(
-      _$GetPostsImpl _value, $Res Function(_$GetPostsImpl) _then)
+class __$$LoadImplCopyWithImpl<$Res>
+    extends _$OwnerHomeEventCopyWithImpl<$Res, _$LoadImpl>
+    implements _$$LoadImplCopyWith<$Res> {
+  __$$LoadImplCopyWithImpl(_$LoadImpl _value, $Res Function(_$LoadImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of OwnerHomeEvent
@@ -202,18 +201,18 @@ class __$$GetPostsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetPostsImpl implements _GetPosts {
-  const _$GetPostsImpl();
+class _$LoadImpl implements _Load {
+  const _$LoadImpl();
 
   @override
   String toString() {
-    return 'OwnerHomeEvent.getPosts()';
+    return 'OwnerHomeEvent.load()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetPostsImpl);
+        (other.runtimeType == runtimeType && other is _$LoadImpl);
   }
 
   @override
@@ -223,29 +222,29 @@ class _$GetPostsImpl implements _GetPosts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() getPosts,
+    required TResult Function() load,
   }) {
-    return getPosts();
+    return load();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? getPosts,
+    TResult? Function()? load,
   }) {
-    return getPosts?.call();
+    return load?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? getPosts,
+    TResult Function()? load,
     required TResult orElse(),
   }) {
-    if (getPosts != null) {
-      return getPosts();
+    if (load != null) {
+      return load();
     }
     return orElse();
   }
@@ -254,36 +253,36 @@ class _$GetPostsImpl implements _GetPosts {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_GetPosts value) getPosts,
+    required TResult Function(_Load value) load,
   }) {
-    return getPosts(this);
+    return load(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_GetPosts value)? getPosts,
+    TResult? Function(_Load value)? load,
   }) {
-    return getPosts?.call(this);
+    return load?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_GetPosts value)? getPosts,
+    TResult Function(_Load value)? load,
     required TResult orElse(),
   }) {
-    if (getPosts != null) {
-      return getPosts(this);
+    if (load != null) {
+      return load(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetPosts implements OwnerHomeEvent {
-  const factory _GetPosts() = _$GetPostsImpl;
+abstract class _Load implements OwnerHomeEvent {
+  const factory _Load() = _$LoadImpl;
 }
 
 /// @nodoc

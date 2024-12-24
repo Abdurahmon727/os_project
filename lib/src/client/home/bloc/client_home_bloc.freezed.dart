@@ -46,7 +46,7 @@ mixin _$ClientHomeEvent {
     required TResult Function(_Init value) init,
     required TResult Function(_SelectRealEstate value) selectRealEstate,
     required TResult Function(_SelectRegion value) selectRegion,
-    required TResult Function(_LoadPosts value) load,
+    required TResult Function(_Load value) load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,7 +54,7 @@ mixin _$ClientHomeEvent {
     TResult? Function(_Init value)? init,
     TResult? Function(_SelectRealEstate value)? selectRealEstate,
     TResult? Function(_SelectRegion value)? selectRegion,
-    TResult? Function(_LoadPosts value)? load,
+    TResult? Function(_Load value)? load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,7 +62,7 @@ mixin _$ClientHomeEvent {
     TResult Function(_Init value)? init,
     TResult Function(_SelectRealEstate value)? selectRealEstate,
     TResult Function(_SelectRegion value)? selectRegion,
-    TResult Function(_LoadPosts value)? load,
+    TResult Function(_Load value)? load,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -169,7 +169,7 @@ class _$InitImpl implements _Init {
     required TResult Function(_Init value) init,
     required TResult Function(_SelectRealEstate value) selectRealEstate,
     required TResult Function(_SelectRegion value) selectRegion,
-    required TResult Function(_LoadPosts value) load,
+    required TResult Function(_Load value) load,
   }) {
     return init(this);
   }
@@ -180,7 +180,7 @@ class _$InitImpl implements _Init {
     TResult? Function(_Init value)? init,
     TResult? Function(_SelectRealEstate value)? selectRealEstate,
     TResult? Function(_SelectRegion value)? selectRegion,
-    TResult? Function(_LoadPosts value)? load,
+    TResult? Function(_Load value)? load,
   }) {
     return init?.call(this);
   }
@@ -191,7 +191,7 @@ class _$InitImpl implements _Init {
     TResult Function(_Init value)? init,
     TResult Function(_SelectRealEstate value)? selectRealEstate,
     TResult Function(_SelectRegion value)? selectRegion,
-    TResult Function(_LoadPosts value)? load,
+    TResult Function(_Load value)? load,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -314,7 +314,7 @@ class _$SelectRealEstateImpl implements _SelectRealEstate {
     required TResult Function(_Init value) init,
     required TResult Function(_SelectRealEstate value) selectRealEstate,
     required TResult Function(_SelectRegion value) selectRegion,
-    required TResult Function(_LoadPosts value) load,
+    required TResult Function(_Load value) load,
   }) {
     return selectRealEstate(this);
   }
@@ -325,7 +325,7 @@ class _$SelectRealEstateImpl implements _SelectRealEstate {
     TResult? Function(_Init value)? init,
     TResult? Function(_SelectRealEstate value)? selectRealEstate,
     TResult? Function(_SelectRegion value)? selectRegion,
-    TResult? Function(_LoadPosts value)? load,
+    TResult? Function(_Load value)? load,
   }) {
     return selectRealEstate?.call(this);
   }
@@ -336,7 +336,7 @@ class _$SelectRealEstateImpl implements _SelectRealEstate {
     TResult Function(_Init value)? init,
     TResult Function(_SelectRealEstate value)? selectRealEstate,
     TResult Function(_SelectRegion value)? selectRegion,
-    TResult Function(_LoadPosts value)? load,
+    TResult Function(_Load value)? load,
     required TResult orElse(),
   }) {
     if (selectRealEstate != null) {
@@ -467,7 +467,7 @@ class _$SelectRegionImpl implements _SelectRegion {
     required TResult Function(_Init value) init,
     required TResult Function(_SelectRealEstate value) selectRealEstate,
     required TResult Function(_SelectRegion value) selectRegion,
-    required TResult Function(_LoadPosts value) load,
+    required TResult Function(_Load value) load,
   }) {
     return selectRegion(this);
   }
@@ -478,7 +478,7 @@ class _$SelectRegionImpl implements _SelectRegion {
     TResult? Function(_Init value)? init,
     TResult? Function(_SelectRealEstate value)? selectRealEstate,
     TResult? Function(_SelectRegion value)? selectRegion,
-    TResult? Function(_LoadPosts value)? load,
+    TResult? Function(_Load value)? load,
   }) {
     return selectRegion?.call(this);
   }
@@ -489,7 +489,7 @@ class _$SelectRegionImpl implements _SelectRegion {
     TResult Function(_Init value)? init,
     TResult Function(_SelectRealEstate value)? selectRealEstate,
     TResult Function(_SelectRegion value)? selectRegion,
-    TResult Function(_LoadPosts value)? load,
+    TResult Function(_Load value)? load,
     required TResult orElse(),
   }) {
     if (selectRegion != null) {
@@ -512,18 +512,17 @@ abstract class _SelectRegion implements ClientHomeEvent {
 }
 
 /// @nodoc
-abstract class _$$LoadPostsImplCopyWith<$Res> {
-  factory _$$LoadPostsImplCopyWith(
-          _$LoadPostsImpl value, $Res Function(_$LoadPostsImpl) then) =
-      __$$LoadPostsImplCopyWithImpl<$Res>;
+abstract class _$$LoadImplCopyWith<$Res> {
+  factory _$$LoadImplCopyWith(
+          _$LoadImpl value, $Res Function(_$LoadImpl) then) =
+      __$$LoadImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadPostsImplCopyWithImpl<$Res>
-    extends _$ClientHomeEventCopyWithImpl<$Res, _$LoadPostsImpl>
-    implements _$$LoadPostsImplCopyWith<$Res> {
-  __$$LoadPostsImplCopyWithImpl(
-      _$LoadPostsImpl _value, $Res Function(_$LoadPostsImpl) _then)
+class __$$LoadImplCopyWithImpl<$Res>
+    extends _$ClientHomeEventCopyWithImpl<$Res, _$LoadImpl>
+    implements _$$LoadImplCopyWith<$Res> {
+  __$$LoadImplCopyWithImpl(_$LoadImpl _value, $Res Function(_$LoadImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ClientHomeEvent
@@ -532,8 +531,8 @@ class __$$LoadPostsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadPostsImpl implements _LoadPosts {
-  const _$LoadPostsImpl();
+class _$LoadImpl implements _Load {
+  const _$LoadImpl();
 
   @override
   String toString() {
@@ -543,7 +542,7 @@ class _$LoadPostsImpl implements _LoadPosts {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadPostsImpl);
+        (other.runtimeType == runtimeType && other is _$LoadImpl);
   }
 
   @override
@@ -592,7 +591,7 @@ class _$LoadPostsImpl implements _LoadPosts {
     required TResult Function(_Init value) init,
     required TResult Function(_SelectRealEstate value) selectRealEstate,
     required TResult Function(_SelectRegion value) selectRegion,
-    required TResult Function(_LoadPosts value) load,
+    required TResult Function(_Load value) load,
   }) {
     return load(this);
   }
@@ -603,7 +602,7 @@ class _$LoadPostsImpl implements _LoadPosts {
     TResult? Function(_Init value)? init,
     TResult? Function(_SelectRealEstate value)? selectRealEstate,
     TResult? Function(_SelectRegion value)? selectRegion,
-    TResult? Function(_LoadPosts value)? load,
+    TResult? Function(_Load value)? load,
   }) {
     return load?.call(this);
   }
@@ -614,7 +613,7 @@ class _$LoadPostsImpl implements _LoadPosts {
     TResult Function(_Init value)? init,
     TResult Function(_SelectRealEstate value)? selectRealEstate,
     TResult Function(_SelectRegion value)? selectRegion,
-    TResult Function(_LoadPosts value)? load,
+    TResult Function(_Load value)? load,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -624,8 +623,8 @@ class _$LoadPostsImpl implements _LoadPosts {
   }
 }
 
-abstract class _LoadPosts implements ClientHomeEvent {
-  const factory _LoadPosts() = _$LoadPostsImpl;
+abstract class _Load implements ClientHomeEvent {
+  const factory _Load() = _$LoadImpl;
 }
 
 /// @nodoc
