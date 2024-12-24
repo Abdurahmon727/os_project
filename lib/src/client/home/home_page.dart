@@ -56,31 +56,20 @@ class _ClientHomePageState extends State<ClientHomePage> with ClientHomePageMixi
                                       label: const Text('All'),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                                    child: FilterChip(
-                                      selected: state.selectedRealEstate == RealEstateType.Land,
-                                      onSelected: (_) => selectType(RealEstateType.Land),
-                                      label: const Text('Land'),
-                                    ),
+                                  ...List.generate(
+                                    RealEstateType.values.length,
+                                    (index) {
+                                      final type = RealEstateType.values[index];
+                                      return Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                                        child: FilterChip(
+                                          selected: state.selectedRealEstate == type,
+                                          onSelected: (_) => selectType(type),
+                                          label: Text(type.name),
+                                        ),
+                                      );
+                                    },
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                                    child: FilterChip(
-                                      selected: state.selectedRealEstate == RealEstateType.House,
-                                      onSelected: (_) => selectType(RealEstateType.House),
-                                      label: const Text('House'),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                                    child: FilterChip(
-                                      selected:
-                                          state.selectedRealEstate == RealEstateType.Apartment,
-                                      onSelected: (_) => selectType(RealEstateType.Apartment),
-                                      label: const Text('Apartment'),
-                                    ),
-                                  )
                                 ],
                               ),
                             ),
