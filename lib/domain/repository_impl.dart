@@ -125,11 +125,14 @@ class RepositoryImpl implements Repository {
   @override
   Future<Either<Failure, List<PostModel>>> getOwnerPosts() async {
     try {
-      final response = await _dio.get<Map<String, dynamic>>(
+      final response = await _dio.post(
         '/post/get-list',
         data: {'user_id': _localSource.profile?.id},
       );
-      final posts = (response.data?['posts']).map((e) => PostModel.fromJson(e)).toList();
+      final List<PostModel> posts = [];
+      response.data?['Data']['posts']?.forEach((e) {
+        posts.add(PostModel.fromJson(e));
+      });
       return Right(posts);
     } on DioException catch (error, stacktrace) {
       debugPrint('Dio Exception occurred: $error stacktrace: $stacktrace');
