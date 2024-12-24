@@ -1,6 +1,8 @@
 part of 'create_post_page.dart';
 
 mixin CreatePostPageMixin on State<CreatePostPage> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   void listener(BuildContext context, CreatePostState state) {
     if (state.status.isSuccess) {
       context.showSuccessMessage('Published successfully 🎉');
@@ -11,6 +13,9 @@ mixin CreatePostPageMixin on State<CreatePostPage> {
   }
 
   void onTapPublish() {
-    context.read<CreatePostBloc>().add(const CreatePostEvent.publish());
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+      context.read<CreatePostBloc>().add(const CreatePostEvent.publish());
+    }
   }
 }
