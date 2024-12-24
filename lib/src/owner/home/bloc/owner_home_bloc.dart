@@ -1,11 +1,7 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../core/either/either.dart';
 import '../../../../core/enums/formz_status.dart';
-import '../../../../core/error/failure.dart';
 import '../../../../data/posts/post_model.dart';
 import '../../../../domain/repository.dart';
 
