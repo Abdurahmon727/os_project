@@ -30,7 +30,7 @@ class _ClientHomePageState extends State<ClientHomePage> with ClientHomePageMixi
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(150),
         child: CustomAppBar(
-          title: 'Buy & Rent Easy',
+          title: 'Client Home Page',
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(100),
             child: Padding(
