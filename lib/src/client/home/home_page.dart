@@ -162,11 +162,12 @@ class _ClientHomePageState extends State<ClientHomePage> with ClientHomePageMixi
             itemBuilder: (context, index) {
               final post = posts[index];
               return WPostPreview(
+                title: post.title ?? '',
+                image: post.images?.firstOrNull ?? '',
+                status: post.status ?? '',
                 onTap: () {
                   context.pushNamed(Routes.clientPostDetail);
                 },
-                image: post.images?.firstOrNull ?? '',
-                title: post.title ?? '',
               );
             },
           );

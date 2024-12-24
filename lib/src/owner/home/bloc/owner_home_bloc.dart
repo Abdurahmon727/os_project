@@ -24,5 +24,12 @@ class OwnerHomeBloc extends Bloc<OwnerHomeEvent, OwnerHomeState> {
         emit(state.copyWith(status: FormzStatus.success, posts: right));
       });
     });
+
+    on<_Load>((event, emit) async {
+      final result = await _repo.getOwnerPosts();
+      result.fold((left) {}, (right) {
+        emit(state.copyWith(status: FormzStatus.success, posts: right));
+      });
+    });
   }
 }

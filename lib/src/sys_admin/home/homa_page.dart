@@ -28,6 +28,13 @@ class SysAdminHomePage extends StatelessWidget {
             );
           }
 
+          final posts = state.posts;
+          if (posts.isEmpty) {
+            return Center(
+              child: Lottie.asset(AppAnimations.emptyAnimation),
+            );
+          }
+
           return GridView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -36,14 +43,18 @@ class SysAdminHomePage extends StatelessWidget {
               crossAxisSpacing: 16,
               childAspectRatio: 1.75,
             ),
-            itemCount: 20,
-            itemBuilder: (context, index) => WPostPreview(
-              onTap: () {
-                context.pushNamed(Routes.checkPost);
-              },
-              image: 'https://picsum.photos/800/500',
-              title: 'room new $index',
-            ),
+            itemCount: posts.length,
+            itemBuilder: (context, index) {
+              final post = posts[index];
+              return WPostPreview(
+                title: post.title ?? '',
+                image: post.images?.firstOrNull ?? '',
+                status: post.status ?? '',
+                onTap: () {
+                  context.pushNamed(Routes.checkPost);
+                },
+              );
+            },
           );
         },
       ),

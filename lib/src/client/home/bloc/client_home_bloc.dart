@@ -45,7 +45,7 @@ class ClientHomeBloc extends Bloc<ClientHomeEvent, ClientHomeState> {
         }
 
         emit(state.copyWith(selectedRealEstate: event.type));
-        add(const _LoadPosts());
+        add(const _Load());
       },
     );
 
@@ -55,10 +55,10 @@ class ClientHomeBloc extends Bloc<ClientHomeEvent, ClientHomeState> {
         return;
       }
       emit(state.copyWith(selectedRegion: event.region));
-      add(const _LoadPosts());
+      add(const _Load());
     });
 
-    on<_LoadPosts>((event, emit) async {
+    on<_Load>((event, emit) async {
       final result = await _repo.getClientPosts(
         realEstateType: state.selectedRealEstate,
         region: state.selectedRegion,
@@ -66,7 +66,6 @@ class ClientHomeBloc extends Bloc<ClientHomeEvent, ClientHomeState> {
 
       /// failed
       if (result.isLeft) {
-        emit(state.copyWith(status: FormzStatus.failure, message: result.left.message));
         return;
       }
 

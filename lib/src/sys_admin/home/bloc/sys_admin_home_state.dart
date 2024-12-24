@@ -5,5 +5,6 @@ class SysAdminHomeState with _$SysAdminHomeState {
   const factory SysAdminHomeState({
     @Default(FormzStatus.pure) FormzStatus status,
     @Default('') String message,
+    @Default([]) List<PostModel> posts,
 }) = _SysAdminHomeState;
 }

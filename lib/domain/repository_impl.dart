@@ -183,8 +183,53 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<Either<Failure, List<PostModel>>> getSysAdminPosts() {
-    // TODO: implement getSysAdminPosts
-    throw UnimplementedError();
+  Future<Either<Failure, List<PostModel>>> getSysAdminPosts() async {
+    try {
+      final response = await _dio.post(
+        '/post/get-list',
+        data: {
+          'status': 'pending',
+        },
+      );
+      final List<PostModel> posts = [];
+      response.data?['Data']['posts']?.forEach((e) {
+        posts.add(PostModel.fromJson(e));
+      });
+      return Right(posts);
+    } on DioException catch (error, stacktrace) {
+      debugPrint('Dio Exception occurred: $error stacktrace: $stacktrace');
+      return Left(
+        ServerFailure(
+          message: error.message ?? Constants.defaultErrorMessage,
+          statusCode: error.response?.statusCode,
+        ),
+      );
+    } on Exception catch (error, stacktrace) {
+      debugPrint('Exception occurred: $error stacktrace: $stacktrace');
+      return const Left(UnknownFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> acceptPost({required String postId}) async {
+    try {
+      await _dio.put(
+        '/post/status/$postId',
+        data: {'status': 'accepted'},
+      );
+
+      return const Right(null);
+    } on DioException catch (error, stacktrace) {
+      debugPrint('Dio Exception occurred: $error stacktrace: $stacktrace');
+      return Left(
+        ServerFailure(
+          message: error.message ?? Constants.defaultErrorMessage,
+          statusCode: error.response?.statusCode,
+        ),
+      );
+    } on Exception catch (error, stacktrace) {
+      debugPrint('Exception occurred: $error stacktrace: $stacktrace');
+      return const Left(UnknownFailure());
+    }
   }
 }

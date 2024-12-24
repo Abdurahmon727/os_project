@@ -19,32 +19,38 @@ mixin _$SysAdminHomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function() load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function()? load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function()? load,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
+    required TResult Function(_Load value) load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
+    TResult? Function(_Load value)? load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
+    TResult Function(_Load value)? load,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,6 +118,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function() load,
   }) {
     return init();
   }
@@ -120,6 +127,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function()? load,
   }) {
     return init?.call();
   }
@@ -128,6 +136,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function()? load,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -140,6 +149,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
+    required TResult Function(_Load value) load,
   }) {
     return init(this);
   }
@@ -148,6 +158,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
+    TResult? Function(_Load value)? load,
   }) {
     return init?.call(this);
   }
@@ -156,6 +167,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
+    TResult Function(_Load value)? load,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -170,9 +182,114 @@ abstract class _Init implements SysAdminHomeEvent {
 }
 
 /// @nodoc
+abstract class _$$LoadImplCopyWith<$Res> {
+  factory _$$LoadImplCopyWith(
+          _$LoadImpl value, $Res Function(_$LoadImpl) then) =
+      __$$LoadImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadImplCopyWithImpl<$Res>
+    extends _$SysAdminHomeEventCopyWithImpl<$Res, _$LoadImpl>
+    implements _$$LoadImplCopyWith<$Res> {
+  __$$LoadImplCopyWithImpl(_$LoadImpl _value, $Res Function(_$LoadImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SysAdminHomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoadImpl implements _Load {
+  const _$LoadImpl();
+
+  @override
+  String toString() {
+    return 'SysAdminHomeEvent.load()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() load,
+  }) {
+    return load();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? load,
+  }) {
+    return load?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? load,
+    required TResult orElse(),
+  }) {
+    if (load != null) {
+      return load();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Load value) load,
+  }) {
+    return load(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Load value)? load,
+  }) {
+    return load?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Load value)? load,
+    required TResult orElse(),
+  }) {
+    if (load != null) {
+      return load(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Load implements SysAdminHomeEvent {
+  const factory _Load() = _$LoadImpl;
+}
+
+/// @nodoc
 mixin _$SysAdminHomeState {
   FormzStatus get status => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
+  List<PostModel> get posts => throw _privateConstructorUsedError;
 
   /// Create a copy of SysAdminHomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -187,7 +304,7 @@ abstract class $SysAdminHomeStateCopyWith<$Res> {
           SysAdminHomeState value, $Res Function(SysAdminHomeState) then) =
       _$SysAdminHomeStateCopyWithImpl<$Res, SysAdminHomeState>;
   @useResult
-  $Res call({FormzStatus status, String message});
+  $Res call({FormzStatus status, String message, List<PostModel> posts});
 }
 
 /// @nodoc
@@ -207,6 +324,7 @@ class _$SysAdminHomeStateCopyWithImpl<$Res, $Val extends SysAdminHomeState>
   $Res call({
     Object? status = null,
     Object? message = null,
+    Object? posts = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -217,6 +335,10 @@ class _$SysAdminHomeStateCopyWithImpl<$Res, $Val extends SysAdminHomeState>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      posts: null == posts
+          ? _value.posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<PostModel>,
     ) as $Val);
   }
 }
@@ -229,7 +351,7 @@ abstract class _$$SysAdminHomeStateImplCopyWith<$Res>
       __$$SysAdminHomeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FormzStatus status, String message});
+  $Res call({FormzStatus status, String message, List<PostModel> posts});
 }
 
 /// @nodoc
@@ -247,6 +369,7 @@ class __$$SysAdminHomeStateImplCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? message = null,
+    Object? posts = null,
   }) {
     return _then(_$SysAdminHomeStateImpl(
       status: null == status
@@ -257,6 +380,10 @@ class __$$SysAdminHomeStateImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      posts: null == posts
+          ? _value._posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<PostModel>,
     ));
   }
 }
@@ -265,7 +392,10 @@ class __$$SysAdminHomeStateImplCopyWithImpl<$Res>
 
 class _$SysAdminHomeStateImpl implements _SysAdminHomeState {
   const _$SysAdminHomeStateImpl(
-      {this.status = FormzStatus.pure, this.message = ''});
+      {this.status = FormzStatus.pure,
+      this.message = '',
+      final List<PostModel> posts = const []})
+      : _posts = posts;
 
   @override
   @JsonKey()
@@ -273,10 +403,18 @@ class _$SysAdminHomeStateImpl implements _SysAdminHomeState {
   @override
   @JsonKey()
   final String message;
+  final List<PostModel> _posts;
+  @override
+  @JsonKey()
+  List<PostModel> get posts {
+    if (_posts is EqualUnmodifiableListView) return _posts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_posts);
+  }
 
   @override
   String toString() {
-    return 'SysAdminHomeState(status: $status, message: $message)';
+    return 'SysAdminHomeState(status: $status, message: $message, posts: $posts)';
   }
 
   @override
@@ -285,11 +423,13 @@ class _$SysAdminHomeStateImpl implements _SysAdminHomeState {
         (other.runtimeType == runtimeType &&
             other is _$SysAdminHomeStateImpl &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality().equals(other._posts, _posts));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, message);
+  int get hashCode => Object.hash(runtimeType, status, message,
+      const DeepCollectionEquality().hash(_posts));
 
   /// Create a copy of SysAdminHomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -304,12 +444,15 @@ class _$SysAdminHomeStateImpl implements _SysAdminHomeState {
 abstract class _SysAdminHomeState implements SysAdminHomeState {
   const factory _SysAdminHomeState(
       {final FormzStatus status,
-      final String message}) = _$SysAdminHomeStateImpl;
+      final String message,
+      final List<PostModel> posts}) = _$SysAdminHomeStateImpl;
 
   @override
   FormzStatus get status;
   @override
   String get message;
+  @override
+  List<PostModel> get posts;
 
   /// Create a copy of SysAdminHomeState
   /// with the given fields replaced by the non-null parameter values.

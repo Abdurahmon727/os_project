@@ -8,5 +8,5 @@ class ClientHomeEvent with _$ClientHomeEvent {
 
   const factory ClientHomeEvent.selectRegion({String? region}) = _SelectRegion;
 
-  const factory ClientHomeEvent.load() = _LoadPosts;
+  const factory ClientHomeEvent.load() = _Load;
 }

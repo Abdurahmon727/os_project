@@ -32,4 +32,6 @@ abstract class Repository {
   });
 
   Future<Either<Failure, List<PostModel>>> getSysAdminPosts();
+
+  Future<Either<Failure, void>> acceptPost({required String postId});
 }
