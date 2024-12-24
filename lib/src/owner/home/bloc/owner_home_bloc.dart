@@ -14,11 +14,7 @@ part 'owner_home_bloc.freezed.dart';
 class OwnerHomeBloc extends Bloc<OwnerHomeEvent, OwnerHomeState> {
   final Repository _repo;
 
-  // late final StreamController<Either<Failure, List<PostModel>>> postsSteam;
-
   OwnerHomeBloc(this._repo) : super(const OwnerHomeState()) {
-    // postsSteam = StreamController<Either<Failure, List<PostModel>>>();
-
     on<_Init>((event, emit) async {
       emit(state.copyWith(status: FormzStatus.loading));
       final result = await _repo.getOwnerPosts();

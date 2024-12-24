@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:os_project/core/enums/formz_status.dart';
 
@@ -15,8 +14,15 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
   final Repository _repo;
 
   CreatePostBloc(this._repo) : super(const CreatePostState()) {
-    on<_Init>((event, emit) {
-      // TODO: implement event handler
+    on<_Publish>((event, emit) async {
+      emit(state.copyWith(status: FormzStatus.loading));
+      final result = await _repo.createPost();
+      result.fold((left) {
+        emit(state.copyWith(status: FormzStatus.failure, message: left.message));
+      }, (right) {
+        emit(state.copyWith(status: FormzStatus.success));
+      });
+      emit(state.copyWith(status: FormzStatus.pure));
     });
   }
 }

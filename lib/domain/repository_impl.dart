@@ -94,7 +94,7 @@ class RepositoryImpl implements Repository {
         data: {
           "real_estate_type": "House",
           "service_type": "Rent",
-          "user_id": "086520ea-b9ab-4200-b38a-40e60c5c0dfb",
+          "user_id": _localSource.profile?.id,
           "title": "Spacious 3 Bedroom House for Rent",
           "description": "A beautiful and spacious house with a large garden and modern amenities.",
           "region": "Tashkent",

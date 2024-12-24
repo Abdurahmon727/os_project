@@ -18,33 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CreatePostEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function() publish,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function()? publish,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function()? publish,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Init value) init,
+    required TResult Function(_Publish value) publish,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Init value)? init,
+    TResult? Function(_Publish value)? publish,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Init value)? init,
+    TResult Function(_Publish value)? publish,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,17 +72,18 @@ class _$CreatePostEventCopyWithImpl<$Res, $Val extends CreatePostEvent>
 }
 
 /// @nodoc
-abstract class _$$InitImplCopyWith<$Res> {
-  factory _$$InitImplCopyWith(
-          _$InitImpl value, $Res Function(_$InitImpl) then) =
-      __$$InitImplCopyWithImpl<$Res>;
+abstract class _$$PublishImplCopyWith<$Res> {
+  factory _$$PublishImplCopyWith(
+          _$PublishImpl value, $Res Function(_$PublishImpl) then) =
+      __$$PublishImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitImplCopyWithImpl<$Res>
-    extends _$CreatePostEventCopyWithImpl<$Res, _$InitImpl>
-    implements _$$InitImplCopyWith<$Res> {
-  __$$InitImplCopyWithImpl(_$InitImpl _value, $Res Function(_$InitImpl) _then)
+class __$$PublishImplCopyWithImpl<$Res>
+    extends _$CreatePostEventCopyWithImpl<$Res, _$PublishImpl>
+    implements _$$PublishImplCopyWith<$Res> {
+  __$$PublishImplCopyWithImpl(
+      _$PublishImpl _value, $Res Function(_$PublishImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of CreatePostEvent
@@ -91,18 +92,18 @@ class __$$InitImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitImpl implements _Init {
-  const _$InitImpl();
+class _$PublishImpl implements _Publish {
+  const _$PublishImpl();
 
   @override
   String toString() {
-    return 'CreatePostEvent.init()';
+    return 'CreatePostEvent.publish()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitImpl);
+        (other.runtimeType == runtimeType && other is _$PublishImpl);
   }
 
   @override
@@ -111,27 +112,27 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function() publish,
   }) {
-    return init();
+    return publish();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function()? publish,
   }) {
-    return init?.call();
+    return publish?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function()? publish,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init();
+    if (publish != null) {
+      return publish();
     }
     return orElse();
   }
@@ -139,34 +140,34 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Init value) init,
+    required TResult Function(_Publish value) publish,
   }) {
-    return init(this);
+    return publish(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Init value)? init,
+    TResult? Function(_Publish value)? publish,
   }) {
-    return init?.call(this);
+    return publish?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Init value)? init,
+    TResult Function(_Publish value)? publish,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(this);
+    if (publish != null) {
+      return publish(this);
     }
     return orElse();
   }
 }
 
-abstract class _Init implements CreatePostEvent {
-  const factory _Init() = _$InitImpl;
+abstract class _Publish implements CreatePostEvent {
+  const factory _Publish() = _$PublishImpl;
 }
 
 /// @nodoc

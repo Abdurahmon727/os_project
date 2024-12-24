@@ -58,7 +58,12 @@ class OwnerHomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
-        onPressed: () => context.pushNamed(Routes.createPost),
+        onPressed: () async {
+          final result = await context.pushNamed<dynamic>(Routes.createPost);
+          if (result is bool && result) {
+            if (context.mounted) context.read<OwnerHomeBloc>().add(const OwnerHomeEvent.init());
+          }
+        },
         child: const Icon(Icons.add),
       ),
     );
