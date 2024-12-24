@@ -1,17 +1,18 @@
 import 'package:os_project/core/either/either.dart';
+import 'package:os_project/data/posts/post_model.dart';
 
 import '../core/enums/profile_type.dart';
 import '../core/error/failure.dart';
-import '../data/auth/auth_response.dart';
+import '../data/auth/profile_model.dart';
 
 abstract class Repository {
-  Future<Either<Failure, AuthResponse>> login({
+  Future<Either<Failure, ProfileModel>> login({
     required String email,
     required String password,
     required ProfileType profileType,
   });
 
-  Future<Either<Failure, AuthResponse>> register({
+  Future<Either<Failure, ProfileModel>> register({
     required String id,
     required String email,
     required String fullName,
@@ -19,4 +20,12 @@ abstract class Repository {
     required String password,
     required ProfileType profileType,
   });
+
+  Future<Either<Failure, void>> createPost();
+
+  Future<Either<Failure, List<PostModel>>> getOwnerPosts();
+
+  Future<Either<Failure, List<PostModel>>> getClientPosts();
+
+  Future<Either<Failure, List<PostModel>>> getSysAdminPosts();
 }

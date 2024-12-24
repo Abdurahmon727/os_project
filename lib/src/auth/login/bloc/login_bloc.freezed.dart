@@ -279,7 +279,7 @@ abstract class _Login implements LoginEvent {
 mixin _$LoginState {
   FormzStatus get status => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
-  AuthResponse? get profile => throw _privateConstructorUsedError;
+  ProfileModel? get profile => throw _privateConstructorUsedError;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -294,7 +294,7 @@ abstract class $LoginStateCopyWith<$Res> {
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
-  $Res call({FormzStatus status, String message, AuthResponse? profile});
+  $Res call({FormzStatus status, String message, ProfileModel? profile});
 }
 
 /// @nodoc
@@ -328,7 +328,7 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
       profile: freezed == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as AuthResponse?,
+              as ProfileModel?,
     ) as $Val);
   }
 }
@@ -341,7 +341,7 @@ abstract class _$$LoginStateImplCopyWith<$Res>
       __$$LoginStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FormzStatus status, String message, AuthResponse? profile});
+  $Res call({FormzStatus status, String message, ProfileModel? profile});
 }
 
 /// @nodoc
@@ -373,7 +373,7 @@ class __$$LoginStateImplCopyWithImpl<$Res>
       profile: freezed == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as AuthResponse?,
+              as ProfileModel?,
     ));
   }
 }
@@ -392,7 +392,7 @@ class _$LoginStateImpl implements _LoginState {
   final String message;
   @override
   @JsonKey()
-  final AuthResponse? profile;
+  final ProfileModel? profile;
 
   @override
   String toString() {
@@ -425,14 +425,14 @@ abstract class _LoginState implements LoginState {
   const factory _LoginState(
       {final FormzStatus status,
       final String message,
-      final AuthResponse? profile}) = _$LoginStateImpl;
+      final ProfileModel? profile}) = _$LoginStateImpl;
 
   @override
   FormzStatus get status;
   @override
   String get message;
   @override
-  AuthResponse? get profile;
+  ProfileModel? get profile;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.

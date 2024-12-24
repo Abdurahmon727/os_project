@@ -1,7 +1,7 @@
 import "dart:convert";
 
 import "package:hive/hive.dart";
-import "package:os_project/data/auth/auth_response.dart";
+import "package:os_project/data/auth/profile_model.dart";
 
 import "keys.dart";
 
@@ -11,17 +11,17 @@ final class LocalSource {
   final Box<dynamic> box;
 
   /// profile
-  Future<void> setProfile(AuthResponse profile) async {
+  Future<void> setProfile(ProfileModel profile) async {
     await setCache(
       AppKeys.profile,
       jsonEncode(profile.toJson()),
     );
   }
 
-  AuthResponse? get profile {
+  ProfileModel? get profile {
     final String profile = getCache(AppKeys.profile);
     if (profile.isNotEmpty) {
-      return AuthResponse.fromJson(
+      return ProfileModel.fromJson(
         jsonDecode(profile),
       );
     }

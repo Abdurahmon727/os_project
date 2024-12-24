@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:os_project/core/enums/formz_status.dart';
 import 'package:os_project/core/enums/profile_type.dart';
 
-import '../../../../data/auth/auth_response.dart';
+import '../../../../data/auth/profile_model.dart';
 import '../../../../domain/repository.dart';
 
 part 'login_event.dart';

@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'auth_response.g.dart';
+part 'profile_model.g.dart';
 
 @JsonSerializable()
-class AuthResponse {
+class ProfileModel {
   @JsonKey(name: "id")
   final String? id;
   @JsonKey(name: "email")
@@ -21,7 +21,7 @@ class AuthResponse {
   @JsonKey(name: "updated_at")
   final String? updatedAt;
 
-  AuthResponse({
+  ProfileModel({
     this.id,
     this.email,
     this.fullName,
@@ -32,13 +32,13 @@ class AuthResponse {
     this.updatedAt,
   });
 
-  factory AuthResponse.fromJson(Map<String, dynamic> json) => _$AuthResponseFromJson(json);
+  factory ProfileModel.fromJson(Map<String, dynamic> json) => _$ProfileModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$AuthResponseToJson(this);
+  Map<String, dynamic> toJson() => _$ProfileModelToJson(this);
 
   @override
   String toString() {
-    return 'AuthResponse(id: $id, email: $email, fullname: $fullName, password: $password, '
+    return 'ProfileModel(id: $id, email: $email, fullname: $fullName, password: $password, '
         'address: $address, type: $type, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 }
