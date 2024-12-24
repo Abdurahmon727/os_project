@@ -17,4 +17,26 @@ abstract class Constants {
     "Tashkent",
     "Karakalpakstan",
   ];
+
+  static const List<String> specialBenefits = [
+    'Garden included',
+    'Near to Subway',
+    'Has children playground',
+    'Has swimming pool',
+    'Has playground',
+    'Has BBQ area',
+    'Has gym',
+    'Has tennis court',
+    'Has basketball court',
+    'Has volleyball court',
+    'Advanced security',
+    'Has sauna',
+    'Smart House',
+    'Modern Design',
+    'Has Solar panels',
+    'Natural Gas',
+    'Friendly neighbors',
+    'Near beach',
+    'Near to market',
+  ];
 }

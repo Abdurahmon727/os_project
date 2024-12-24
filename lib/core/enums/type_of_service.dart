@@ -1,0 +1,4 @@
+enum TypeOfService {
+  Rent,
+  Sell,
+}

@@ -58,16 +58,16 @@ class _ClientHomePageState extends State<ClientHomePage> with ClientHomePageMixi
                                   Padding(
                                     padding: const EdgeInsets.symmetric(horizontal: 4),
                                     child: FilterChip(
-                                      selected: state.selectedRealEstate == RealEstateType.land,
-                                      onSelected: (_) => selectType(RealEstateType.land),
+                                      selected: state.selectedRealEstate == RealEstateType.Land,
+                                      onSelected: (_) => selectType(RealEstateType.Land),
                                       label: const Text('Land'),
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.symmetric(horizontal: 4),
                                     child: FilterChip(
-                                      selected: state.selectedRealEstate == RealEstateType.house,
-                                      onSelected: (_) => selectType(RealEstateType.house),
+                                      selected: state.selectedRealEstate == RealEstateType.House,
+                                      onSelected: (_) => selectType(RealEstateType.House),
                                       label: const Text('House'),
                                     ),
                                   ),
@@ -75,8 +75,8 @@ class _ClientHomePageState extends State<ClientHomePage> with ClientHomePageMixi
                                     padding: const EdgeInsets.symmetric(horizontal: 4),
                                     child: FilterChip(
                                       selected:
-                                          state.selectedRealEstate == RealEstateType.apartment,
-                                      onSelected: (_) => selectType(RealEstateType.apartment),
+                                          state.selectedRealEstate == RealEstateType.Apartment,
+                                      onSelected: (_) => selectType(RealEstateType.Apartment),
                                       label: const Text('Apartment'),
                                     ),
                                   )

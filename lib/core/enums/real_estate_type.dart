@@ -1,5 +1,5 @@
 enum RealEstateType {
-  land,
-  house,
-  apartment,
+  Land,
+  House,
+  Apartment,
 }

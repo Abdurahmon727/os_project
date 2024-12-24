@@ -22,7 +22,7 @@ class CustomTextField extends StatelessWidget {
     this.inputFormatters,
     this.textInputAction = TextInputAction.done,
     this.nextFocus,
-    required this.hintText,
+    this.hintText = '',
     this.errorText,
     this.suffix,
     this.suffixIcon,
