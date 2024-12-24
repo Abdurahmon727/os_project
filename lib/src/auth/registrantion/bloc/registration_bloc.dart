@@ -30,6 +30,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
       /// failed
       if (result.isLeft) {
         emit(state.copyWith(status: FormzStatus.failure, message: result.left.message));
+        emit(state.copyWith(status: FormzStatus.pure));
         return;
       }
 

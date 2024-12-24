@@ -34,6 +34,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             message: result.left.message,
           ),
         );
+        emit(state.copyWith(status: FormzStatus.pure));
         return;
       }
 
