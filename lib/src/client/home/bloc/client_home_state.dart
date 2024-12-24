@@ -5,7 +5,8 @@ class ClientHomeState with _$ClientHomeState {
   const factory ClientHomeState({
     /// content
     @Default(FormzStatus.pure) FormzStatus status,
-    @Default([]) List<String> posts,
+    @Default([]) List<PostModel> posts,
+    @Default('') String message,
 
     /// selections
     @Default(null) RealEstateType? selectedRealEstate,

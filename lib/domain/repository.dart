@@ -1,4 +1,5 @@
 import 'package:os_project/core/either/either.dart';
+import 'package:os_project/core/enums/real_estate_type.dart';
 import 'package:os_project/data/posts/post_model.dart';
 
 import '../core/enums/profile_type.dart';
@@ -25,7 +26,10 @@ abstract class Repository {
 
   Future<Either<Failure, List<PostModel>>> getOwnerPosts();
 
-  Future<Either<Failure, List<PostModel>>> getClientPosts();
+  Future<Either<Failure, List<PostModel>>> getClientPosts({
+    required RealEstateType? realEstateType,
+    required String? region,
+  });
 
   Future<Either<Failure, List<PostModel>>> getSysAdminPosts();
 }

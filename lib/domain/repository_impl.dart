@@ -8,6 +8,7 @@ import 'package:os_project/domain/repository.dart';
 import 'package:os_project/assets/constants.dart';
 
 import '../core/enums/profile_type.dart';
+import '../core/enums/real_estate_type.dart';
 import '../data/auth/profile_model.dart';
 
 class RepositoryImpl implements Repository {
@@ -149,9 +150,36 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<Either<Failure, List<PostModel>>> getClientPosts() {
-    // TODO: implement getClientPosts
-    throw UnimplementedError();
+  Future<Either<Failure, List<PostModel>>> getClientPosts({
+    required RealEstateType? realEstateType,
+    required String? region,
+  }) async {
+    try {
+      final response = await _dio.post(
+        '/post/get-list',
+        data: {
+          'status': 'accepted',
+          'real_estate_type': realEstateType?.name,
+          'region': region,
+        },
+      );
+      final List<PostModel> posts = [];
+      response.data?['Data']['posts']?.forEach((e) {
+        posts.add(PostModel.fromJson(e));
+      });
+      return Right(posts);
+    } on DioException catch (error, stacktrace) {
+      debugPrint('Dio Exception occurred: $error stacktrace: $stacktrace');
+      return Left(
+        ServerFailure(
+          message: error.message ?? Constants.defaultErrorMessage,
+          statusCode: error.response?.statusCode,
+        ),
+      );
+    } on Exception catch (error, stacktrace) {
+      debugPrint('Exception occurred: $error stacktrace: $stacktrace');
+      return const Left(UnknownFailure());
+    }
   }
 
   @override

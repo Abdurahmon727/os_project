@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:os_project/core/enums/real_estate_type.dart';
+import 'package:os_project/data/posts/post_model.dart';
 import 'package:os_project/domain/repository.dart';
 
 import '../../../../core/enums/formz_status.dart';
@@ -18,11 +19,21 @@ class ClientHomeBloc extends Bloc<ClientHomeEvent, ClientHomeState> {
     on<_Init>((event, emit) async {
       emit(state.copyWith(status: FormzStatus.loading));
 
-      await Future.delayed(const Duration(seconds: 3));
-      //todo:
+      final result = await _repo.getClientPosts(
+        realEstateType: null,
+        region: null,
+      );
+
+      /// failed
+      if (result.isLeft) {
+        emit(state.copyWith(status: FormzStatus.failure, message: result.left.message));
+        return;
+      }
+
+      /// success
       emit(state.copyWith(
         status: FormzStatus.success,
-        posts: ['post1', 'post2'],
+        posts: result.right,
       ));
     });
 
@@ -34,6 +45,7 @@ class ClientHomeBloc extends Bloc<ClientHomeEvent, ClientHomeState> {
         }
 
         emit(state.copyWith(selectedRealEstate: event.type));
+        add(const _LoadPosts());
       },
     );
 
@@ -43,6 +55,26 @@ class ClientHomeBloc extends Bloc<ClientHomeEvent, ClientHomeState> {
         return;
       }
       emit(state.copyWith(selectedRegion: event.region));
+      add(const _LoadPosts());
+    });
+
+    on<_LoadPosts>((event, emit) async {
+      final result = await _repo.getClientPosts(
+        realEstateType: state.selectedRealEstate,
+        region: state.selectedRegion,
+      );
+
+      /// failed
+      if (result.isLeft) {
+        emit(state.copyWith(status: FormzStatus.failure, message: result.left.message));
+        return;
+      }
+
+      /// success
+      emit(state.copyWith(
+        status: FormzStatus.success,
+        posts: result.right,
+      ));
     });
   }
 }

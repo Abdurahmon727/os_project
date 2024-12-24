@@ -21,6 +21,7 @@ mixin _$ClientHomeEvent {
     required TResult Function() init,
     required TResult Function(RealEstateType? type) selectRealEstate,
     required TResult Function(String? region) selectRegion,
+    required TResult Function() load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$ClientHomeEvent {
     TResult? Function()? init,
     TResult? Function(RealEstateType? type)? selectRealEstate,
     TResult? Function(String? region)? selectRegion,
+    TResult? Function()? load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$ClientHomeEvent {
     TResult Function()? init,
     TResult Function(RealEstateType? type)? selectRealEstate,
     TResult Function(String? region)? selectRegion,
+    TResult Function()? load,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$ClientHomeEvent {
     required TResult Function(_Init value) init,
     required TResult Function(_SelectRealEstate value) selectRealEstate,
     required TResult Function(_SelectRegion value) selectRegion,
+    required TResult Function(_LoadPosts value) load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$ClientHomeEvent {
     TResult? Function(_Init value)? init,
     TResult? Function(_SelectRealEstate value)? selectRealEstate,
     TResult? Function(_SelectRegion value)? selectRegion,
+    TResult? Function(_LoadPosts value)? load,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$ClientHomeEvent {
     TResult Function(_Init value)? init,
     TResult Function(_SelectRealEstate value)? selectRealEstate,
     TResult Function(_SelectRegion value)? selectRegion,
+    TResult Function(_LoadPosts value)? load,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,6 +132,7 @@ class _$InitImpl implements _Init {
     required TResult Function() init,
     required TResult Function(RealEstateType? type) selectRealEstate,
     required TResult Function(String? region) selectRegion,
+    required TResult Function() load,
   }) {
     return init();
   }
@@ -136,6 +143,7 @@ class _$InitImpl implements _Init {
     TResult? Function()? init,
     TResult? Function(RealEstateType? type)? selectRealEstate,
     TResult? Function(String? region)? selectRegion,
+    TResult? Function()? load,
   }) {
     return init?.call();
   }
@@ -146,6 +154,7 @@ class _$InitImpl implements _Init {
     TResult Function()? init,
     TResult Function(RealEstateType? type)? selectRealEstate,
     TResult Function(String? region)? selectRegion,
+    TResult Function()? load,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -160,6 +169,7 @@ class _$InitImpl implements _Init {
     required TResult Function(_Init value) init,
     required TResult Function(_SelectRealEstate value) selectRealEstate,
     required TResult Function(_SelectRegion value) selectRegion,
+    required TResult Function(_LoadPosts value) load,
   }) {
     return init(this);
   }
@@ -170,6 +180,7 @@ class _$InitImpl implements _Init {
     TResult? Function(_Init value)? init,
     TResult? Function(_SelectRealEstate value)? selectRealEstate,
     TResult? Function(_SelectRegion value)? selectRegion,
+    TResult? Function(_LoadPosts value)? load,
   }) {
     return init?.call(this);
   }
@@ -180,6 +191,7 @@ class _$InitImpl implements _Init {
     TResult Function(_Init value)? init,
     TResult Function(_SelectRealEstate value)? selectRealEstate,
     TResult Function(_SelectRegion value)? selectRegion,
+    TResult Function(_LoadPosts value)? load,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -265,6 +277,7 @@ class _$SelectRealEstateImpl implements _SelectRealEstate {
     required TResult Function() init,
     required TResult Function(RealEstateType? type) selectRealEstate,
     required TResult Function(String? region) selectRegion,
+    required TResult Function() load,
   }) {
     return selectRealEstate(type);
   }
@@ -275,6 +288,7 @@ class _$SelectRealEstateImpl implements _SelectRealEstate {
     TResult? Function()? init,
     TResult? Function(RealEstateType? type)? selectRealEstate,
     TResult? Function(String? region)? selectRegion,
+    TResult? Function()? load,
   }) {
     return selectRealEstate?.call(type);
   }
@@ -285,6 +299,7 @@ class _$SelectRealEstateImpl implements _SelectRealEstate {
     TResult Function()? init,
     TResult Function(RealEstateType? type)? selectRealEstate,
     TResult Function(String? region)? selectRegion,
+    TResult Function()? load,
     required TResult orElse(),
   }) {
     if (selectRealEstate != null) {
@@ -299,6 +314,7 @@ class _$SelectRealEstateImpl implements _SelectRealEstate {
     required TResult Function(_Init value) init,
     required TResult Function(_SelectRealEstate value) selectRealEstate,
     required TResult Function(_SelectRegion value) selectRegion,
+    required TResult Function(_LoadPosts value) load,
   }) {
     return selectRealEstate(this);
   }
@@ -309,6 +325,7 @@ class _$SelectRealEstateImpl implements _SelectRealEstate {
     TResult? Function(_Init value)? init,
     TResult? Function(_SelectRealEstate value)? selectRealEstate,
     TResult? Function(_SelectRegion value)? selectRegion,
+    TResult? Function(_LoadPosts value)? load,
   }) {
     return selectRealEstate?.call(this);
   }
@@ -319,6 +336,7 @@ class _$SelectRealEstateImpl implements _SelectRealEstate {
     TResult Function(_Init value)? init,
     TResult Function(_SelectRealEstate value)? selectRealEstate,
     TResult Function(_SelectRegion value)? selectRegion,
+    TResult Function(_LoadPosts value)? load,
     required TResult orElse(),
   }) {
     if (selectRealEstate != null) {
@@ -412,6 +430,7 @@ class _$SelectRegionImpl implements _SelectRegion {
     required TResult Function() init,
     required TResult Function(RealEstateType? type) selectRealEstate,
     required TResult Function(String? region) selectRegion,
+    required TResult Function() load,
   }) {
     return selectRegion(region);
   }
@@ -422,6 +441,7 @@ class _$SelectRegionImpl implements _SelectRegion {
     TResult? Function()? init,
     TResult? Function(RealEstateType? type)? selectRealEstate,
     TResult? Function(String? region)? selectRegion,
+    TResult? Function()? load,
   }) {
     return selectRegion?.call(region);
   }
@@ -432,6 +452,7 @@ class _$SelectRegionImpl implements _SelectRegion {
     TResult Function()? init,
     TResult Function(RealEstateType? type)? selectRealEstate,
     TResult Function(String? region)? selectRegion,
+    TResult Function()? load,
     required TResult orElse(),
   }) {
     if (selectRegion != null) {
@@ -446,6 +467,7 @@ class _$SelectRegionImpl implements _SelectRegion {
     required TResult Function(_Init value) init,
     required TResult Function(_SelectRealEstate value) selectRealEstate,
     required TResult Function(_SelectRegion value) selectRegion,
+    required TResult Function(_LoadPosts value) load,
   }) {
     return selectRegion(this);
   }
@@ -456,6 +478,7 @@ class _$SelectRegionImpl implements _SelectRegion {
     TResult? Function(_Init value)? init,
     TResult? Function(_SelectRealEstate value)? selectRealEstate,
     TResult? Function(_SelectRegion value)? selectRegion,
+    TResult? Function(_LoadPosts value)? load,
   }) {
     return selectRegion?.call(this);
   }
@@ -466,6 +489,7 @@ class _$SelectRegionImpl implements _SelectRegion {
     TResult Function(_Init value)? init,
     TResult Function(_SelectRealEstate value)? selectRealEstate,
     TResult Function(_SelectRegion value)? selectRegion,
+    TResult Function(_LoadPosts value)? load,
     required TResult orElse(),
   }) {
     if (selectRegion != null) {
@@ -488,10 +512,128 @@ abstract class _SelectRegion implements ClientHomeEvent {
 }
 
 /// @nodoc
+abstract class _$$LoadPostsImplCopyWith<$Res> {
+  factory _$$LoadPostsImplCopyWith(
+          _$LoadPostsImpl value, $Res Function(_$LoadPostsImpl) then) =
+      __$$LoadPostsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadPostsImplCopyWithImpl<$Res>
+    extends _$ClientHomeEventCopyWithImpl<$Res, _$LoadPostsImpl>
+    implements _$$LoadPostsImplCopyWith<$Res> {
+  __$$LoadPostsImplCopyWithImpl(
+      _$LoadPostsImpl _value, $Res Function(_$LoadPostsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ClientHomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoadPostsImpl implements _LoadPosts {
+  const _$LoadPostsImpl();
+
+  @override
+  String toString() {
+    return 'ClientHomeEvent.load()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadPostsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(RealEstateType? type) selectRealEstate,
+    required TResult Function(String? region) selectRegion,
+    required TResult Function() load,
+  }) {
+    return load();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(RealEstateType? type)? selectRealEstate,
+    TResult? Function(String? region)? selectRegion,
+    TResult? Function()? load,
+  }) {
+    return load?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(RealEstateType? type)? selectRealEstate,
+    TResult Function(String? region)? selectRegion,
+    TResult Function()? load,
+    required TResult orElse(),
+  }) {
+    if (load != null) {
+      return load();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_SelectRealEstate value) selectRealEstate,
+    required TResult Function(_SelectRegion value) selectRegion,
+    required TResult Function(_LoadPosts value) load,
+  }) {
+    return load(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_SelectRealEstate value)? selectRealEstate,
+    TResult? Function(_SelectRegion value)? selectRegion,
+    TResult? Function(_LoadPosts value)? load,
+  }) {
+    return load?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_SelectRealEstate value)? selectRealEstate,
+    TResult Function(_SelectRegion value)? selectRegion,
+    TResult Function(_LoadPosts value)? load,
+    required TResult orElse(),
+  }) {
+    if (load != null) {
+      return load(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadPosts implements ClientHomeEvent {
+  const factory _LoadPosts() = _$LoadPostsImpl;
+}
+
+/// @nodoc
 mixin _$ClientHomeState {
   /// content
   FormzStatus get status => throw _privateConstructorUsedError;
-  List<String> get posts => throw _privateConstructorUsedError;
+  List<PostModel> get posts => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
 
   /// selections
   RealEstateType? get selectedRealEstate => throw _privateConstructorUsedError;
@@ -512,7 +654,8 @@ abstract class $ClientHomeStateCopyWith<$Res> {
   @useResult
   $Res call(
       {FormzStatus status,
-      List<String> posts,
+      List<PostModel> posts,
+      String message,
       RealEstateType? selectedRealEstate,
       String? selectedRegion});
 }
@@ -534,6 +677,7 @@ class _$ClientHomeStateCopyWithImpl<$Res, $Val extends ClientHomeState>
   $Res call({
     Object? status = null,
     Object? posts = null,
+    Object? message = null,
     Object? selectedRealEstate = freezed,
     Object? selectedRegion = freezed,
   }) {
@@ -545,7 +689,11 @@ class _$ClientHomeStateCopyWithImpl<$Res, $Val extends ClientHomeState>
       posts: null == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<PostModel>,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
       selectedRealEstate: freezed == selectedRealEstate
           ? _value.selectedRealEstate
           : selectedRealEstate // ignore: cast_nullable_to_non_nullable
@@ -568,7 +716,8 @@ abstract class _$$ClientHomeStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {FormzStatus status,
-      List<String> posts,
+      List<PostModel> posts,
+      String message,
       RealEstateType? selectedRealEstate,
       String? selectedRegion});
 }
@@ -588,6 +737,7 @@ class __$$ClientHomeStateImplCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? posts = null,
+    Object? message = null,
     Object? selectedRealEstate = freezed,
     Object? selectedRegion = freezed,
   }) {
@@ -599,7 +749,11 @@ class __$$ClientHomeStateImplCopyWithImpl<$Res>
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<PostModel>,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
       selectedRealEstate: freezed == selectedRealEstate
           ? _value.selectedRealEstate
           : selectedRealEstate // ignore: cast_nullable_to_non_nullable
@@ -617,7 +771,8 @@ class __$$ClientHomeStateImplCopyWithImpl<$Res>
 class _$ClientHomeStateImpl implements _ClientHomeState {
   const _$ClientHomeStateImpl(
       {this.status = FormzStatus.pure,
-      final List<String> posts = const [],
+      final List<PostModel> posts = const [],
+      this.message = '',
       this.selectedRealEstate = null,
       this.selectedRegion = null})
       : _posts = posts;
@@ -626,14 +781,18 @@ class _$ClientHomeStateImpl implements _ClientHomeState {
   @override
   @JsonKey()
   final FormzStatus status;
-  final List<String> _posts;
+  final List<PostModel> _posts;
   @override
   @JsonKey()
-  List<String> get posts {
+  List<PostModel> get posts {
     if (_posts is EqualUnmodifiableListView) return _posts;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_posts);
   }
+
+  @override
+  @JsonKey()
+  final String message;
 
   /// selections
   @override
@@ -645,7 +804,7 @@ class _$ClientHomeStateImpl implements _ClientHomeState {
 
   @override
   String toString() {
-    return 'ClientHomeState(status: $status, posts: $posts, selectedRealEstate: $selectedRealEstate, selectedRegion: $selectedRegion)';
+    return 'ClientHomeState(status: $status, posts: $posts, message: $message, selectedRealEstate: $selectedRealEstate, selectedRegion: $selectedRegion)';
   }
 
   @override
@@ -655,6 +814,7 @@ class _$ClientHomeStateImpl implements _ClientHomeState {
             other is _$ClientHomeStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality().equals(other._posts, _posts) &&
+            (identical(other.message, message) || other.message == message) &&
             (identical(other.selectedRealEstate, selectedRealEstate) ||
                 other.selectedRealEstate == selectedRealEstate) &&
             (identical(other.selectedRegion, selectedRegion) ||
@@ -666,6 +826,7 @@ class _$ClientHomeStateImpl implements _ClientHomeState {
       runtimeType,
       status,
       const DeepCollectionEquality().hash(_posts),
+      message,
       selectedRealEstate,
       selectedRegion);
 
@@ -682,7 +843,8 @@ class _$ClientHomeStateImpl implements _ClientHomeState {
 abstract class _ClientHomeState implements ClientHomeState {
   const factory _ClientHomeState(
       {final FormzStatus status,
-      final List<String> posts,
+      final List<PostModel> posts,
+      final String message,
       final RealEstateType? selectedRealEstate,
       final String? selectedRegion}) = _$ClientHomeStateImpl;
 
@@ -690,7 +852,9 @@ abstract class _ClientHomeState implements ClientHomeState {
   @override
   FormzStatus get status;
   @override
-  List<String> get posts;
+  List<PostModel> get posts;
+  @override
+  String get message;
 
   /// selections
   @override

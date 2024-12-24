@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:os_project/assets/constants.dart';
 import 'package:os_project/core/enums/formz_status.dart';
+import 'package:os_project/core/extensions/context.dart';
 import 'package:os_project/core/extensions/size.dart';
 import 'package:os_project/core/widget/custom_app_bar.dart';
 import 'package:os_project/src/client/home/widget/post_preview.dart';
@@ -133,11 +134,19 @@ class _ClientHomePageState extends State<ClientHomePage> with ClientHomePageMixi
           ),
         ),
       ),
-      body: BlocBuilder<ClientHomeBloc, ClientHomeState>(
+      body: BlocConsumer<ClientHomeBloc, ClientHomeState>(
+        listener: listener,
         builder: (context, state) {
           if (state.status.isLoading) {
             return Center(
               child: Lottie.asset(AppAnimations.loadingAnimation),
+            );
+          }
+          final posts = state.posts;
+
+          if (posts.isEmpty) {
+            return Center(
+              child: Lottie.asset(AppAnimations.emptyAnimation),
             );
           }
 
@@ -149,14 +158,17 @@ class _ClientHomePageState extends State<ClientHomePage> with ClientHomePageMixi
               crossAxisSpacing: 16,
               childAspectRatio: 1.75,
             ),
-            itemCount: 20,
-            itemBuilder: (context, index) => WPostPreview(
-              onTap: () {
-                context.pushNamed(Routes.clientPostDetail);
-              },
-              image: 'https://picsum.photos/800/500',
-              title: 'room new $index',
-            ),
+            itemCount: posts.length,
+            itemBuilder: (context, index) {
+              final post = posts[index];
+              return WPostPreview(
+                onTap: () {
+                  context.pushNamed(Routes.clientPostDetail);
+                },
+                image: post.images?.firstOrNull ?? '',
+                title: post.title ?? '',
+              );
+            },
           );
         },
       ),

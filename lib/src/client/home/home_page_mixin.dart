@@ -18,4 +18,10 @@ mixin ClientHomePageMixin on State<ClientHomePage> {
   void selectRegion(String region) {
     clientHomeBloc.add(ClientHomeEvent.selectRegion(region: region));
   }
+
+  void listener(BuildContext context, ClientHomeState state) {
+    if (state.status.isFailure) {
+      context.showFailureMessage(state.message);
+    }
+  }
 }

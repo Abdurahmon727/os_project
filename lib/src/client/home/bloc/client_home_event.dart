@@ -7,4 +7,6 @@ class ClientHomeEvent with _$ClientHomeEvent {
   const factory ClientHomeEvent.selectRealEstate({RealEstateType? type}) = _SelectRealEstate;
 
   const factory ClientHomeEvent.selectRegion({String? region}) = _SelectRegion;
+
+  const factory ClientHomeEvent.load() = _LoadPosts;
 }
