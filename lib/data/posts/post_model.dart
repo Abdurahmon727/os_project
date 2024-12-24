@@ -35,7 +35,7 @@ class PostModel {
   @JsonKey(name: "special_benefits")
   final List<String>? specialBenefits;
   @JsonKey(name: "images")
-  final dynamic images;
+  final List<String>? images;
   @JsonKey(name: "status")
   final String? status;
   @JsonKey(name: "created_at")

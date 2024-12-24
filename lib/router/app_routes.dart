@@ -67,7 +67,7 @@ final GoRouter router = GoRouter(
       name: Routes.ownerHome,
       parentNavigatorKey: rootNavigatorKey,
       builder: (_, state) => BlocProvider(
-        create: (_) => sl<OwnerHomeBloc>(),
+        create: (_) => sl<OwnerHomeBloc>()..add(const OwnerHomeEvent.init()),
         child: const OwnerHomePage(),
       ),
     ),

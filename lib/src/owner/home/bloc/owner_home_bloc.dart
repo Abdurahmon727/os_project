@@ -1,7 +1,12 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../core/either/either.dart';
 import '../../../../core/enums/formz_status.dart';
+import '../../../../core/error/failure.dart';
+import '../../../../data/posts/post_model.dart';
 import '../../../../domain/repository.dart';
 
 part 'owner_home_event.dart';
@@ -13,9 +18,19 @@ part 'owner_home_bloc.freezed.dart';
 class OwnerHomeBloc extends Bloc<OwnerHomeEvent, OwnerHomeState> {
   final Repository _repo;
 
+  // late final StreamController<Either<Failure, List<PostModel>>> postsSteam;
+
   OwnerHomeBloc(this._repo) : super(const OwnerHomeState()) {
-    on<_Init>((event, emit) {
-      // TODO: implement event handler
+    // postsSteam = StreamController<Either<Failure, List<PostModel>>>();
+
+    on<_Init>((event, emit) async {
+      emit(state.copyWith(status: FormzStatus.loading));
+      final result = await _repo.getOwnerPosts();
+      result.fold((left) {
+        emit(state.copyWith(status: FormzStatus.failure, message: left.message));
+      }, (right) {
+        emit(state.copyWith(status: FormzStatus.success, posts: right));
+      });
     });
   }
 }

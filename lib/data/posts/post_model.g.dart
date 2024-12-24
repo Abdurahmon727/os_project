@@ -24,7 +24,8 @@ PostModel _$PostModelFromJson(Map<String, dynamic> json) => PostModel(
       specialBenefits: (json['special_benefits'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      images: json['images'],
+      images:
+          (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
       status: json['status'] as String?,
       createdAt: json['created_at'] as String?,
       updatedAt: json['updated_at'] as String?,

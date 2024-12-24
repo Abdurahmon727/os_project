@@ -5,5 +5,6 @@ class OwnerHomeState with _$OwnerHomeState {
   const factory OwnerHomeState({
     @Default(FormzStatus.pure) FormzStatus status,
     @Default('') String message,
+    @Default([]) List<PostModel> posts,
 }) = _OwnerHomeState;
 }

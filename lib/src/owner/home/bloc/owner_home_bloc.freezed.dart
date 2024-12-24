@@ -19,32 +19,38 @@ mixin _$OwnerHomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function() getPosts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function()? getPosts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function()? getPosts,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
+    required TResult Function(_GetPosts value) getPosts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
+    TResult? Function(_GetPosts value)? getPosts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
+    TResult Function(_GetPosts value)? getPosts,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,6 +118,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function() getPosts,
   }) {
     return init();
   }
@@ -120,6 +127,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function()? getPosts,
   }) {
     return init?.call();
   }
@@ -128,6 +136,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function()? getPosts,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -140,6 +149,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
+    required TResult Function(_GetPosts value) getPosts,
   }) {
     return init(this);
   }
@@ -148,6 +158,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
+    TResult? Function(_GetPosts value)? getPosts,
   }) {
     return init?.call(this);
   }
@@ -156,6 +167,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
+    TResult Function(_GetPosts value)? getPosts,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -170,9 +182,115 @@ abstract class _Init implements OwnerHomeEvent {
 }
 
 /// @nodoc
+abstract class _$$GetPostsImplCopyWith<$Res> {
+  factory _$$GetPostsImplCopyWith(
+          _$GetPostsImpl value, $Res Function(_$GetPostsImpl) then) =
+      __$$GetPostsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetPostsImplCopyWithImpl<$Res>
+    extends _$OwnerHomeEventCopyWithImpl<$Res, _$GetPostsImpl>
+    implements _$$GetPostsImplCopyWith<$Res> {
+  __$$GetPostsImplCopyWithImpl(
+      _$GetPostsImpl _value, $Res Function(_$GetPostsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OwnerHomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetPostsImpl implements _GetPosts {
+  const _$GetPostsImpl();
+
+  @override
+  String toString() {
+    return 'OwnerHomeEvent.getPosts()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetPostsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() getPosts,
+  }) {
+    return getPosts();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? getPosts,
+  }) {
+    return getPosts?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? getPosts,
+    required TResult orElse(),
+  }) {
+    if (getPosts != null) {
+      return getPosts();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_GetPosts value) getPosts,
+  }) {
+    return getPosts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_GetPosts value)? getPosts,
+  }) {
+    return getPosts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_GetPosts value)? getPosts,
+    required TResult orElse(),
+  }) {
+    if (getPosts != null) {
+      return getPosts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetPosts implements OwnerHomeEvent {
+  const factory _GetPosts() = _$GetPostsImpl;
+}
+
+/// @nodoc
 mixin _$OwnerHomeState {
   FormzStatus get status => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
+  List<PostModel> get posts => throw _privateConstructorUsedError;
 
   /// Create a copy of OwnerHomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -187,7 +305,7 @@ abstract class $OwnerHomeStateCopyWith<$Res> {
           OwnerHomeState value, $Res Function(OwnerHomeState) then) =
       _$OwnerHomeStateCopyWithImpl<$Res, OwnerHomeState>;
   @useResult
-  $Res call({FormzStatus status, String message});
+  $Res call({FormzStatus status, String message, List<PostModel> posts});
 }
 
 /// @nodoc
@@ -207,6 +325,7 @@ class _$OwnerHomeStateCopyWithImpl<$Res, $Val extends OwnerHomeState>
   $Res call({
     Object? status = null,
     Object? message = null,
+    Object? posts = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -217,6 +336,10 @@ class _$OwnerHomeStateCopyWithImpl<$Res, $Val extends OwnerHomeState>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      posts: null == posts
+          ? _value.posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<PostModel>,
     ) as $Val);
   }
 }
@@ -229,7 +352,7 @@ abstract class _$$OwnerHomeStateImplCopyWith<$Res>
       __$$OwnerHomeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FormzStatus status, String message});
+  $Res call({FormzStatus status, String message, List<PostModel> posts});
 }
 
 /// @nodoc
@@ -247,6 +370,7 @@ class __$$OwnerHomeStateImplCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? message = null,
+    Object? posts = null,
   }) {
     return _then(_$OwnerHomeStateImpl(
       status: null == status
@@ -257,6 +381,10 @@ class __$$OwnerHomeStateImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      posts: null == posts
+          ? _value._posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<PostModel>,
     ));
   }
 }
@@ -265,7 +393,10 @@ class __$$OwnerHomeStateImplCopyWithImpl<$Res>
 
 class _$OwnerHomeStateImpl implements _OwnerHomeState {
   const _$OwnerHomeStateImpl(
-      {this.status = FormzStatus.pure, this.message = ''});
+      {this.status = FormzStatus.pure,
+      this.message = '',
+      final List<PostModel> posts = const []})
+      : _posts = posts;
 
   @override
   @JsonKey()
@@ -273,10 +404,18 @@ class _$OwnerHomeStateImpl implements _OwnerHomeState {
   @override
   @JsonKey()
   final String message;
+  final List<PostModel> _posts;
+  @override
+  @JsonKey()
+  List<PostModel> get posts {
+    if (_posts is EqualUnmodifiableListView) return _posts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_posts);
+  }
 
   @override
   String toString() {
-    return 'OwnerHomeState(status: $status, message: $message)';
+    return 'OwnerHomeState(status: $status, message: $message, posts: $posts)';
   }
 
   @override
@@ -285,11 +424,13 @@ class _$OwnerHomeStateImpl implements _OwnerHomeState {
         (other.runtimeType == runtimeType &&
             other is _$OwnerHomeStateImpl &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality().equals(other._posts, _posts));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, message);
+  int get hashCode => Object.hash(runtimeType, status, message,
+      const DeepCollectionEquality().hash(_posts));
 
   /// Create a copy of OwnerHomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -303,12 +444,16 @@ class _$OwnerHomeStateImpl implements _OwnerHomeState {
 
 abstract class _OwnerHomeState implements OwnerHomeState {
   const factory _OwnerHomeState(
-      {final FormzStatus status, final String message}) = _$OwnerHomeStateImpl;
+      {final FormzStatus status,
+      final String message,
+      final List<PostModel> posts}) = _$OwnerHomeStateImpl;
 
   @override
   FormzStatus get status;
   @override
   String get message;
+  @override
+  List<PostModel> get posts;
 
   /// Create a copy of OwnerHomeState
   /// with the given fields replaced by the non-null parameter values.

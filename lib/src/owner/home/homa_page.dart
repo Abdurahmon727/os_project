@@ -27,6 +27,13 @@ class OwnerHomePage extends StatelessWidget {
               child: Lottie.asset(AppAnimations.loadingAnimation),
             );
           }
+          final posts = state.posts;
+
+          if (posts.isEmpty) {
+            return Center(
+              child: Lottie.asset(AppAnimations.emptyAnimation),
+            );
+          }
 
           return GridView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
@@ -36,13 +43,16 @@ class OwnerHomePage extends StatelessWidget {
               crossAxisSpacing: 16,
               childAspectRatio: 1.75,
             ),
-            itemCount: 20,
-            itemBuilder: (context, index) => WPostPreview(
-              onTap: () {},
-              image: 'https://picsum.photos/800/500',
-              title: 'room new $index',
-              status: 'approved',
-            ),
+            itemCount: posts.length,
+            itemBuilder: (context, index) {
+              final post = posts[index];
+              return WPostPreview(
+                onTap: () {},
+                image: post.images?.firstOrNull ?? '',
+                title: post.title ?? '',
+                status: post.status ?? '',
+              );
+            },
           );
         },
       ),
