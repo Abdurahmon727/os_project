@@ -107,33 +107,27 @@ class _RegistrationPageState extends State<RegistrationPage> with RegistrationMi
                     label: const Text('Owner'),
                   ),
                 ],
-              )
+              ),
+              20.h,
+              ElevatedButton(
+                onPressed: onRegisterTap,
+                child: BlocSelector<RegistrationBloc, RegistrationState, FormzStatus>(
+                  selector: (state) => state.status,
+                  builder: (context, status) {
+                    if (status.isLoading) {
+                      return const CupertinoActivityIndicator();
+                    }
+                    return const Text('Register');
+                  },
+                ),
+              ),
+              10.h,
+              TextButton(
+                onPressed: () => context.pushNamed(Routes.login),
+                child: const Text('Login here'),
+              ),
             ],
           ),
-        ),
-        bottomNavigationBar: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            6.h,
-            ElevatedButton(
-              onPressed: onRegisterTap,
-              child: BlocSelector<RegistrationBloc, RegistrationState, FormzStatus>(
-                selector: (state) => state.status,
-                builder: (context, status) {
-                  if (status.isLoading) {
-                    return const CupertinoActivityIndicator();
-                  }
-                  return const Text('Register');
-                },
-              ),
-            ),
-            10.h,
-            TextButton(
-              onPressed: () => context.pushNamed(Routes.login),
-              child: const Text('Login here'),
-            ),
-            6.h,
-          ],
         ),
       ),
     );

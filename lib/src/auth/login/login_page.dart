@@ -51,64 +51,59 @@ class _LoginPageState extends State<LoginPage> with LoginMixin {
                 validator: passwordValidator,
               ),
               20.h,
-              Wrap(
-                alignment: WrapAlignment.center,
-                spacing: 20,
-                runSpacing: 10,
-                children: [
-                  FilterChip(
-                    selected: profileType.isClient,
-                    onSelected: (value) {
-                      if (value) {
-                        profileType = ProfileType.Client;
-                        setState(() {});
-                      }
-                    },
-                    label: const Text('Client'),
-                  ),
-                  FilterChip(
-                    selected: profileType.isOwner,
-                    onSelected: (value) {
-                      if (value) {
-                        profileType = ProfileType.Owner;
-                        setState(() {});
-                      }
-                    },
-                    label: const Text('Owner'),
-                  ),
-                  FilterChip(
-                    selected: profileType.isSysAdmin,
-                    onSelected: (value) {
-                      if (value) {
-                        profileType = ProfileType.Sys_admin;
-                        setState(() {});
-                      }
-                    },
-                    label: const Text('Sys Admin'),
-                  ),
-                ],
-              )
+              // Wrap(
+              //   alignment: WrapAlignment.center,
+              //   spacing: 20,
+              //   runSpacing: 10,
+              //   children: [
+              //     FilterChip(
+              //       selected: profileType.isClient,
+              //       onSelected: (value) {
+              //         if (value) {
+              //           profileType = ProfileType.Client;
+              //           setState(() {});
+              //         }
+              //       },
+              //       label: const Text('Client'),
+              //     ),
+              //     FilterChip(
+              //       selected: profileType.isOwner,
+              //       onSelected: (value) {
+              //         if (value) {
+              //           profileType = ProfileType.Owner;
+              //           setState(() {});
+              //         }
+              //       },
+              //       label: const Text('Owner'),
+              //     ),
+              //     FilterChip(
+              //       selected: profileType.isSysAdmin,
+              //       onSelected: (value) {
+              //         if (value) {
+              //           profileType = ProfileType.Sys_admin;
+              //           setState(() {});
+              //         }
+              //       },
+              //       label: const Text('Sys Admin'),
+              //     ),
+              //   ],
+              // )
+              6.h,
+              ElevatedButton(
+                onPressed: onTapLogin,
+                child: BlocSelector<LoginBloc, LoginState, FormzStatus>(
+                  selector: (state) => state.status,
+                  builder: (context, status) {
+                    if (status.isLoading) {
+                      return const CupertinoActivityIndicator();
+                    }
+                    return const Text('Login');
+                  },
+                ),
+              ),
+              6.h
             ],
           ),
-        ),
-        bottomNavigationBar: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            6.h,
-            ElevatedButton(
-              onPressed: onTapLogin,
-              child: BlocSelector<LoginBloc, LoginState, FormzStatus>(
-                selector: (state) => state.status,
-                builder: (context, status) {
-                  if (status.isLoading) {
-                    return const CupertinoActivityIndicator();
-                  }
-                  return const Text('Login');
-                },
-              ),
-            ),
-            6.h
-          ],
         ),
       ),
     );
