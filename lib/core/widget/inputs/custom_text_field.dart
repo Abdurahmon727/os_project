@@ -146,16 +146,26 @@ class CustomTextField extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 color: context.colorScheme.error,
               ),
-              border:
-                  const OutlineInputBorder(borderSide: BorderSide(color: Colors.black, width: 1)),
-              enabledBorder:
-                  const OutlineInputBorder(borderSide: BorderSide(color: Colors.black, width: 1)),
-              focusedBorder:
-                  const OutlineInputBorder(borderSide: BorderSide(color: Colors.black, width: 1.5)),
-              errorBorder:
-                  const OutlineInputBorder(borderSide: BorderSide(color: Colors.red, width: 1)),
-              focusedErrorBorder:
-                  const OutlineInputBorder(borderSide: BorderSide(color: Colors.red, width: 1.5)),
+              border: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.black, width: 1),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.black, width: 1),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.black, width: 1.5),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.red, width: 1),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Colors.red, width: 1.5),
+                borderRadius: BorderRadius.circular(12),
+              ),
             ),
             cursorHeight: cursorHeight,
             autofillHints: autofillHints,
