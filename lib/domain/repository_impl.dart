@@ -38,7 +38,8 @@ class RepositoryImpl implements Repository {
       );
       final data = ProfileModel.fromJson(response.data?['Data']);
       if ((data.id ?? '').isEmpty) {
-        return const Left(ServerFailure(message: 'User not found', statusCode: 404));
+        return const Left(
+            ServerFailure(message: 'User not found', statusCode: 404));
       }
       await _localSource.setProfile(data);
       return Right(data);
