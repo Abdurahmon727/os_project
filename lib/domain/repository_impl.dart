@@ -88,24 +88,39 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<Either<Failure, void>> createPost() async {
+  Future<Either<Failure, void>> createPost({
+    required String realEstateType,
+    required String serviceType,
+    required String title,
+    required String description,
+    required String region,
+    required String address,
+    required String contactDetails,
+    required int area,
+    required int numberOfRooms,
+    required int floorNumber,
+    required int price,
+    required int rentPrice,
+    required List<String> specialBenefits,
+  }) async {
     try {
       await _dio.post<Map<String, dynamic>>(
         '/post',
         data: {
-          "real_estate_type": "House",
-          "service_type": "Rent",
+          "real_estate_type": realEstateType,
+          "service_type": serviceType,
           "user_id": _localSource.profile?.id,
-          "title": "Spacious 3 Bedroom House for Rent",
-          "description": "A beautiful and spacious house with a large garden and modern amenities.",
-          "region": "Tashkent",
-          "address": "5678 Oak Avenue, Metropolis, NY",
-          "contact_details": "contact@realestate.com",
-          "area": 2500,
-          "number_of_rooms": 3,
-          "floor_number": 1,
-          "rent_price": 2000,
-          "special_benefits": ["Swimming Pool", "Gym Access"]
+          "title": title,
+          "description": description,
+          "region": region,
+          "address": address,
+          "contact_details": contactDetails,
+          "area": area,
+          "number_of_rooms": numberOfRooms,
+          "floor_number": floorNumber,
+          "price": price,
+          "rent_price": rentPrice,
+          "special_benefits": specialBenefits,
         },
       );
       return const Right(null);

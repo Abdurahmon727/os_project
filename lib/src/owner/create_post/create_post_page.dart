@@ -102,19 +102,19 @@ class _CreatePostPageState extends State<CreatePostPage> with CreatePostPageMixi
                         ),
                         20.h,
                         CustomTextField(
-                          controller: TextEditingController(),
+                          controller: titleController,
                           labelText: 'Title',
                           validator: emptyValidator,
                         ),
                         20.h,
                         CustomTextField(
-                          controller: TextEditingController(),
+                          controller: descriptionController,
                           labelText: 'Description',
                           validator: emptyValidator,
                         ),
                         20.h,
                         CustomTextField(
-                          controller: TextEditingController(),
+                          controller: areaController,
                           labelText: 'Area (meter sq.)',
                           textInputType: TextInputType.number,
                           validator: emptyValidator,
@@ -145,29 +145,28 @@ class _CreatePostPageState extends State<CreatePostPage> with CreatePostPageMixi
 
                         20.h,
                         CustomTextField(
-                          controller: TextEditingController(),
-                          labelText: 'Adress',
+                          controller: addressController,
+                          labelText: 'Address',
                           validator: emptyValidator,
                         ),
                         20.h,
                         CustomTextField(
-                          controller: TextEditingController(),
+                          controller: numberOfRoomsController,
                           labelText: 'Number of rooms',
-                          validator: emptyValidator,
+                          // validator: emptyValidator,
                           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         ),
                         20.h,
                         CustomTextField(
-                          controller: TextEditingController(),
+                          controller: floorNumberController,
                           labelText: 'Floor number',
-                          validator: emptyValidator,
+                          // validator: emptyValidator,
                           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         ),
                         20.h,
                         CustomTextField(
-                          controller: TextEditingController(),
+                          controller: contactDetailsController,
                           labelText: 'Contact information',
-                          validator: emailValidator,
                         ),
                       ],
                     ),
@@ -203,13 +202,13 @@ class _CreatePostPageState extends State<CreatePostPage> with CreatePostPageMixi
                           builder: (context, serviceType) {
                             if (serviceType.isRent) {
                               return CustomTextField(
-                                controller: TextEditingController(),
+                                controller: rentPriceController,
                                 labelText: 'Rent Price (monthly)',
                                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                               );
                             } else if (serviceType.isSell) {
                               return CustomTextField(
-                                controller: TextEditingController(),
+                                controller: priceController,
                                 labelText: 'Price',
                                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                               );

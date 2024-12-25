@@ -63,6 +63,7 @@ mixin CreatePostPageMixin on State<CreatePostPage> {
       final price = int.tryParse(priceController.text) ?? 0;
       final rentPrice = int.tryParse(rentPriceController.text) ?? 0;
 
+
       context.read<CreatePostBloc>().add(
             CreatePostEvent.publish(
               title: titleController.text,

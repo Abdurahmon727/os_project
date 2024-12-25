@@ -40,8 +40,39 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
 
     ///
     on<_Publish>((event, emit) async {
+      if (state.realEstateType == null) {
+        emit(state.copyWith(status: FormzStatus.failure, message: 'Please select house type'));
+        return;
+      }
+
+      if (state.typeOfService == null) {
+        emit(state.copyWith(status: FormzStatus.failure, message: 'Please select service type'));
+        return;
+      }
+
+      if (state.region == null) {
+        emit(state.copyWith(status: FormzStatus.failure, message: 'Please select region'));
+        return;
+      }
+
       emit(state.copyWith(status: FormzStatus.loading));
-      final result = await _repo.createPost();
+      final result = await _repo.createPost(
+        realEstateType: state.realEstateType?.name ?? "",
+        serviceType: state.typeOfService?.name ?? "",
+        title: event.title,
+        description: event.description,
+        area: event.area,
+        region: state.region ?? '',
+        address: event.address,
+        numberOfRooms: event.numberOfRooms,
+        floorNumber: event.floorNumber,
+        contactDetails: event.contactDetails,
+
+        ///
+        rentPrice: event.rentPrice,
+        price: event.price,
+        specialBenefits: state.specialBenefits,
+      );
       result.fold((left) {
         emit(state.copyWith(status: FormzStatus.failure, message: left.message));
       }, (right) {

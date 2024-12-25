@@ -22,7 +22,21 @@ abstract class Repository {
     required ProfileType profileType,
   });
 
-  Future<Either<Failure, void>> createPost();
+  Future<Either<Failure, void>> createPost({
+    required String realEstateType,
+    required String serviceType,
+    required String title,
+    required String description,
+    required String region,
+    required String address,
+    required String contactDetails,
+    required int area,
+    required int numberOfRooms,
+    required int floorNumber,
+    required int price,
+    required int rentPrice,
+    required List<String> specialBenefits,
+  });
 
   Future<Either<Failure, List<PostModel>>> getOwnerPosts();
 
