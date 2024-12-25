@@ -180,16 +180,25 @@ class _CreatePostPageState extends State<CreatePostPage> with CreatePostPageMixi
                           child: const Text('Add image'),
                         ),
                         20.h,
-                        CustomTextField(
-                          controller: TextEditingController(),
-                          labelText: 'Price',
-                          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                        ),
-                        20.h,
-                        CustomTextField(
-                          controller: TextEditingController(),
-                          labelText: 'Rent Price (monthly)',
-                          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                        BlocSelector<CreatePostBloc, CreatePostState, TypeOfService?>(
+                          selector: (state) => state.typeOfService,
+                          builder: (context, serviceType) {
+                            if (serviceType.isRent) {
+                              return CustomTextField(
+                                controller: TextEditingController(),
+                                labelText: 'Rent Price (monthly)',
+                                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                              );
+                            } else if (serviceType.isSell) {
+                              return CustomTextField(
+                                controller: TextEditingController(),
+                                labelText: 'Price',
+                                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                              );
+                            }
+
+                            return const SizedBox.shrink();
+                          },
                         ),
                         20.h,
                         const Text('Special Benefits'),
