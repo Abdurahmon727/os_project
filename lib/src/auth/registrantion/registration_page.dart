@@ -40,18 +40,21 @@ class _RegistrationPageState extends State<RegistrationPage> with RegistrationMi
                 controller: fullNameController,
                 labelText: 'Full name',
                 hintText: 'Enter your full name',
+                validator: emptyValidator,
               ),
               20.h,
               CustomTextField(
                 controller: addressController,
                 labelText: 'Address',
                 hintText: 'Enter your address',
+                validator: emptyValidator,
               ),
               20.h,
               CustomTextField(
                 controller: idController,
-                labelText: 'ID',
+                labelText: 'ID (Passport Id)',
                 hintText: 'Enter your ID',
+                validator: emptyValidator,
               ),
               20.h,
               CustomTextField(
