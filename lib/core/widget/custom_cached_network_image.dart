@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:os_project/core/extensions/context.dart';
+import 'package:os_project/core/extensions/string_extenions.dart';
 
 class CustomCachedNetworkImage extends StatelessWidget {
   const CustomCachedNetworkImage({
@@ -35,7 +36,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
       width: width,
       height: height,
       cacheKey: imageUrl,
-      imageUrl: imageUrl,
+      imageUrl: imageUrl.publicUrl,
 
       ///
       memCacheWidth: cacheWidth,

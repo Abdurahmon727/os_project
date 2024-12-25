@@ -1,3 +1,5 @@
+import 'package:os_project/assets/constants.dart';
+
 extension StringExtenions on String {
   String get capitalizeFirstLetter {
     if (length <= 1) return this;
@@ -7,6 +9,10 @@ extension StringExtenions on String {
   String get profileIndicator {
     if (length <= 2) return this;
     return '${this[0].toUpperCase()}${this[1].toUpperCase()}';
+  }
+
+  String get publicUrl {
+    return replaceAll('http://localhost', Constants.base);
   }
 }
 
