@@ -1,22 +1,24 @@
 import 'dart:io';
 
 abstract class SocketService {
-  static late final Socket socket;
+  static Socket? socket;
 
   static Future<void> connect() async {
-    socket = await Socket.connect('127.0.0.1', 8080);
+    try {
+      socket = await Socket.connect('127.0.0.1', 8080);
 
-    socket.listen((List<int> data) {
-      print('SERVER RESPONSE: ${String.fromCharCodes(data)}');
-    });
+      socket?.listen((List<int> data) {
+        print('SERVER RESPONSE: ${String.fromCharCodes(data)}');
+      });
+    } catch (_) {}
   }
 
   static void send(String message) {
-    socket.write(message);
+    socket?.write(message);
   }
 
   static void disconnect() {
-    socket.destroy();
+    socket?.destroy();
   }
 }
 //
