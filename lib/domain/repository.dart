@@ -33,6 +33,7 @@ abstract class Repository {
     required int area,
     required int numberOfRooms,
     required int floorNumber,
+    required List<String> images,
     required int price,
     required int rentPrice,
     required List<String> specialBenefits,
@@ -47,5 +48,5 @@ abstract class Repository {
 
   Future<Either<Failure, List<PostModel>>> getSysAdminPosts();
 
-  Future<Either<Failure, void>> acceptPost({required String postId});
+  Future<Either<Failure, void>> acceptPost({required String postId, required String status});
 }

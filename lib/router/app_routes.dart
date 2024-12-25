@@ -15,6 +15,7 @@ import "package:os_project/src/sys_admin/check_post/check_post_page.dart";
 import "package:os_project/src/sys_admin/home/homa_page.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 import "../core/local_source/local_source.dart";
+import "../data/posts/post_model.dart";
 import "../src/client/post_detail/detail_page.dart";
 import "../src/owner/home/bloc/owner_home_bloc.dart";
 import "../src/splash/splash_page.dart";
@@ -107,7 +108,7 @@ final GoRouter router = GoRouter(
       name: Routes.sysAdminHome,
       parentNavigatorKey: rootNavigatorKey,
       builder: (_, state) => BlocProvider(
-        create: (_) => sl<SysAdminHomeBloc>(),
+        create: (_) => sl<SysAdminHomeBloc>()..add(const SysAdminHomeEvent.init()),
         child: const SysAdminHomePage(),
       ),
     ),
@@ -115,10 +116,13 @@ final GoRouter router = GoRouter(
       path: Routes.checkPost,
       name: Routes.checkPost,
       parentNavigatorKey: rootNavigatorKey,
-      builder: (_, state) => BlocProvider(
-        create: (_) => sl<CheckPostBloc>(),
-        child: const CheckPostPage(),
-      ),
+      builder: (_, state) {
+        final post = state.extra as PostModel;
+        return BlocProvider(
+          create: (_) => sl<CheckPostBloc>(),
+          child: CheckPostPage(post: post),
+        );
+      },
     ),
 
     // GoRoute(

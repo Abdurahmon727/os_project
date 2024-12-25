@@ -14,8 +14,22 @@ class CheckPostBloc extends Bloc<CheckPostEvent, CheckPostState> {
   final Repository _repo;
 
   CheckPostBloc(this._repo) : super(const CheckPostState()) {
-    on<_Init>((event, emit) {
-      // TODO: implement event handler
+    on<_Accept>((event, emit) async {
+      final result = await _repo.acceptPost(postId: event.id, status: 'accepted');
+      result.fold((left) {
+        emit(state.copyWith(status: FormzStatus.failure, message: left.message));
+      }, (right) {
+        emit(state.copyWith(status: FormzStatus.success, message: 'Post accepted successfully'));
+      });
+    });
+
+    on<_Reject>((event, emit) async {
+      final result = await _repo.acceptPost(postId: event.id, status: 'rejected');
+      result.fold((left) {
+        emit(state.copyWith(status: FormzStatus.failure, message: left.message));
+      }, (right) {
+        emit(state.copyWith(status: FormzStatus.success, message: 'Post rejected successfully'));
+      });
     });
   }
 }

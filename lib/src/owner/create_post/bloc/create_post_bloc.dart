@@ -67,6 +67,7 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
         numberOfRooms: event.numberOfRooms,
         floorNumber: event.floorNumber,
         contactDetails: event.contactDetails,
+        images: [],
 
         ///
         rentPrice: event.rentPrice,

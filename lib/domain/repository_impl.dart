@@ -99,6 +99,7 @@ class RepositoryImpl implements Repository {
     required int area,
     required int numberOfRooms,
     required int floorNumber,
+    required List<String> images,
     required int price,
     required int rentPrice,
     required List<String> specialBenefits,
@@ -115,6 +116,7 @@ class RepositoryImpl implements Repository {
           "region": region,
           "address": address,
           "contact_details": contactDetails,
+          'images': images,
           "area": area,
           "number_of_rooms": numberOfRooms,
           "floor_number": floorNumber,
@@ -226,11 +228,14 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<Either<Failure, void>> acceptPost({required String postId}) async {
+  Future<Either<Failure, void>> acceptPost({
+    required String postId,
+    required String status,
+  }) async {
     try {
       await _dio.put(
         '/post/status/$postId',
-        data: {'status': 'accepted'},
+        data: {'status': status},
       );
 
       return const Right(null);

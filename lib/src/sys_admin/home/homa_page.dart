@@ -51,7 +51,7 @@ class SysAdminHomePage extends StatelessWidget {
                 image: post.images?.firstOrNull ?? '',
                 status: post.status ?? '',
                 onTap: () {
-                  context.pushNamed(Routes.checkPost);
+                  context.pushNamed(Routes.checkPost, extra: post);
                 },
               );
             },

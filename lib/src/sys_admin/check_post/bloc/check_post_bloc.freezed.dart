@@ -16,37 +16,50 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CheckPostEvent {
+  String get id => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(String id) accept,
+    required TResult Function(String id) reject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(String id)? accept,
+    TResult? Function(String id)? reject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(String id)? accept,
+    TResult Function(String id)? reject,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Init value) init,
+    required TResult Function(_Accept value) accept,
+    required TResult Function(_Reject value) reject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Init value)? init,
+    TResult? Function(_Accept value)? accept,
+    TResult? Function(_Reject value)? reject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Init value)? init,
+    TResult Function(_Accept value)? accept,
+    TResult Function(_Reject value)? reject,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  /// Create a copy of CheckPostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $CheckPostEventCopyWith<CheckPostEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -55,6 +68,8 @@ abstract class $CheckPostEventCopyWith<$Res> {
   factory $CheckPostEventCopyWith(
           CheckPostEvent value, $Res Function(CheckPostEvent) then) =
       _$CheckPostEventCopyWithImpl<$Res, CheckPostEvent>;
+  @useResult
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -69,69 +84,114 @@ class _$CheckPostEventCopyWithImpl<$Res, $Val extends CheckPostEvent>
 
   /// Create a copy of CheckPostEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$InitImplCopyWith<$Res> {
-  factory _$$InitImplCopyWith(
-          _$InitImpl value, $Res Function(_$InitImpl) then) =
-      __$$InitImplCopyWithImpl<$Res>;
+abstract class _$$AcceptImplCopyWith<$Res>
+    implements $CheckPostEventCopyWith<$Res> {
+  factory _$$AcceptImplCopyWith(
+          _$AcceptImpl value, $Res Function(_$AcceptImpl) then) =
+      __$$AcceptImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String id});
 }
 
 /// @nodoc
-class __$$InitImplCopyWithImpl<$Res>
-    extends _$CheckPostEventCopyWithImpl<$Res, _$InitImpl>
-    implements _$$InitImplCopyWith<$Res> {
-  __$$InitImplCopyWithImpl(_$InitImpl _value, $Res Function(_$InitImpl) _then)
+class __$$AcceptImplCopyWithImpl<$Res>
+    extends _$CheckPostEventCopyWithImpl<$Res, _$AcceptImpl>
+    implements _$$AcceptImplCopyWith<$Res> {
+  __$$AcceptImplCopyWithImpl(
+      _$AcceptImpl _value, $Res Function(_$AcceptImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of CheckPostEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$AcceptImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$InitImpl implements _Init {
-  const _$InitImpl();
+class _$AcceptImpl implements _Accept {
+  const _$AcceptImpl(this.id);
+
+  @override
+  final String id;
 
   @override
   String toString() {
-    return 'CheckPostEvent.init()';
+    return 'CheckPostEvent.accept(id: $id)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$AcceptImpl &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of CheckPostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AcceptImplCopyWith<_$AcceptImpl> get copyWith =>
+      __$$AcceptImplCopyWithImpl<_$AcceptImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(String id) accept,
+    required TResult Function(String id) reject,
   }) {
-    return init();
+    return accept(id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(String id)? accept,
+    TResult? Function(String id)? reject,
   }) {
-    return init?.call();
+    return accept?.call(id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(String id)? accept,
+    TResult Function(String id)? reject,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init();
+    if (accept != null) {
+      return accept(id);
     }
     return orElse();
   }
@@ -139,34 +199,191 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Init value) init,
+    required TResult Function(_Accept value) accept,
+    required TResult Function(_Reject value) reject,
   }) {
-    return init(this);
+    return accept(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Init value)? init,
+    TResult? Function(_Accept value)? accept,
+    TResult? Function(_Reject value)? reject,
   }) {
-    return init?.call(this);
+    return accept?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Init value)? init,
+    TResult Function(_Accept value)? accept,
+    TResult Function(_Reject value)? reject,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(this);
+    if (accept != null) {
+      return accept(this);
     }
     return orElse();
   }
 }
 
-abstract class _Init implements CheckPostEvent {
-  const factory _Init() = _$InitImpl;
+abstract class _Accept implements CheckPostEvent {
+  const factory _Accept(final String id) = _$AcceptImpl;
+
+  @override
+  String get id;
+
+  /// Create a copy of CheckPostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AcceptImplCopyWith<_$AcceptImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RejectImplCopyWith<$Res>
+    implements $CheckPostEventCopyWith<$Res> {
+  factory _$$RejectImplCopyWith(
+          _$RejectImpl value, $Res Function(_$RejectImpl) then) =
+      __$$RejectImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$RejectImplCopyWithImpl<$Res>
+    extends _$CheckPostEventCopyWithImpl<$Res, _$RejectImpl>
+    implements _$$RejectImplCopyWith<$Res> {
+  __$$RejectImplCopyWithImpl(
+      _$RejectImpl _value, $Res Function(_$RejectImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CheckPostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$RejectImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RejectImpl implements _Reject {
+  const _$RejectImpl(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'CheckPostEvent.reject(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RejectImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of CheckPostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RejectImplCopyWith<_$RejectImpl> get copyWith =>
+      __$$RejectImplCopyWithImpl<_$RejectImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) accept,
+    required TResult Function(String id) reject,
+  }) {
+    return reject(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? accept,
+    TResult? Function(String id)? reject,
+  }) {
+    return reject?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? accept,
+    TResult Function(String id)? reject,
+    required TResult orElse(),
+  }) {
+    if (reject != null) {
+      return reject(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Accept value) accept,
+    required TResult Function(_Reject value) reject,
+  }) {
+    return reject(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Accept value)? accept,
+    TResult? Function(_Reject value)? reject,
+  }) {
+    return reject?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Accept value)? accept,
+    TResult Function(_Reject value)? reject,
+    required TResult orElse(),
+  }) {
+    if (reject != null) {
+      return reject(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reject implements CheckPostEvent {
+  const factory _Reject(final String id) = _$RejectImpl;
+
+  @override
+  String get id;
+
+  /// Create a copy of CheckPostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RejectImplCopyWith<_$RejectImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
