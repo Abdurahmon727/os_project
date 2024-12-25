@@ -8,7 +8,7 @@ mixin SplashMixin on State<SplashPage> {
   }
 
   Future<void> navigateNextPage() async {
-    // await SocketService.connect();
+    await SocketService.connect();
     await Future.delayed(const Duration(seconds: 2));
     final profile = localSource.profile;
     debugPrint('profile: $profile');
