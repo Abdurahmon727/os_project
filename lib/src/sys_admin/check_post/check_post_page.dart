@@ -35,33 +35,39 @@ class CheckPostPage extends StatelessWidget {
         body: ListView(
           padding: const EdgeInsets.symmetric(vertical: 20),
           children: [
-            SizedBox(
-              height: 150,
-              child: ListView.separated(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                itemCount: 30,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return SizedBox(
-                    height: 150,
-                    width: 300,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(4),
-                      child: CustomCachedNetworkImage(
-                        width: MediaQuery.sizeOf(context).width,
-                        imageUrl: 'https://picsum.photos/300/150',
-                        fit: BoxFit.cover,
-                        placeholder: (_, __) => const Center(child: CupertinoActivityIndicator()),
-                        errorWidget: (_, __, ___) => const Center(
-                          child: CupertinoActivityIndicator(),
+            Builder(builder: (context) {
+              final images = post.images ?? [];
+              if (images.isEmpty) {
+                return const SizedBox.shrink();
+              }
+              return SizedBox(
+                height: 150,
+                child: ListView.separated(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  itemCount: images.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return SizedBox(
+                      height: 150,
+                      width: 300,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: CustomCachedNetworkImage(
+                          width: MediaQuery.sizeOf(context).width,
+                          imageUrl: images[index],
+                          fit: BoxFit.cover,
+                          placeholder: (_, __) => const Center(child: CupertinoActivityIndicator()),
+                          errorWidget: (_, __, ___) => const Center(
+                            child: CupertinoActivityIndicator(),
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                },
-                separatorBuilder: (context, index) => const SizedBox(width: 10),
-              ),
-            ),
+                    );
+                  },
+                  separatorBuilder: (context, index) => const SizedBox(width: 10),
+                ),
+              );
+            }),
             20.h,
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
