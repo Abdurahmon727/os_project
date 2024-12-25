@@ -85,7 +85,7 @@ extension StatusColorExtension on String {
     switch (this) {
       case 'pending':
         return const Color(0xFFF4CA0F);
-      case 'approved':
+      case 'accepted':
         return Colors.green;
       case 'rejected':
         return Colors.red;
