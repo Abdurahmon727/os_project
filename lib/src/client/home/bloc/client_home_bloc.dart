@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:os_project/core/enums/real_estate_type.dart';
@@ -15,7 +17,14 @@ part 'client_home_bloc.freezed.dart';
 class ClientHomeBloc extends Bloc<ClientHomeEvent, ClientHomeState> {
   final Repository _repo;
 
+  late final Timer _timer;
+
   ClientHomeBloc(this._repo) : super(const ClientHomeState()) {
+    _timer = Timer.periodic(
+      const Duration(seconds: 3),
+      (_) => add(const _Load()),
+    );
+
     on<_Init>((event, emit) async {
       emit(state.copyWith(status: FormzStatus.loading));
 
@@ -75,5 +84,11 @@ class ClientHomeBloc extends Bloc<ClientHomeEvent, ClientHomeState> {
         posts: result.right,
       ));
     });
+  }
+
+  @override
+  Future<void> close() {
+    _timer.cancel();
+    return super.close();
   }
 }
