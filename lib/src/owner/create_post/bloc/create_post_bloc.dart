@@ -36,6 +36,8 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
       emit(state.copyWith(specialBenefits: newBenefit));
     });
 
+    on<_SetRegion>((event, emit) => emit(state.copyWith(region: event.region)));
+
     ///
     on<_Publish>((event, emit) async {
       emit(state.copyWith(status: FormzStatus.loading));

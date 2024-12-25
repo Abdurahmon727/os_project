@@ -9,6 +9,7 @@ class CreatePostEvent with _$CreatePostEvent {
 
   const factory CreatePostEvent.selectSpecialBenefit(String benefit) = _SelectSpecialBenefit;
 
+  const factory CreatePostEvent.setRegion(String region) = _SetRegion;
 
   const factory CreatePostEvent.publish({
     required String title,
@@ -20,5 +21,5 @@ class CreatePostEvent with _$CreatePostEvent {
     required String contactDetails,
     required int price,
     required int rentPrice,
-}) = _Publish;
+  }) = _Publish;
 }

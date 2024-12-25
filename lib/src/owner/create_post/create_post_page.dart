@@ -12,6 +12,7 @@ import 'package:os_project/core/extensions/string_extenions.dart';
 
 import '../../../core/enums/formz_status.dart';
 import '../../../core/widget/custom_app_bar.dart';
+import '../../../core/widget/dropdown/custom_dropdown.dart';
 import '../../../core/widget/inputs/custom_text_field.dart';
 import 'bloc/create_post_bloc.dart';
 
@@ -120,11 +121,28 @@ class _CreatePostPageState extends State<CreatePostPage> with CreatePostPageMixi
                           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         ),
                         20.h,
-                        CustomTextField(
-                          controller: TextEditingController(),
-                          labelText: 'Region',
-                          validator: emptyValidator,
+                        BlocSelector<CreatePostBloc, CreatePostState, String?>(
+                          selector: (state) => state.region,
+                          builder: (context, region) {
+                            return CustomDropDown<String>(
+                              label: 'Region',
+                              hintText: '',
+                              onChanged: (region) => setRegion(region!),
+                              value: region,
+                              items: List.generate(
+                                Constants.regions.length,
+                                (index) {
+                                  final region = Constants.regions[index];
+                                  return DropdownMenuItem(
+                                    value: region,
+                                    child: Text(region, style: context.textStyle.bodyLarge),
+                                  );
+                                },
+                              ),
+                            );
+                          },
                         ),
+
                         20.h,
                         CustomTextField(
                           controller: TextEditingController(),

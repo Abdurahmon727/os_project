@@ -21,6 +21,7 @@ mixin _$CreatePostEvent {
     required TResult Function(RealEstateType realEstateType) setRealEstateType,
     required TResult Function(TypeOfService type) setTypeOfService,
     required TResult Function(String benefit) selectSpecialBenefit,
+    required TResult Function(String region) setRegion,
     required TResult Function(
             String title,
             String description,
@@ -39,6 +40,7 @@ mixin _$CreatePostEvent {
     TResult? Function(RealEstateType realEstateType)? setRealEstateType,
     TResult? Function(TypeOfService type)? setTypeOfService,
     TResult? Function(String benefit)? selectSpecialBenefit,
+    TResult? Function(String region)? setRegion,
     TResult? Function(
             String title,
             String description,
@@ -57,6 +59,7 @@ mixin _$CreatePostEvent {
     TResult Function(RealEstateType realEstateType)? setRealEstateType,
     TResult Function(TypeOfService type)? setTypeOfService,
     TResult Function(String benefit)? selectSpecialBenefit,
+    TResult Function(String region)? setRegion,
     TResult Function(
             String title,
             String description,
@@ -76,6 +79,7 @@ mixin _$CreatePostEvent {
     required TResult Function(_SetRealEstateType value) setRealEstateType,
     required TResult Function(_SetTypeOfService value) setTypeOfService,
     required TResult Function(_SelectSpecialBenefit value) selectSpecialBenefit,
+    required TResult Function(_SetRegion value) setRegion,
     required TResult Function(_Publish value) publish,
   }) =>
       throw _privateConstructorUsedError;
@@ -84,6 +88,7 @@ mixin _$CreatePostEvent {
     TResult? Function(_SetRealEstateType value)? setRealEstateType,
     TResult? Function(_SetTypeOfService value)? setTypeOfService,
     TResult? Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult? Function(_SetRegion value)? setRegion,
     TResult? Function(_Publish value)? publish,
   }) =>
       throw _privateConstructorUsedError;
@@ -92,6 +97,7 @@ mixin _$CreatePostEvent {
     TResult Function(_SetRealEstateType value)? setRealEstateType,
     TResult Function(_SetTypeOfService value)? setTypeOfService,
     TResult Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult Function(_SetRegion value)? setRegion,
     TResult Function(_Publish value)? publish,
     required TResult orElse(),
   }) =>
@@ -192,6 +198,7 @@ class _$SetRealEstateTypeImpl implements _SetRealEstateType {
     required TResult Function(RealEstateType realEstateType) setRealEstateType,
     required TResult Function(TypeOfService type) setTypeOfService,
     required TResult Function(String benefit) selectSpecialBenefit,
+    required TResult Function(String region) setRegion,
     required TResult Function(
             String title,
             String description,
@@ -213,6 +220,7 @@ class _$SetRealEstateTypeImpl implements _SetRealEstateType {
     TResult? Function(RealEstateType realEstateType)? setRealEstateType,
     TResult? Function(TypeOfService type)? setTypeOfService,
     TResult? Function(String benefit)? selectSpecialBenefit,
+    TResult? Function(String region)? setRegion,
     TResult? Function(
             String title,
             String description,
@@ -234,6 +242,7 @@ class _$SetRealEstateTypeImpl implements _SetRealEstateType {
     TResult Function(RealEstateType realEstateType)? setRealEstateType,
     TResult Function(TypeOfService type)? setTypeOfService,
     TResult Function(String benefit)? selectSpecialBenefit,
+    TResult Function(String region)? setRegion,
     TResult Function(
             String title,
             String description,
@@ -259,6 +268,7 @@ class _$SetRealEstateTypeImpl implements _SetRealEstateType {
     required TResult Function(_SetRealEstateType value) setRealEstateType,
     required TResult Function(_SetTypeOfService value) setTypeOfService,
     required TResult Function(_SelectSpecialBenefit value) selectSpecialBenefit,
+    required TResult Function(_SetRegion value) setRegion,
     required TResult Function(_Publish value) publish,
   }) {
     return setRealEstateType(this);
@@ -270,6 +280,7 @@ class _$SetRealEstateTypeImpl implements _SetRealEstateType {
     TResult? Function(_SetRealEstateType value)? setRealEstateType,
     TResult? Function(_SetTypeOfService value)? setTypeOfService,
     TResult? Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult? Function(_SetRegion value)? setRegion,
     TResult? Function(_Publish value)? publish,
   }) {
     return setRealEstateType?.call(this);
@@ -281,6 +292,7 @@ class _$SetRealEstateTypeImpl implements _SetRealEstateType {
     TResult Function(_SetRealEstateType value)? setRealEstateType,
     TResult Function(_SetTypeOfService value)? setTypeOfService,
     TResult Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult Function(_SetRegion value)? setRegion,
     TResult Function(_Publish value)? publish,
     required TResult orElse(),
   }) {
@@ -376,6 +388,7 @@ class _$SetTypeOfServiceImpl implements _SetTypeOfService {
     required TResult Function(RealEstateType realEstateType) setRealEstateType,
     required TResult Function(TypeOfService type) setTypeOfService,
     required TResult Function(String benefit) selectSpecialBenefit,
+    required TResult Function(String region) setRegion,
     required TResult Function(
             String title,
             String description,
@@ -397,6 +410,7 @@ class _$SetTypeOfServiceImpl implements _SetTypeOfService {
     TResult? Function(RealEstateType realEstateType)? setRealEstateType,
     TResult? Function(TypeOfService type)? setTypeOfService,
     TResult? Function(String benefit)? selectSpecialBenefit,
+    TResult? Function(String region)? setRegion,
     TResult? Function(
             String title,
             String description,
@@ -418,6 +432,7 @@ class _$SetTypeOfServiceImpl implements _SetTypeOfService {
     TResult Function(RealEstateType realEstateType)? setRealEstateType,
     TResult Function(TypeOfService type)? setTypeOfService,
     TResult Function(String benefit)? selectSpecialBenefit,
+    TResult Function(String region)? setRegion,
     TResult Function(
             String title,
             String description,
@@ -443,6 +458,7 @@ class _$SetTypeOfServiceImpl implements _SetTypeOfService {
     required TResult Function(_SetRealEstateType value) setRealEstateType,
     required TResult Function(_SetTypeOfService value) setTypeOfService,
     required TResult Function(_SelectSpecialBenefit value) selectSpecialBenefit,
+    required TResult Function(_SetRegion value) setRegion,
     required TResult Function(_Publish value) publish,
   }) {
     return setTypeOfService(this);
@@ -454,6 +470,7 @@ class _$SetTypeOfServiceImpl implements _SetTypeOfService {
     TResult? Function(_SetRealEstateType value)? setRealEstateType,
     TResult? Function(_SetTypeOfService value)? setTypeOfService,
     TResult? Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult? Function(_SetRegion value)? setRegion,
     TResult? Function(_Publish value)? publish,
   }) {
     return setTypeOfService?.call(this);
@@ -465,6 +482,7 @@ class _$SetTypeOfServiceImpl implements _SetTypeOfService {
     TResult Function(_SetRealEstateType value)? setRealEstateType,
     TResult Function(_SetTypeOfService value)? setTypeOfService,
     TResult Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult Function(_SetRegion value)? setRegion,
     TResult Function(_Publish value)? publish,
     required TResult orElse(),
   }) {
@@ -561,6 +579,7 @@ class _$SelectSpecialBenefitImpl implements _SelectSpecialBenefit {
     required TResult Function(RealEstateType realEstateType) setRealEstateType,
     required TResult Function(TypeOfService type) setTypeOfService,
     required TResult Function(String benefit) selectSpecialBenefit,
+    required TResult Function(String region) setRegion,
     required TResult Function(
             String title,
             String description,
@@ -582,6 +601,7 @@ class _$SelectSpecialBenefitImpl implements _SelectSpecialBenefit {
     TResult? Function(RealEstateType realEstateType)? setRealEstateType,
     TResult? Function(TypeOfService type)? setTypeOfService,
     TResult? Function(String benefit)? selectSpecialBenefit,
+    TResult? Function(String region)? setRegion,
     TResult? Function(
             String title,
             String description,
@@ -603,6 +623,7 @@ class _$SelectSpecialBenefitImpl implements _SelectSpecialBenefit {
     TResult Function(RealEstateType realEstateType)? setRealEstateType,
     TResult Function(TypeOfService type)? setTypeOfService,
     TResult Function(String benefit)? selectSpecialBenefit,
+    TResult Function(String region)? setRegion,
     TResult Function(
             String title,
             String description,
@@ -628,6 +649,7 @@ class _$SelectSpecialBenefitImpl implements _SelectSpecialBenefit {
     required TResult Function(_SetRealEstateType value) setRealEstateType,
     required TResult Function(_SetTypeOfService value) setTypeOfService,
     required TResult Function(_SelectSpecialBenefit value) selectSpecialBenefit,
+    required TResult Function(_SetRegion value) setRegion,
     required TResult Function(_Publish value) publish,
   }) {
     return selectSpecialBenefit(this);
@@ -639,6 +661,7 @@ class _$SelectSpecialBenefitImpl implements _SelectSpecialBenefit {
     TResult? Function(_SetRealEstateType value)? setRealEstateType,
     TResult? Function(_SetTypeOfService value)? setTypeOfService,
     TResult? Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult? Function(_SetRegion value)? setRegion,
     TResult? Function(_Publish value)? publish,
   }) {
     return selectSpecialBenefit?.call(this);
@@ -650,6 +673,7 @@ class _$SelectSpecialBenefitImpl implements _SelectSpecialBenefit {
     TResult Function(_SetRealEstateType value)? setRealEstateType,
     TResult Function(_SetTypeOfService value)? setTypeOfService,
     TResult Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult Function(_SetRegion value)? setRegion,
     TResult Function(_Publish value)? publish,
     required TResult orElse(),
   }) {
@@ -671,6 +695,194 @@ abstract class _SelectSpecialBenefit implements CreatePostEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelectSpecialBenefitImplCopyWith<_$SelectSpecialBenefitImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetRegionImplCopyWith<$Res> {
+  factory _$$SetRegionImplCopyWith(
+          _$SetRegionImpl value, $Res Function(_$SetRegionImpl) then) =
+      __$$SetRegionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String region});
+}
+
+/// @nodoc
+class __$$SetRegionImplCopyWithImpl<$Res>
+    extends _$CreatePostEventCopyWithImpl<$Res, _$SetRegionImpl>
+    implements _$$SetRegionImplCopyWith<$Res> {
+  __$$SetRegionImplCopyWithImpl(
+      _$SetRegionImpl _value, $Res Function(_$SetRegionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CreatePostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? region = null,
+  }) {
+    return _then(_$SetRegionImpl(
+      null == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetRegionImpl implements _SetRegion {
+  const _$SetRegionImpl(this.region);
+
+  @override
+  final String region;
+
+  @override
+  String toString() {
+    return 'CreatePostEvent.setRegion(region: $region)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetRegionImpl &&
+            (identical(other.region, region) || other.region == region));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, region);
+
+  /// Create a copy of CreatePostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetRegionImplCopyWith<_$SetRegionImpl> get copyWith =>
+      __$$SetRegionImplCopyWithImpl<_$SetRegionImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(RealEstateType realEstateType) setRealEstateType,
+    required TResult Function(TypeOfService type) setTypeOfService,
+    required TResult Function(String benefit) selectSpecialBenefit,
+    required TResult Function(String region) setRegion,
+    required TResult Function(
+            String title,
+            String description,
+            int area,
+            String address,
+            int numberOfRooms,
+            int floorNumber,
+            String contactDetails,
+            int price,
+            int rentPrice)
+        publish,
+  }) {
+    return setRegion(region);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(RealEstateType realEstateType)? setRealEstateType,
+    TResult? Function(TypeOfService type)? setTypeOfService,
+    TResult? Function(String benefit)? selectSpecialBenefit,
+    TResult? Function(String region)? setRegion,
+    TResult? Function(
+            String title,
+            String description,
+            int area,
+            String address,
+            int numberOfRooms,
+            int floorNumber,
+            String contactDetails,
+            int price,
+            int rentPrice)?
+        publish,
+  }) {
+    return setRegion?.call(region);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(RealEstateType realEstateType)? setRealEstateType,
+    TResult Function(TypeOfService type)? setTypeOfService,
+    TResult Function(String benefit)? selectSpecialBenefit,
+    TResult Function(String region)? setRegion,
+    TResult Function(
+            String title,
+            String description,
+            int area,
+            String address,
+            int numberOfRooms,
+            int floorNumber,
+            String contactDetails,
+            int price,
+            int rentPrice)?
+        publish,
+    required TResult orElse(),
+  }) {
+    if (setRegion != null) {
+      return setRegion(region);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetRealEstateType value) setRealEstateType,
+    required TResult Function(_SetTypeOfService value) setTypeOfService,
+    required TResult Function(_SelectSpecialBenefit value) selectSpecialBenefit,
+    required TResult Function(_SetRegion value) setRegion,
+    required TResult Function(_Publish value) publish,
+  }) {
+    return setRegion(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetRealEstateType value)? setRealEstateType,
+    TResult? Function(_SetTypeOfService value)? setTypeOfService,
+    TResult? Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult? Function(_SetRegion value)? setRegion,
+    TResult? Function(_Publish value)? publish,
+  }) {
+    return setRegion?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetRealEstateType value)? setRealEstateType,
+    TResult Function(_SetTypeOfService value)? setTypeOfService,
+    TResult Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult Function(_SetRegion value)? setRegion,
+    TResult Function(_Publish value)? publish,
+    required TResult orElse(),
+  }) {
+    if (setRegion != null) {
+      return setRegion(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetRegion implements CreatePostEvent {
+  const factory _SetRegion(final String region) = _$SetRegionImpl;
+
+  String get region;
+
+  /// Create a copy of CreatePostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SetRegionImplCopyWith<_$SetRegionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -832,6 +1044,7 @@ class _$PublishImpl implements _Publish {
     required TResult Function(RealEstateType realEstateType) setRealEstateType,
     required TResult Function(TypeOfService type) setTypeOfService,
     required TResult Function(String benefit) selectSpecialBenefit,
+    required TResult Function(String region) setRegion,
     required TResult Function(
             String title,
             String description,
@@ -854,6 +1067,7 @@ class _$PublishImpl implements _Publish {
     TResult? Function(RealEstateType realEstateType)? setRealEstateType,
     TResult? Function(TypeOfService type)? setTypeOfService,
     TResult? Function(String benefit)? selectSpecialBenefit,
+    TResult? Function(String region)? setRegion,
     TResult? Function(
             String title,
             String description,
@@ -876,6 +1090,7 @@ class _$PublishImpl implements _Publish {
     TResult Function(RealEstateType realEstateType)? setRealEstateType,
     TResult Function(TypeOfService type)? setTypeOfService,
     TResult Function(String benefit)? selectSpecialBenefit,
+    TResult Function(String region)? setRegion,
     TResult Function(
             String title,
             String description,
@@ -902,6 +1117,7 @@ class _$PublishImpl implements _Publish {
     required TResult Function(_SetRealEstateType value) setRealEstateType,
     required TResult Function(_SetTypeOfService value) setTypeOfService,
     required TResult Function(_SelectSpecialBenefit value) selectSpecialBenefit,
+    required TResult Function(_SetRegion value) setRegion,
     required TResult Function(_Publish value) publish,
   }) {
     return publish(this);
@@ -913,6 +1129,7 @@ class _$PublishImpl implements _Publish {
     TResult? Function(_SetRealEstateType value)? setRealEstateType,
     TResult? Function(_SetTypeOfService value)? setTypeOfService,
     TResult? Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult? Function(_SetRegion value)? setRegion,
     TResult? Function(_Publish value)? publish,
   }) {
     return publish?.call(this);
@@ -924,6 +1141,7 @@ class _$PublishImpl implements _Publish {
     TResult Function(_SetRealEstateType value)? setRealEstateType,
     TResult Function(_SetTypeOfService value)? setTypeOfService,
     TResult Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult Function(_SetRegion value)? setRegion,
     TResult Function(_Publish value)? publish,
     required TResult orElse(),
   }) {
@@ -971,6 +1189,7 @@ mixin _$CreatePostState {
   /// fields
   RealEstateType? get realEstateType => throw _privateConstructorUsedError;
   TypeOfService? get typeOfService => throw _privateConstructorUsedError;
+  String? get region => throw _privateConstructorUsedError;
   List<String> get specialBenefits => throw _privateConstructorUsedError;
 
   /// Create a copy of CreatePostState
@@ -991,6 +1210,7 @@ abstract class $CreatePostStateCopyWith<$Res> {
       String message,
       RealEstateType? realEstateType,
       TypeOfService? typeOfService,
+      String? region,
       List<String> specialBenefits});
 }
 
@@ -1013,6 +1233,7 @@ class _$CreatePostStateCopyWithImpl<$Res, $Val extends CreatePostState>
     Object? message = null,
     Object? realEstateType = freezed,
     Object? typeOfService = freezed,
+    Object? region = freezed,
     Object? specialBenefits = null,
   }) {
     return _then(_value.copyWith(
@@ -1032,6 +1253,10 @@ class _$CreatePostStateCopyWithImpl<$Res, $Val extends CreatePostState>
           ? _value.typeOfService
           : typeOfService // ignore: cast_nullable_to_non_nullable
               as TypeOfService?,
+      region: freezed == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
+              as String?,
       specialBenefits: null == specialBenefits
           ? _value.specialBenefits
           : specialBenefits // ignore: cast_nullable_to_non_nullable
@@ -1053,6 +1278,7 @@ abstract class _$$CreatePostStateImplCopyWith<$Res>
       String message,
       RealEstateType? realEstateType,
       TypeOfService? typeOfService,
+      String? region,
       List<String> specialBenefits});
 }
 
@@ -1073,6 +1299,7 @@ class __$$CreatePostStateImplCopyWithImpl<$Res>
     Object? message = null,
     Object? realEstateType = freezed,
     Object? typeOfService = freezed,
+    Object? region = freezed,
     Object? specialBenefits = null,
   }) {
     return _then(_$CreatePostStateImpl(
@@ -1092,6 +1319,10 @@ class __$$CreatePostStateImplCopyWithImpl<$Res>
           ? _value.typeOfService
           : typeOfService // ignore: cast_nullable_to_non_nullable
               as TypeOfService?,
+      region: freezed == region
+          ? _value.region
+          : region // ignore: cast_nullable_to_non_nullable
+              as String?,
       specialBenefits: null == specialBenefits
           ? _value._specialBenefits
           : specialBenefits // ignore: cast_nullable_to_non_nullable
@@ -1108,6 +1339,7 @@ class _$CreatePostStateImpl implements _CreatePostState {
       this.message = '',
       this.realEstateType = null,
       this.typeOfService = null,
+      this.region = null,
       final List<String> specialBenefits = const <String>[]})
       : _specialBenefits = specialBenefits;
 
@@ -1125,6 +1357,9 @@ class _$CreatePostStateImpl implements _CreatePostState {
   @override
   @JsonKey()
   final TypeOfService? typeOfService;
+  @override
+  @JsonKey()
+  final String? region;
   final List<String> _specialBenefits;
   @override
   @JsonKey()
@@ -1136,7 +1371,7 @@ class _$CreatePostStateImpl implements _CreatePostState {
 
   @override
   String toString() {
-    return 'CreatePostState(status: $status, message: $message, realEstateType: $realEstateType, typeOfService: $typeOfService, specialBenefits: $specialBenefits)';
+    return 'CreatePostState(status: $status, message: $message, realEstateType: $realEstateType, typeOfService: $typeOfService, region: $region, specialBenefits: $specialBenefits)';
   }
 
   @override
@@ -1150,13 +1385,20 @@ class _$CreatePostStateImpl implements _CreatePostState {
                 other.realEstateType == realEstateType) &&
             (identical(other.typeOfService, typeOfService) ||
                 other.typeOfService == typeOfService) &&
+            (identical(other.region, region) || other.region == region) &&
             const DeepCollectionEquality()
                 .equals(other._specialBenefits, _specialBenefits));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, message, realEstateType,
-      typeOfService, const DeepCollectionEquality().hash(_specialBenefits));
+  int get hashCode => Object.hash(
+      runtimeType,
+      status,
+      message,
+      realEstateType,
+      typeOfService,
+      region,
+      const DeepCollectionEquality().hash(_specialBenefits));
 
   /// Create a copy of CreatePostState
   /// with the given fields replaced by the non-null parameter values.
@@ -1174,6 +1416,7 @@ abstract class _CreatePostState implements CreatePostState {
       final String message,
       final RealEstateType? realEstateType,
       final TypeOfService? typeOfService,
+      final String? region,
       final List<String> specialBenefits}) = _$CreatePostStateImpl;
 
   @override
@@ -1186,6 +1429,8 @@ abstract class _CreatePostState implements CreatePostState {
   RealEstateType? get realEstateType;
   @override
   TypeOfService? get typeOfService;
+  @override
+  String? get region;
   @override
   List<String> get specialBenefits;
 

@@ -41,6 +41,10 @@ mixin CreatePostPageMixin on State<CreatePostPage> {
     bloc.add(CreatePostEvent.selectSpecialBenefit(benefit));
   }
 
+  void setRegion(String region){
+    bloc.add(CreatePostEvent.setRegion(region));
+  }
+
   void listener(BuildContext context, CreatePostState state) {
     if (state.status.isSuccess) {
       context.showSuccessMessage('Published successfully 🎉');

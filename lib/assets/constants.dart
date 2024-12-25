@@ -14,7 +14,6 @@ abstract class Constants {
     "Samarkand",
     "Sirdarya",
     "Surkhandarya",
-    "Tashkent",
     "Karakalpakstan",
   ];
 

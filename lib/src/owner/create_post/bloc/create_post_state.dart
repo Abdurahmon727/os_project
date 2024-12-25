@@ -9,6 +9,7 @@ class CreatePostState with _$CreatePostState {
     /// fields
     @Default(null) RealEstateType? realEstateType,
     @Default(null) TypeOfService? typeOfService,
+    @Default(null) String? region,
     @Default(<String>[]) List<String> specialBenefits,
   }) = _CreatePostState;
 }
