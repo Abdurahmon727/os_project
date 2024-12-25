@@ -155,7 +155,7 @@ class _ClientHomePageState extends State<ClientHomePage> with ClientHomePageMixi
                 image: post.images?.firstOrNull ?? '',
                 status: post.status ?? '',
                 onTap: () {
-                  context.pushNamed(Routes.clientPostDetail);
+                  context.pushNamed(Routes.clientPostDetail, extra: post);
                 },
               );
             },

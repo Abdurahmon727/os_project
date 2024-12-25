@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:os_project/core/extensions/size.dart';
+import 'package:os_project/data/posts/post_model.dart';
 
 import '../../../core/widget/custom_app_bar.dart';
 import '../../../core/widget/custom_cached_network_image.dart';
 
 class PostDetailPage extends StatelessWidget {
-  const PostDetailPage({super.key});
+  const PostDetailPage({super.key, required this.post});
+
+  final PostModel post;
 
   @override
   Widget build(BuildContext context) {
@@ -64,29 +67,11 @@ class PostDetailPage extends StatelessWidget {
                             children: [
                               const Text('House type:'),
                               20.w,
-                              Expanded(
-                                child: Wrap(
-                                  spacing: 12,
-                                  runSpacing: 12,
-                                  children: [
-                                    FilterChip(
-                                      label: const Text('Land'),
-                                      selected: false,
-                                      onSelected: (value) {},
-                                    ),
-                                    FilterChip(
-                                      label: const Text('House'),
-                                      selected: false,
-                                      onSelected: (value) {},
-                                    ),
-                                    FilterChip(
-                                      label: const Text('Apartment'),
-                                      selected: true,
-                                      onSelected: (value) {},
-                                    ),
-                                  ],
-                                ),
-                              )
+                              FilterChip(
+                                label: Text(post.realEstateType ?? ''),
+                                selected: true,
+                                onSelected: (value) {},
+                              ),
                             ],
                           ),
                           12.h,
@@ -97,47 +82,39 @@ class PostDetailPage extends StatelessWidget {
                             children: [
                               const Text('Type of service:'),
                               20.w,
-                              Expanded(
-                                child: Wrap(
-                                  spacing: 12,
-                                  runSpacing: 12,
-                                  children: [
-                                    FilterChip(
-                                      label: const Text('Rent'),
-                                      selected: false,
-                                      onSelected: (value) {},
-                                    ),
-                                    FilterChip(
-                                      label: const Text('Sell'),
-                                      selected: false,
-                                      onSelected: (value) {},
-                                    ),
-                                  ],
-                                ),
-                              )
+                              FilterChip(
+                                label: Text(post.serviceType ?? ''),
+                                selected: true,
+                                onSelected: (_) {},
+                              ),
                             ],
                           ),
+                          12.h,
 
                           /// texts
-                          const Text('Area - 10 meter square'),
-                          8.h,
-                          const Text('Region  - Samarqand'),
-                          8.h,
-                          const Text('Address  - Samarqand mahalla, 12-house'),
-                          8.h,
-                          const Text('Number of rooms  - 3'),
-                          8.h,
-                          const Text('Floor number  - 3'),
-                          8.h,
-                          const Text(
-                              'Description  - New smart apartment with ai tech, everything can be used via mobile application'),
-                          8.h,
-                          const Text('Owner: John Mellio, +998 90 123 45 67'),
+                          Text('Title  - ${post.title ?? ''}'),
+                          12.h,
+                          Text('Description  - ${post.description ?? 0}'),
 
-                          30.h,
+                          Text('Area - ${post.area ?? 0} meter square'),
+                          12.h,
+                          Text('Region  - ${post.region ?? ''}'),
+                          12.h,
+                          Text('Address  - ${post.address ?? ''}'),
+                          12.h,
+                          Text('Number of rooms  - ${post.numberOfRooms ?? 0}'),
+                          12.h,
+                          Text('Floor number  - ${post.floorNumber ?? 0}'),
+                          15.h,
+
+                          Text('Owner: ${post.contactDetails ?? ''}'),
+
+                          10.h,
                           ElevatedButton(
-                            onPressed: () {},
-                            child: const Text('Contact'),
+                            onPressed: () {
+                              //todo
+                            },
+                            child: const Text('Contact owner'),
                           )
                         ],
                       ),
@@ -158,10 +135,11 @@ class PostDetailPage extends StatelessWidget {
                               spacing: 12,
                               runSpacing: 12,
                               children: List.generate(
-                                12,
+                                post.specialBenefits?.length ?? 0,
                                 (index) {
+                                  final benefit = post.specialBenefits?[index];
                                   return FilterChip(
-                                    label: Text('benefit $index'),
+                                    label: Text(benefit ?? ''),
                                     selected: true,
                                     onSelected: (_) {},
                                   );
@@ -172,9 +150,9 @@ class PostDetailPage extends StatelessWidget {
                         ],
                       ),
                       20.h,
-                      const Text('Price for sale: 10 000\$'),
+                      Text('Price for sale: ${post.price ?? 0}\$'),
                       20.h,
-                      const Text('Rent price(monthly): 200\$')
+                      Text('Rent price(monthly): ${post.rentPrice ?? 0}\$')
                     ],
                   ),
                 ),

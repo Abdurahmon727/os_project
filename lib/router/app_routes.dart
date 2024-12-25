@@ -96,10 +96,13 @@ final GoRouter router = GoRouter(
       path: Routes.clientPostDetail,
       name: Routes.clientPostDetail,
       parentNavigatorKey: rootNavigatorKey,
-      builder: (_, state) => BlocProvider(
-        create: (_) => sl<PostDetailBloc>(),
-        child: const PostDetailPage(),
-      ),
+      builder: (_, state) {
+        final post = state.extra as PostModel;
+        return BlocProvider(
+          create: (_) => sl<PostDetailBloc>(),
+          child: PostDetailPage(post: post),
+        );
+      },
     ),
 
     /// sys-admin
