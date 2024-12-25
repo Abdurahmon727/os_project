@@ -50,8 +50,11 @@ class SysAdminHomePage extends StatelessWidget {
                 title: post.title ?? '',
                 image: post.images?.firstOrNull ?? '',
                 status: post.status ?? '',
-                onTap: () {
-                  context.pushNamed(Routes.checkPost, extra: post);
+                onTap: () async {
+                  final result = await context.pushNamed<dynamic>(Routes.checkPost, extra: post);
+                  if (result is bool && result && context.mounted) {
+                    context.read<SysAdminHomeBloc>().add(const SysAdminHomeEvent.init());
+                  }
                 },
               );
             },
