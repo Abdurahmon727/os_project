@@ -49,7 +49,7 @@ abstract class Repository {
 
   Future<Either<Failure, List<PostModel>>> getSysAdminPosts();
 
-  Future<Either<Failure, void>> acceptPost({required String postId, required String status});
+  Future<Either<Failure, void>> changePostStatus({required String postId, required String status});
 
   Future<Either<Failure, String>> uploadImage({required XFile file});
 }

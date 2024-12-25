@@ -7,6 +7,7 @@ import 'package:os_project/core/local_source/local_source.dart';
 import 'package:os_project/data/posts/post_model.dart';
 import 'package:os_project/domain/repository.dart';
 import 'package:os_project/assets/constants.dart';
+import 'package:os_project/service/socket_service.dart';
 
 import '../core/enums/profile_type.dart';
 import '../core/enums/real_estate_type.dart';
@@ -25,13 +26,15 @@ class RepositoryImpl implements Repository {
     required ProfileType profileType,
   }) async {
     try {
+      final requestData = {
+        'email': email,
+        'password': password,
+        'profileType': profileType.name,
+      };
+      SocketService.send('login requested-> ${requestData.toString()}');
       final response = await _dio.post<Map<String, dynamic>>(
         '/login',
-        data: {
-          'email': email,
-          'password': password,
-          'profileType': profileType.name,
-        },
+        data: requestData,
       );
       final data = ProfileModel.fromJson(response.data?['Data']);
       if ((data.id ?? '').isEmpty) {
@@ -61,16 +64,18 @@ class RepositoryImpl implements Repository {
     required ProfileType profileType,
   }) async {
     try {
+      final requestData = {
+        'id': id,
+        'email': email,
+        'fullname': fullName,
+        'address': address,
+        'password': password,
+        'type': profileType.name
+      };
+      SocketService.send('register requested-> ${requestData.toString()}');
       final response = await _dio.post<Map<String, dynamic>>(
         '/register',
-        data: {
-          'id': id,
-          'email': email,
-          'fullname': fullName,
-          'address': address,
-          'password': password,
-          'type': profileType.name
-        },
+        data: requestData,
       );
       final data = ProfileModel.fromJson(response.data ?? {});
       return Right(data);
@@ -106,25 +111,27 @@ class RepositoryImpl implements Repository {
     required List<String> specialBenefits,
   }) async {
     try {
+      final requestData = {
+        "real_estate_type": realEstateType,
+        "service_type": serviceType,
+        "user_id": _localSource.profile?.id,
+        "title": title,
+        "description": description,
+        "region": region,
+        "address": address,
+        "contact_details": contactDetails,
+        'images': images,
+        "area": area,
+        "number_of_rooms": numberOfRooms,
+        "floor_number": floorNumber,
+        "price": price,
+        "rent_price": rentPrice,
+        "special_benefits": specialBenefits,
+      };
+      SocketService.send('create post requested-> ${requestData.toString()}');
       await _dio.post<Map<String, dynamic>>(
         '/post',
-        data: {
-          "real_estate_type": realEstateType,
-          "service_type": serviceType,
-          "user_id": _localSource.profile?.id,
-          "title": title,
-          "description": description,
-          "region": region,
-          "address": address,
-          "contact_details": contactDetails,
-          'images': images,
-          "area": area,
-          "number_of_rooms": numberOfRooms,
-          "floor_number": floorNumber,
-          "price": price,
-          "rent_price": rentPrice,
-          "special_benefits": specialBenefits,
-        },
+        data: requestData,
       );
       return const Right(null);
     } on DioException catch (error, stacktrace) {
@@ -229,11 +236,16 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<Either<Failure, void>> acceptPost({
+  Future<Either<Failure, void>> changePostStatus({
     required String postId,
     required String status,
   }) async {
     try {
+      final socketInfo = {
+        'postId': postId,
+        'status': status,
+      };
+      SocketService.send('change post status requested-> $socketInfo');
       await _dio.put(
         '/post/status/$postId',
         data: {'status': status},
