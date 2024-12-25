@@ -1,3 +1,4 @@
+import 'package:image_picker/image_picker.dart';
 import 'package:os_project/core/either/either.dart';
 import 'package:os_project/core/enums/real_estate_type.dart';
 import 'package:os_project/data/posts/post_model.dart';
@@ -49,4 +50,6 @@ abstract class Repository {
   Future<Either<Failure, List<PostModel>>> getSysAdminPosts();
 
   Future<Either<Failure, void>> acceptPost({required String postId, required String status});
+
+  Future<Either<Failure, String>> uploadImage({required XFile file});
 }

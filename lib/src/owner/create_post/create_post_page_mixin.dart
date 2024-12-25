@@ -41,7 +41,7 @@ mixin CreatePostPageMixin on State<CreatePostPage> {
     bloc.add(CreatePostEvent.selectSpecialBenefit(benefit));
   }
 
-  void setRegion(String region){
+  void setRegion(String region) {
     bloc.add(CreatePostEvent.setRegion(region));
   }
 
@@ -54,6 +54,16 @@ mixin CreatePostPageMixin on State<CreatePostPage> {
     }
   }
 
+  Future<void> onTapAddImage() async {
+    final ImagePicker picker = ImagePicker();
+
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    if (image == null) {
+      return;
+    }
+    bloc.add(CreatePostEvent.uploadImage(image));
+  }
+
   void onTapPublish() {
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
@@ -62,7 +72,6 @@ mixin CreatePostPageMixin on State<CreatePostPage> {
       final floorNumber = int.tryParse(floorNumberController.text) ?? 0;
       final price = int.tryParse(priceController.text) ?? 0;
       final rentPrice = int.tryParse(rentPriceController.text) ?? 0;
-
 
       context.read<CreatePostBloc>().add(
             CreatePostEvent.publish(

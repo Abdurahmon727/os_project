@@ -6,6 +6,10 @@ class CreatePostState with _$CreatePostState {
     @Default(FormzStatus.pure) FormzStatus status,
     @Default('') String message,
 
+    /// image
+    @Default(FormzStatus.pure) FormzStatus imageStatus,
+    @Default(<String>[]) List<String> images,
+
     /// fields
     @Default(null) RealEstateType? realEstateType,
     @Default(null) TypeOfService? typeOfService,

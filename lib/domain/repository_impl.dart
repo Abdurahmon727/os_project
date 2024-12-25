@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:os_project/core/either/either.dart';
 import 'package:os_project/core/error/failure.dart';
 import 'package:os_project/core/local_source/local_source.dart';
@@ -239,6 +240,33 @@ class RepositoryImpl implements Repository {
       );
 
       return const Right(null);
+    } on DioException catch (error, stacktrace) {
+      debugPrint('Dio Exception occurred: $error stacktrace: $stacktrace');
+      return Left(
+        ServerFailure(
+          message: error.message ?? Constants.defaultErrorMessage,
+          statusCode: error.response?.statusCode,
+        ),
+      );
+    } on Exception catch (error, stacktrace) {
+      debugPrint('Exception occurred: $error stacktrace: $stacktrace');
+      return const Left(UnknownFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> uploadImage({required XFile file}) async {
+    try {
+      final data = FormData.fromMap({
+        "image": await MultipartFile.fromFile(
+          file.path,
+          contentType: DioMediaType('image', 'octet-stream'),
+        ),
+      });
+
+      final response = await _dio.post('/upload', data: data);
+
+      return Right(response.data['Data']['url'] as String);
     } on DioException catch (error, stacktrace) {
       debugPrint('Dio Exception occurred: $error stacktrace: $stacktrace');
       return Left(

@@ -22,6 +22,7 @@ mixin _$CreatePostEvent {
     required TResult Function(TypeOfService type) setTypeOfService,
     required TResult Function(String benefit) selectSpecialBenefit,
     required TResult Function(String region) setRegion,
+    required TResult Function(XFile file) uploadImage,
     required TResult Function(
             String title,
             String description,
@@ -41,6 +42,7 @@ mixin _$CreatePostEvent {
     TResult? Function(TypeOfService type)? setTypeOfService,
     TResult? Function(String benefit)? selectSpecialBenefit,
     TResult? Function(String region)? setRegion,
+    TResult? Function(XFile file)? uploadImage,
     TResult? Function(
             String title,
             String description,
@@ -60,6 +62,7 @@ mixin _$CreatePostEvent {
     TResult Function(TypeOfService type)? setTypeOfService,
     TResult Function(String benefit)? selectSpecialBenefit,
     TResult Function(String region)? setRegion,
+    TResult Function(XFile file)? uploadImage,
     TResult Function(
             String title,
             String description,
@@ -80,6 +83,7 @@ mixin _$CreatePostEvent {
     required TResult Function(_SetTypeOfService value) setTypeOfService,
     required TResult Function(_SelectSpecialBenefit value) selectSpecialBenefit,
     required TResult Function(_SetRegion value) setRegion,
+    required TResult Function(_UploadImage value) uploadImage,
     required TResult Function(_Publish value) publish,
   }) =>
       throw _privateConstructorUsedError;
@@ -89,6 +93,7 @@ mixin _$CreatePostEvent {
     TResult? Function(_SetTypeOfService value)? setTypeOfService,
     TResult? Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
     TResult? Function(_SetRegion value)? setRegion,
+    TResult? Function(_UploadImage value)? uploadImage,
     TResult? Function(_Publish value)? publish,
   }) =>
       throw _privateConstructorUsedError;
@@ -98,6 +103,7 @@ mixin _$CreatePostEvent {
     TResult Function(_SetTypeOfService value)? setTypeOfService,
     TResult Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
     TResult Function(_SetRegion value)? setRegion,
+    TResult Function(_UploadImage value)? uploadImage,
     TResult Function(_Publish value)? publish,
     required TResult orElse(),
   }) =>
@@ -199,6 +205,7 @@ class _$SetRealEstateTypeImpl implements _SetRealEstateType {
     required TResult Function(TypeOfService type) setTypeOfService,
     required TResult Function(String benefit) selectSpecialBenefit,
     required TResult Function(String region) setRegion,
+    required TResult Function(XFile file) uploadImage,
     required TResult Function(
             String title,
             String description,
@@ -221,6 +228,7 @@ class _$SetRealEstateTypeImpl implements _SetRealEstateType {
     TResult? Function(TypeOfService type)? setTypeOfService,
     TResult? Function(String benefit)? selectSpecialBenefit,
     TResult? Function(String region)? setRegion,
+    TResult? Function(XFile file)? uploadImage,
     TResult? Function(
             String title,
             String description,
@@ -243,6 +251,7 @@ class _$SetRealEstateTypeImpl implements _SetRealEstateType {
     TResult Function(TypeOfService type)? setTypeOfService,
     TResult Function(String benefit)? selectSpecialBenefit,
     TResult Function(String region)? setRegion,
+    TResult Function(XFile file)? uploadImage,
     TResult Function(
             String title,
             String description,
@@ -269,6 +278,7 @@ class _$SetRealEstateTypeImpl implements _SetRealEstateType {
     required TResult Function(_SetTypeOfService value) setTypeOfService,
     required TResult Function(_SelectSpecialBenefit value) selectSpecialBenefit,
     required TResult Function(_SetRegion value) setRegion,
+    required TResult Function(_UploadImage value) uploadImage,
     required TResult Function(_Publish value) publish,
   }) {
     return setRealEstateType(this);
@@ -281,6 +291,7 @@ class _$SetRealEstateTypeImpl implements _SetRealEstateType {
     TResult? Function(_SetTypeOfService value)? setTypeOfService,
     TResult? Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
     TResult? Function(_SetRegion value)? setRegion,
+    TResult? Function(_UploadImage value)? uploadImage,
     TResult? Function(_Publish value)? publish,
   }) {
     return setRealEstateType?.call(this);
@@ -293,6 +304,7 @@ class _$SetRealEstateTypeImpl implements _SetRealEstateType {
     TResult Function(_SetTypeOfService value)? setTypeOfService,
     TResult Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
     TResult Function(_SetRegion value)? setRegion,
+    TResult Function(_UploadImage value)? uploadImage,
     TResult Function(_Publish value)? publish,
     required TResult orElse(),
   }) {
@@ -389,6 +401,7 @@ class _$SetTypeOfServiceImpl implements _SetTypeOfService {
     required TResult Function(TypeOfService type) setTypeOfService,
     required TResult Function(String benefit) selectSpecialBenefit,
     required TResult Function(String region) setRegion,
+    required TResult Function(XFile file) uploadImage,
     required TResult Function(
             String title,
             String description,
@@ -411,6 +424,7 @@ class _$SetTypeOfServiceImpl implements _SetTypeOfService {
     TResult? Function(TypeOfService type)? setTypeOfService,
     TResult? Function(String benefit)? selectSpecialBenefit,
     TResult? Function(String region)? setRegion,
+    TResult? Function(XFile file)? uploadImage,
     TResult? Function(
             String title,
             String description,
@@ -433,6 +447,7 @@ class _$SetTypeOfServiceImpl implements _SetTypeOfService {
     TResult Function(TypeOfService type)? setTypeOfService,
     TResult Function(String benefit)? selectSpecialBenefit,
     TResult Function(String region)? setRegion,
+    TResult Function(XFile file)? uploadImage,
     TResult Function(
             String title,
             String description,
@@ -459,6 +474,7 @@ class _$SetTypeOfServiceImpl implements _SetTypeOfService {
     required TResult Function(_SetTypeOfService value) setTypeOfService,
     required TResult Function(_SelectSpecialBenefit value) selectSpecialBenefit,
     required TResult Function(_SetRegion value) setRegion,
+    required TResult Function(_UploadImage value) uploadImage,
     required TResult Function(_Publish value) publish,
   }) {
     return setTypeOfService(this);
@@ -471,6 +487,7 @@ class _$SetTypeOfServiceImpl implements _SetTypeOfService {
     TResult? Function(_SetTypeOfService value)? setTypeOfService,
     TResult? Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
     TResult? Function(_SetRegion value)? setRegion,
+    TResult? Function(_UploadImage value)? uploadImage,
     TResult? Function(_Publish value)? publish,
   }) {
     return setTypeOfService?.call(this);
@@ -483,6 +500,7 @@ class _$SetTypeOfServiceImpl implements _SetTypeOfService {
     TResult Function(_SetTypeOfService value)? setTypeOfService,
     TResult Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
     TResult Function(_SetRegion value)? setRegion,
+    TResult Function(_UploadImage value)? uploadImage,
     TResult Function(_Publish value)? publish,
     required TResult orElse(),
   }) {
@@ -580,6 +598,7 @@ class _$SelectSpecialBenefitImpl implements _SelectSpecialBenefit {
     required TResult Function(TypeOfService type) setTypeOfService,
     required TResult Function(String benefit) selectSpecialBenefit,
     required TResult Function(String region) setRegion,
+    required TResult Function(XFile file) uploadImage,
     required TResult Function(
             String title,
             String description,
@@ -602,6 +621,7 @@ class _$SelectSpecialBenefitImpl implements _SelectSpecialBenefit {
     TResult? Function(TypeOfService type)? setTypeOfService,
     TResult? Function(String benefit)? selectSpecialBenefit,
     TResult? Function(String region)? setRegion,
+    TResult? Function(XFile file)? uploadImage,
     TResult? Function(
             String title,
             String description,
@@ -624,6 +644,7 @@ class _$SelectSpecialBenefitImpl implements _SelectSpecialBenefit {
     TResult Function(TypeOfService type)? setTypeOfService,
     TResult Function(String benefit)? selectSpecialBenefit,
     TResult Function(String region)? setRegion,
+    TResult Function(XFile file)? uploadImage,
     TResult Function(
             String title,
             String description,
@@ -650,6 +671,7 @@ class _$SelectSpecialBenefitImpl implements _SelectSpecialBenefit {
     required TResult Function(_SetTypeOfService value) setTypeOfService,
     required TResult Function(_SelectSpecialBenefit value) selectSpecialBenefit,
     required TResult Function(_SetRegion value) setRegion,
+    required TResult Function(_UploadImage value) uploadImage,
     required TResult Function(_Publish value) publish,
   }) {
     return selectSpecialBenefit(this);
@@ -662,6 +684,7 @@ class _$SelectSpecialBenefitImpl implements _SelectSpecialBenefit {
     TResult? Function(_SetTypeOfService value)? setTypeOfService,
     TResult? Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
     TResult? Function(_SetRegion value)? setRegion,
+    TResult? Function(_UploadImage value)? uploadImage,
     TResult? Function(_Publish value)? publish,
   }) {
     return selectSpecialBenefit?.call(this);
@@ -674,6 +697,7 @@ class _$SelectSpecialBenefitImpl implements _SelectSpecialBenefit {
     TResult Function(_SetTypeOfService value)? setTypeOfService,
     TResult Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
     TResult Function(_SetRegion value)? setRegion,
+    TResult Function(_UploadImage value)? uploadImage,
     TResult Function(_Publish value)? publish,
     required TResult orElse(),
   }) {
@@ -769,6 +793,7 @@ class _$SetRegionImpl implements _SetRegion {
     required TResult Function(TypeOfService type) setTypeOfService,
     required TResult Function(String benefit) selectSpecialBenefit,
     required TResult Function(String region) setRegion,
+    required TResult Function(XFile file) uploadImage,
     required TResult Function(
             String title,
             String description,
@@ -791,6 +816,7 @@ class _$SetRegionImpl implements _SetRegion {
     TResult? Function(TypeOfService type)? setTypeOfService,
     TResult? Function(String benefit)? selectSpecialBenefit,
     TResult? Function(String region)? setRegion,
+    TResult? Function(XFile file)? uploadImage,
     TResult? Function(
             String title,
             String description,
@@ -813,6 +839,7 @@ class _$SetRegionImpl implements _SetRegion {
     TResult Function(TypeOfService type)? setTypeOfService,
     TResult Function(String benefit)? selectSpecialBenefit,
     TResult Function(String region)? setRegion,
+    TResult Function(XFile file)? uploadImage,
     TResult Function(
             String title,
             String description,
@@ -839,6 +866,7 @@ class _$SetRegionImpl implements _SetRegion {
     required TResult Function(_SetTypeOfService value) setTypeOfService,
     required TResult Function(_SelectSpecialBenefit value) selectSpecialBenefit,
     required TResult Function(_SetRegion value) setRegion,
+    required TResult Function(_UploadImage value) uploadImage,
     required TResult Function(_Publish value) publish,
   }) {
     return setRegion(this);
@@ -851,6 +879,7 @@ class _$SetRegionImpl implements _SetRegion {
     TResult? Function(_SetTypeOfService value)? setTypeOfService,
     TResult? Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
     TResult? Function(_SetRegion value)? setRegion,
+    TResult? Function(_UploadImage value)? uploadImage,
     TResult? Function(_Publish value)? publish,
   }) {
     return setRegion?.call(this);
@@ -863,6 +892,7 @@ class _$SetRegionImpl implements _SetRegion {
     TResult Function(_SetTypeOfService value)? setTypeOfService,
     TResult Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
     TResult Function(_SetRegion value)? setRegion,
+    TResult Function(_UploadImage value)? uploadImage,
     TResult Function(_Publish value)? publish,
     required TResult orElse(),
   }) {
@@ -882,6 +912,200 @@ abstract class _SetRegion implements CreatePostEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SetRegionImplCopyWith<_$SetRegionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UploadImageImplCopyWith<$Res> {
+  factory _$$UploadImageImplCopyWith(
+          _$UploadImageImpl value, $Res Function(_$UploadImageImpl) then) =
+      __$$UploadImageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({XFile file});
+}
+
+/// @nodoc
+class __$$UploadImageImplCopyWithImpl<$Res>
+    extends _$CreatePostEventCopyWithImpl<$Res, _$UploadImageImpl>
+    implements _$$UploadImageImplCopyWith<$Res> {
+  __$$UploadImageImplCopyWithImpl(
+      _$UploadImageImpl _value, $Res Function(_$UploadImageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CreatePostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? file = null,
+  }) {
+    return _then(_$UploadImageImpl(
+      null == file
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as XFile,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UploadImageImpl implements _UploadImage {
+  const _$UploadImageImpl(this.file);
+
+  @override
+  final XFile file;
+
+  @override
+  String toString() {
+    return 'CreatePostEvent.uploadImage(file: $file)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UploadImageImpl &&
+            (identical(other.file, file) || other.file == file));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, file);
+
+  /// Create a copy of CreatePostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UploadImageImplCopyWith<_$UploadImageImpl> get copyWith =>
+      __$$UploadImageImplCopyWithImpl<_$UploadImageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(RealEstateType realEstateType) setRealEstateType,
+    required TResult Function(TypeOfService type) setTypeOfService,
+    required TResult Function(String benefit) selectSpecialBenefit,
+    required TResult Function(String region) setRegion,
+    required TResult Function(XFile file) uploadImage,
+    required TResult Function(
+            String title,
+            String description,
+            int area,
+            String address,
+            int numberOfRooms,
+            int floorNumber,
+            String contactDetails,
+            int price,
+            int rentPrice)
+        publish,
+  }) {
+    return uploadImage(file);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(RealEstateType realEstateType)? setRealEstateType,
+    TResult? Function(TypeOfService type)? setTypeOfService,
+    TResult? Function(String benefit)? selectSpecialBenefit,
+    TResult? Function(String region)? setRegion,
+    TResult? Function(XFile file)? uploadImage,
+    TResult? Function(
+            String title,
+            String description,
+            int area,
+            String address,
+            int numberOfRooms,
+            int floorNumber,
+            String contactDetails,
+            int price,
+            int rentPrice)?
+        publish,
+  }) {
+    return uploadImage?.call(file);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(RealEstateType realEstateType)? setRealEstateType,
+    TResult Function(TypeOfService type)? setTypeOfService,
+    TResult Function(String benefit)? selectSpecialBenefit,
+    TResult Function(String region)? setRegion,
+    TResult Function(XFile file)? uploadImage,
+    TResult Function(
+            String title,
+            String description,
+            int area,
+            String address,
+            int numberOfRooms,
+            int floorNumber,
+            String contactDetails,
+            int price,
+            int rentPrice)?
+        publish,
+    required TResult orElse(),
+  }) {
+    if (uploadImage != null) {
+      return uploadImage(file);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetRealEstateType value) setRealEstateType,
+    required TResult Function(_SetTypeOfService value) setTypeOfService,
+    required TResult Function(_SelectSpecialBenefit value) selectSpecialBenefit,
+    required TResult Function(_SetRegion value) setRegion,
+    required TResult Function(_UploadImage value) uploadImage,
+    required TResult Function(_Publish value) publish,
+  }) {
+    return uploadImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SetRealEstateType value)? setRealEstateType,
+    TResult? Function(_SetTypeOfService value)? setTypeOfService,
+    TResult? Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult? Function(_SetRegion value)? setRegion,
+    TResult? Function(_UploadImage value)? uploadImage,
+    TResult? Function(_Publish value)? publish,
+  }) {
+    return uploadImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetRealEstateType value)? setRealEstateType,
+    TResult Function(_SetTypeOfService value)? setTypeOfService,
+    TResult Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
+    TResult Function(_SetRegion value)? setRegion,
+    TResult Function(_UploadImage value)? uploadImage,
+    TResult Function(_Publish value)? publish,
+    required TResult orElse(),
+  }) {
+    if (uploadImage != null) {
+      return uploadImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UploadImage implements CreatePostEvent {
+  const factory _UploadImage(final XFile file) = _$UploadImageImpl;
+
+  XFile get file;
+
+  /// Create a copy of CreatePostEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UploadImageImplCopyWith<_$UploadImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1045,6 +1269,7 @@ class _$PublishImpl implements _Publish {
     required TResult Function(TypeOfService type) setTypeOfService,
     required TResult Function(String benefit) selectSpecialBenefit,
     required TResult Function(String region) setRegion,
+    required TResult Function(XFile file) uploadImage,
     required TResult Function(
             String title,
             String description,
@@ -1068,6 +1293,7 @@ class _$PublishImpl implements _Publish {
     TResult? Function(TypeOfService type)? setTypeOfService,
     TResult? Function(String benefit)? selectSpecialBenefit,
     TResult? Function(String region)? setRegion,
+    TResult? Function(XFile file)? uploadImage,
     TResult? Function(
             String title,
             String description,
@@ -1091,6 +1317,7 @@ class _$PublishImpl implements _Publish {
     TResult Function(TypeOfService type)? setTypeOfService,
     TResult Function(String benefit)? selectSpecialBenefit,
     TResult Function(String region)? setRegion,
+    TResult Function(XFile file)? uploadImage,
     TResult Function(
             String title,
             String description,
@@ -1118,6 +1345,7 @@ class _$PublishImpl implements _Publish {
     required TResult Function(_SetTypeOfService value) setTypeOfService,
     required TResult Function(_SelectSpecialBenefit value) selectSpecialBenefit,
     required TResult Function(_SetRegion value) setRegion,
+    required TResult Function(_UploadImage value) uploadImage,
     required TResult Function(_Publish value) publish,
   }) {
     return publish(this);
@@ -1130,6 +1358,7 @@ class _$PublishImpl implements _Publish {
     TResult? Function(_SetTypeOfService value)? setTypeOfService,
     TResult? Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
     TResult? Function(_SetRegion value)? setRegion,
+    TResult? Function(_UploadImage value)? uploadImage,
     TResult? Function(_Publish value)? publish,
   }) {
     return publish?.call(this);
@@ -1142,6 +1371,7 @@ class _$PublishImpl implements _Publish {
     TResult Function(_SetTypeOfService value)? setTypeOfService,
     TResult Function(_SelectSpecialBenefit value)? selectSpecialBenefit,
     TResult Function(_SetRegion value)? setRegion,
+    TResult Function(_UploadImage value)? uploadImage,
     TResult Function(_Publish value)? publish,
     required TResult orElse(),
   }) {
@@ -1186,6 +1416,10 @@ mixin _$CreatePostState {
   FormzStatus get status => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
 
+  /// image
+  FormzStatus get imageStatus => throw _privateConstructorUsedError;
+  List<String> get images => throw _privateConstructorUsedError;
+
   /// fields
   RealEstateType? get realEstateType => throw _privateConstructorUsedError;
   TypeOfService? get typeOfService => throw _privateConstructorUsedError;
@@ -1208,6 +1442,8 @@ abstract class $CreatePostStateCopyWith<$Res> {
   $Res call(
       {FormzStatus status,
       String message,
+      FormzStatus imageStatus,
+      List<String> images,
       RealEstateType? realEstateType,
       TypeOfService? typeOfService,
       String? region,
@@ -1231,6 +1467,8 @@ class _$CreatePostStateCopyWithImpl<$Res, $Val extends CreatePostState>
   $Res call({
     Object? status = null,
     Object? message = null,
+    Object? imageStatus = null,
+    Object? images = null,
     Object? realEstateType = freezed,
     Object? typeOfService = freezed,
     Object? region = freezed,
@@ -1245,6 +1483,14 @@ class _$CreatePostStateCopyWithImpl<$Res, $Val extends CreatePostState>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      imageStatus: null == imageStatus
+          ? _value.imageStatus
+          : imageStatus // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      images: null == images
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       realEstateType: freezed == realEstateType
           ? _value.realEstateType
           : realEstateType // ignore: cast_nullable_to_non_nullable
@@ -1276,6 +1522,8 @@ abstract class _$$CreatePostStateImplCopyWith<$Res>
   $Res call(
       {FormzStatus status,
       String message,
+      FormzStatus imageStatus,
+      List<String> images,
       RealEstateType? realEstateType,
       TypeOfService? typeOfService,
       String? region,
@@ -1297,6 +1545,8 @@ class __$$CreatePostStateImplCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? message = null,
+    Object? imageStatus = null,
+    Object? images = null,
     Object? realEstateType = freezed,
     Object? typeOfService = freezed,
     Object? region = freezed,
@@ -1311,6 +1561,14 @@ class __$$CreatePostStateImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      imageStatus: null == imageStatus
+          ? _value.imageStatus
+          : imageStatus // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      images: null == images
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       realEstateType: freezed == realEstateType
           ? _value.realEstateType
           : realEstateType // ignore: cast_nullable_to_non_nullable
@@ -1337,11 +1595,14 @@ class _$CreatePostStateImpl implements _CreatePostState {
   const _$CreatePostStateImpl(
       {this.status = FormzStatus.pure,
       this.message = '',
+      this.imageStatus = FormzStatus.pure,
+      final List<String> images = const <String>[],
       this.realEstateType = null,
       this.typeOfService = null,
       this.region = null,
       final List<String> specialBenefits = const <String>[]})
-      : _specialBenefits = specialBenefits;
+      : _images = images,
+        _specialBenefits = specialBenefits;
 
   @override
   @JsonKey()
@@ -1349,6 +1610,19 @@ class _$CreatePostStateImpl implements _CreatePostState {
   @override
   @JsonKey()
   final String message;
+
+  /// image
+  @override
+  @JsonKey()
+  final FormzStatus imageStatus;
+  final List<String> _images;
+  @override
+  @JsonKey()
+  List<String> get images {
+    if (_images is EqualUnmodifiableListView) return _images;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_images);
+  }
 
   /// fields
   @override
@@ -1371,7 +1645,7 @@ class _$CreatePostStateImpl implements _CreatePostState {
 
   @override
   String toString() {
-    return 'CreatePostState(status: $status, message: $message, realEstateType: $realEstateType, typeOfService: $typeOfService, region: $region, specialBenefits: $specialBenefits)';
+    return 'CreatePostState(status: $status, message: $message, imageStatus: $imageStatus, images: $images, realEstateType: $realEstateType, typeOfService: $typeOfService, region: $region, specialBenefits: $specialBenefits)';
   }
 
   @override
@@ -1381,6 +1655,9 @@ class _$CreatePostStateImpl implements _CreatePostState {
             other is _$CreatePostStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
+            (identical(other.imageStatus, imageStatus) ||
+                other.imageStatus == imageStatus) &&
+            const DeepCollectionEquality().equals(other._images, _images) &&
             (identical(other.realEstateType, realEstateType) ||
                 other.realEstateType == realEstateType) &&
             (identical(other.typeOfService, typeOfService) ||
@@ -1395,6 +1672,8 @@ class _$CreatePostStateImpl implements _CreatePostState {
       runtimeType,
       status,
       message,
+      imageStatus,
+      const DeepCollectionEquality().hash(_images),
       realEstateType,
       typeOfService,
       region,
@@ -1414,6 +1693,8 @@ abstract class _CreatePostState implements CreatePostState {
   const factory _CreatePostState(
       {final FormzStatus status,
       final String message,
+      final FormzStatus imageStatus,
+      final List<String> images,
       final RealEstateType? realEstateType,
       final TypeOfService? typeOfService,
       final String? region,
@@ -1423,6 +1704,12 @@ abstract class _CreatePostState implements CreatePostState {
   FormzStatus get status;
   @override
   String get message;
+
+  /// image
+  @override
+  FormzStatus get imageStatus;
+  @override
+  List<String> get images;
 
   /// fields
   @override

@@ -1,22 +1,38 @@
 import 'dart:io';
 
-void main() async {
-  // Connect to the server
-  final socket = await Socket.connect('127.0.0.1', 8080);
+abstract class SocketService {
+  static late final Socket socket;
 
-  // Send data to the server
-  socket.write('Hello from Dart client!');
+  static Future<void> connect() async {
+    socket = await Socket.connect('127.0.0.1', 8080);
 
-  // Listen for the server's response
-  socket.listen((List<int> data) {
-    print('Response from server: ${String.fromCharCodes(data)}');
-  });
+    socket.listen((List<int> data) {
+      print('SERVER RESPONSE: ${String.fromCharCodes(data)}');
+    });
+  }
 
-  // Close the connection
-  await Future.delayed(const Duration(seconds: 1));
-  socket.destroy();
+  static void send(String message) {
+    socket.write(message);
+  }
+
+  static void disconnect() {
+    socket.destroy();
+  }
 }
-
-class SocketService {
-  void connectSocket() {}
-}
+//
+// void main() async {
+//   // Connect to the server
+//   final socket = await Socket.connect('127.0.0.1', 8080);
+//
+//   // Send data to the server
+//   socket.write('Hello from Dart client!');
+//
+//   // Listen for the server's response
+//   socket.listen((List<int> data) {
+//     print('Response from server: ${String.fromCharCodes(data)}');
+//   });
+//
+//   // Close the connection
+//   await Future.delayed(const Duration(seconds: 1));
+//   socket.destroy();
+// }

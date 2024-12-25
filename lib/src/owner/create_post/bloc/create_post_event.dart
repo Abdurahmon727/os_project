@@ -11,6 +11,8 @@ class CreatePostEvent with _$CreatePostEvent {
 
   const factory CreatePostEvent.setRegion(String region) = _SetRegion;
 
+  const factory CreatePostEvent.uploadImage(XFile file) = _UploadImage;
+
   const factory CreatePostEvent.publish({
     required String title,
     required String description,

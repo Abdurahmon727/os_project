@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:os_project/core/enums/formz_status.dart';
 
 import '../../../../core/enums/real_estate_type.dart';
@@ -37,6 +38,24 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
     });
 
     on<_SetRegion>((event, emit) => emit(state.copyWith(region: event.region)));
+
+    ///
+    on<_UploadImage>((event, emit) async {
+      emit(state.copyWith(imageStatus: FormzStatus.loading));
+      final result = await _repo.uploadImage(file: event.file);
+
+      if (result.isLeft) {
+        emit(state.copyWith(imageStatus: FormzStatus.failure, message: result.left.message));
+        return;
+      }
+
+      final imageUrl = result.right;
+
+      emit(state.copyWith(
+        imageStatus: FormzStatus.success,
+        images: [...state.images, imageUrl],
+      ));
+    });
 
     ///
     on<_Publish>((event, emit) async {

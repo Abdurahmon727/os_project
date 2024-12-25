@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:os_project/assets/constants.dart';
 import 'package:os_project/core/enums/real_estate_type.dart';
 import 'package:os_project/core/enums/type_of_service.dart';
@@ -12,6 +13,7 @@ import 'package:os_project/core/extensions/string_extenions.dart';
 
 import '../../../core/enums/formz_status.dart';
 import '../../../core/widget/custom_app_bar.dart';
+import '../../../core/widget/custom_cached_network_image.dart';
 import '../../../core/widget/dropdown/custom_dropdown.dart';
 import '../../../core/widget/inputs/custom_text_field.dart';
 import 'bloc/create_post_bloc.dart';
@@ -177,24 +179,54 @@ class _CreatePostPageState extends State<CreatePostPage> with CreatePostPageMixi
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         10.h,
-                        SizedBox(
-                          height: 150,
-                          child: ListView.separated(
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                return SizedBox(
-                                  height: 150,
-                                  width: 200,
-                                  child: ColoredBox(color: context.colorScheme.primary),
-                                );
-                              },
-                              separatorBuilder: (context, index) => 20.w,
-                              itemCount: 10),
+                        BlocSelector<CreatePostBloc, CreatePostState, List<String>>(
+                          selector: (state) => state.images,
+                          builder: (context, images) {
+                            if (images.isEmpty) {
+                              return const SizedBox.shrink();
+                            }
+                            return SizedBox(
+                              height: 150,
+                              child: ListView.separated(
+                                padding: const EdgeInsets.symmetric(horizontal: 20),
+                                itemCount: images.length,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  final image = images[index];
+                                  return SizedBox(
+                                    height: 150,
+                                    width: 300,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(4),
+                                      child: CustomCachedNetworkImage(
+                                        width: MediaQuery.sizeOf(context).width,
+                                        imageUrl: image,
+                                        fit: BoxFit.cover,
+                                        placeholder: (_, __) =>
+                                            const Center(child: CupertinoActivityIndicator()),
+                                        errorWidget: (_, __, ___) => const Center(
+                                          child: CupertinoActivityIndicator(),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                separatorBuilder: (_, __) => 10.w,
+                              ),
+                            );
+                          },
                         ),
                         20.h,
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Add image'),
+                        BlocSelector<CreatePostBloc, CreatePostState, FormzStatus>(
+                          selector: (state) => state.imageStatus,
+                          builder: (context, imageStatus) {
+                            return ElevatedButton(
+                              onPressed: onTapAddImage,
+                              child: imageStatus.isLoading
+                                  ? const CupertinoActivityIndicator()
+                                  : const Text('Add image'),
+                            );
+                          },
                         ),
                         20.h,
                         BlocSelector<CreatePostBloc, CreatePostState, TypeOfService?>(
