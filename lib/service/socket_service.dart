@@ -7,7 +7,7 @@ abstract class SocketService {
 
   static Future<void> connect() async {
     try {
-      socket = await Socket.connect(Constants.base, 9090);
+      socket = await Socket.connect(Constants.base.replaceAll('http://', ''), 9090);
 
       socket?.listen((List<int> data) {
         print('SERVER RESPONSE: ${String.fromCharCodes(data)}');
@@ -15,7 +15,7 @@ abstract class SocketService {
     } catch (e) {
       print('ERROR on socket connection $e');
     }
-    send('init connected 69');
+    send('Hello from new client ');
   }
 
   static void send(String message) {
