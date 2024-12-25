@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> with LoginMixin {
                     selected: profileType.isSysAdmin,
                     onSelected: (value) {
                       if (value) {
-                        profileType = ProfileType.SysAdmin;
+                        profileType = ProfileType.Sys_admin;
                         setState(() {});
                       }
                     },

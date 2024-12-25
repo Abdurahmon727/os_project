@@ -1,11 +1,11 @@
-enum ProfileType { Owner, Client, SysAdmin }
+enum ProfileType { Owner, Client, Sys_admin }
 
 extension Extension on ProfileType? {
   bool get isOwner => this == ProfileType.Owner;
 
   bool get isClient => this == ProfileType.Client;
 
-  bool get isSysAdmin => this == ProfileType.SysAdmin;
+  bool get isSysAdmin => this == ProfileType.Sys_admin;
 }
 
 extension ProfileTypeStringExtension on String? {
@@ -18,6 +18,6 @@ extension ProfileTypeStringExtension on String? {
   }
 
   bool get isSysAdmin {
-    return this == ProfileType.SysAdmin.name;
+    return this == ProfileType.Sys_admin.name;
   }
 }
