@@ -45,48 +45,58 @@ class _CreatePostPageState extends State<CreatePostPage> with CreatePostPageMixi
                     child: Column(
                       children: [
                         /// house type
-                        Row(
-                          children: [
-                            const Text('House type:'),
-                            10.w,
-                            SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                  children: RealEstateType.values.map((type) {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                                  child: FilterChip(
-                                    selected: true,
-                                    onSelected: (_) {},
-                                    label: Text(type.name),
-                                  ),
-                                );
-                              }).toList()),
-                            ),
-                          ],
+                        BlocSelector<CreatePostBloc, CreatePostState, RealEstateType?>(
+                          selector: (state) => state.realEstateType,
+                          builder: (context, selectedType) {
+                            return Row(
+                              children: [
+                                const Text('House type:'),
+                                10.w,
+                                SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                      children: RealEstateType.values.map((type) {
+                                    return Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                                      child: FilterChip(
+                                        selected: selectedType == type,
+                                        onSelected: (_) => onSelectRealEstateType(type),
+                                        label: Text(type.name),
+                                      ),
+                                    );
+                                  }).toList()),
+                                ),
+                              ],
+                            );
+                          },
                         ),
                         10.h,
 
                         /// service type
-                        Row(
-                          children: [
-                            const Text('Type of Service:'),
-                            10.w,
-                            SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                  children: TypeOfService.values.map((type) {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                                  child: FilterChip(
-                                    selected: true,
-                                    onSelected: (_) {},
-                                    label: Text(type.name),
-                                  ),
-                                );
-                              }).toList()),
-                            ),
-                          ],
+                        BlocSelector<CreatePostBloc, CreatePostState, TypeOfService?>(
+                          selector: (state) => state.typeOfService,
+                          builder: (context, selectedType) {
+                            return Row(
+                              children: [
+                                const Text('Type of Service:'),
+                                10.w,
+                                SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                      children: TypeOfService.values.map((type) {
+                                    return Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                                      child: FilterChip(
+                                        selected: selectedType == type,
+                                        onSelected: (_) => onSelectTypeOfService(type),
+                                        label: Text(type.name),
+                                      ),
+                                    );
+                                  }).toList()),
+                                ),
+                              ],
+                            );
+                          },
                         ),
                         20.h,
                         CustomTextField(
@@ -177,15 +187,21 @@ class _CreatePostPageState extends State<CreatePostPage> with CreatePostPageMixi
                         20.h,
                         const Text('Special Benefits'),
                         8.h,
-                        Wrap(
-                          spacing: 20,
-                          runSpacing: 12,
-                          children: Constants.specialBenefits.map((e) {
-                            return FilterChip(
-                              label: Text(e),
-                              onSelected: (value) {},
+                        BlocSelector<CreatePostBloc, CreatePostState, List<String>>(
+                          selector: (state) => state.specialBenefits,
+                          builder: (context, selectedBenefits) {
+                            return Wrap(
+                              spacing: 20,
+                              runSpacing: 12,
+                              children: Constants.specialBenefits.map((e) {
+                                return FilterChip(
+                                  label: Text(e),
+                                  selected: selectedBenefits.contains(e),
+                                  onSelected: (_) => onSelectSpecialBenefit(e),
+                                );
+                              }).toList(),
                             );
-                          }).toList(),
+                          },
                         )
                       ],
                     ),
