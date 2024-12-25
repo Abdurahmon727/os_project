@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:os_project/assets/constants.dart';
@@ -114,7 +115,9 @@ class _CreatePostPageState extends State<CreatePostPage> with CreatePostPageMixi
                         CustomTextField(
                           controller: TextEditingController(),
                           labelText: 'Area (meter sq.)',
+                          textInputType: TextInputType.number,
                           validator: emptyValidator,
+                          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         ),
                         20.h,
                         CustomTextField(
@@ -133,17 +136,19 @@ class _CreatePostPageState extends State<CreatePostPage> with CreatePostPageMixi
                           controller: TextEditingController(),
                           labelText: 'Number of rooms',
                           validator: emptyValidator,
+                          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         ),
                         20.h,
                         CustomTextField(
                           controller: TextEditingController(),
                           labelText: 'Floor number',
                           validator: emptyValidator,
+                          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         ),
                         20.h,
                         CustomTextField(
                           controller: TextEditingController(),
-                          labelText: 'Email to contact',
+                          labelText: 'Contact information',
                           validator: emailValidator,
                         ),
                       ],
@@ -178,11 +183,13 @@ class _CreatePostPageState extends State<CreatePostPage> with CreatePostPageMixi
                         CustomTextField(
                           controller: TextEditingController(),
                           labelText: 'Price',
+                          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         ),
                         20.h,
                         CustomTextField(
                           controller: TextEditingController(),
                           labelText: 'Rent Price (monthly)',
+                          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         ),
                         20.h,
                         const Text('Special Benefits'),
