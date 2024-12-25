@@ -1,5 +1,5 @@
 abstract class Constants {
-  static const String base = 'http://172.18.0.1 ';
+  static const String base = 'http://192.168.60.178';
   static const String baseUrl = '$base:8080';
   static const String defaultErrorMessage = 'Something went wrong 😞';
   static const List<String> regions = [
