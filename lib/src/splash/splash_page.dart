@@ -5,6 +5,7 @@ import 'package:os_project/assets/assets.dart';
 import 'package:os_project/core/enums/profile_type.dart';
 
 import '../../router/app_routes.dart';
+import '../../service/socket_service.dart';
 
 part 'splash_mixin.dart';
 

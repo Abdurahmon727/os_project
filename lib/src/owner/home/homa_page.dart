@@ -46,6 +46,7 @@ class OwnerHomePage extends StatelessWidget {
             itemCount: posts.length,
             itemBuilder: (context, index) {
               final post = posts[index];
+              print("images ${post.images?.firstOrNull}");
               return WPostPreview(
                 onTap: () {},
                 image: post.images?.firstOrNull ?? '',
