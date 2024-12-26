@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:os_project/core/extensions/size.dart';
 import 'package:os_project/data/posts/post_model.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../core/widget/custom_app_bar.dart';
 import '../../../core/widget/custom_cached_network_image.dart';
@@ -117,8 +118,12 @@ class PostDetailPage extends StatelessWidget {
 
                           10.h,
                           ElevatedButton(
-                            onPressed: () {
-                              //todo
+                            onPressed: () async {
+                              final email =
+                                  (post.contactDetails ?? '').split(' ').firstOrNull ?? '';
+
+                              await launchUrlString(
+                                  'mailto:$email?subject=Real%20Estate&body=Hello');
                             },
                             child: const Text('Contact owner'),
                           )
